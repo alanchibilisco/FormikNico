@@ -1,5 +1,9 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import logo from "../../../imagenes/Imagen1.png";
+//importamos font
+
+
 
 
 const Footer = () => {
@@ -8,14 +12,14 @@ const Footer = () => {
     <Container className="container-fluid">
             <Row className="row bg-dark align-items-center">
                 <Col className="col-md-4 col-sm-12 text-center">
-                    {/* <img src="/Imagenes/Imagen1.png" alt="logo" width="200"> */}
+                    <img src={logo} alt="logo" width="200"/>
                 </Col>
 
                 <Col className="col-md-4 col-sm-12 text-center">
                     <h5 className="mb-3 text-white font-weight-bolder mt-3">Nuestras redes Sociales</h5>
                     <a href="https://www.facebook.com/login/"
-                        className="fa-brands fa-facebook redes text-center text-decoration-none mx-2 mt-2"
-                        target="_blank"></a>
+                        className="  text-center border border-danger mx-2 mt-2"
+                        target="_blank">asdasdasd</a>
                     <a href="https://www.whatsapp.com/"
                         className="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2"
                         target="_blank"></a>
