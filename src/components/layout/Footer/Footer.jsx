@@ -9,8 +9,8 @@ import "../../../../css/Footer.css"
 
 const Footer = () => {
   return (
-  <>
-    <Container className="container-fluid">
+   
+    <Container fluid>
             <Row className="row bg-dark align-items-center">
                 <Col className=" text-center" xs={12} md={4}>
                     <img src={logo} alt="logo" width="200"/>
@@ -56,10 +56,8 @@ const Footer = () => {
                     </Col>
                 </Col>
             </Row>
-        </Container>
+        </Container> 
   
-  
-  </>
     
    
   )

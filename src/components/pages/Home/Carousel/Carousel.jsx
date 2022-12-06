@@ -1,13 +1,14 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
+
 const Calesita = () => {
   return (
     <div>
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 "
             src="https://images.pexels.com/photos/13224174/pexels-photo-13224174.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="cafe"
           />
