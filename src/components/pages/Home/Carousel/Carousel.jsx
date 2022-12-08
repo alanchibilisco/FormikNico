@@ -5,27 +5,27 @@ import { Carousel } from "react-bootstrap";
 const Calesita = () => {
   return (
     <div>
-      <Carousel>
-        <Carousel.Item>
+      <Carousel  fade>
+        <Carousel.Item interval={1000}>
           <img
-            className="d-block w-100 "
+            className="d-block w-100"
             src="https://images.pexels.com/photos/13224174/pexels-photo-13224174.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="cafe"
           />
           <Carousel.Caption>
-            <h3>La mejor Cerveza</h3>
-            <p>Disfruta con amigos</p>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item interval={500}>
           <img
             className="d-block w-100"
             src="https://images.pexels.com/photos/1267323/pexels-photo-1267323.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt="croissant"
           />
           <Carousel.Caption>
-            <h3>Deja de pensar en Ella</h3>
-            <p>No le mandes msj a tu ex</p>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,8 +35,10 @@ const Calesita = () => {
             alt="mixed roasts"
           />
           <Carousel.Caption>
-            <h3>Malta Seleccionada</h3>
-            <p>Pensamos en Calidad y en Vos</p>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
