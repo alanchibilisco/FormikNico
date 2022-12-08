@@ -1,4 +1,4 @@
-import RouterPrincipal from "../routes/RouterPrincipal"
+import RouterPrincipal from "./routes/RouterPrincipal"
 
 const App = () => {
   return (

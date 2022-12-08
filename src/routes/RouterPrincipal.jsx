@@ -1,18 +1,18 @@
 import React from "react";
-import CreacionProducto from "../src/components/pages/CreacionProducto"
-import EdicionProducto from "../src/components/pages/EdicionProducto"
-import Error404 from "../src/components/pages/Error404"
-import Contacto from "../src/components/pages/Contacto"
-import Home from "../src/components/pages/Home"
-import RecPassword from "../src/components/pages/RecPassword"
-import TablaProducto from "../src/components/pages/TablaProducto"
+import CreacionProducto from "../components/pages/CreacionProducto"
+import EdicionProducto from "../components/pages/EdicionProducto"
+import Error404 from "../components/pages/Error404"
+import Contacto from "../components/pages/Contacto"
+import Home from "../components/pages/Home"
+import RecPassword from "../components/pages/RecPassword"
+import TablaProducto from "../components/pages/TablaProducto"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ProductPage from "../src/components/pages/ProductPage";
-import NavBar from "../src/components/layout/Navbar/Navbar";
-import Destacados from "../src/components/pages/Destacados";
-import Favorito from "../src/components/pages/Favorito";
-import Footer from "../src/components/layout/Footer";
-import Headers from "../src/components/layout/Headers";
+import ProductPage from "../components/pages/ProductPage";
+import NavBar from "../components/layout/Navbar/Navbar";
+import Destacados from "../components/pages/Destacados";
+import Favorito from "../components/pages/Favorito";
+import Footer from "../components/layout/Footer";
+import Headers from "../components/layout/Headers";
 
 
 const RouterPrincipal = () => {
