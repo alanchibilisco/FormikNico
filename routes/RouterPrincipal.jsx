@@ -9,6 +9,8 @@ import TablaProducto from "../src/components/pages/TablaProducto"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductPage from "../src/components/pages/ProductPage";
 import NavBar from "../src/components/layout/Navbar/Navbar";
+import Destacados from "../src/components/pages/Destacados";
+import Favorito from "../src/components/pages/Favorito";
 
 
 const RouterPrincipal = () => {
@@ -24,6 +26,7 @@ const RouterPrincipal = () => {
         <Route exact path="/contacto" element={<Contacto />} />
         <Route exact path="/productpage" element={<ProductPage />} />
         <Route exact path="/destacados" element={<Destacados />} />
+        <Route exact path="/favoritos" element={<Favorito />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
