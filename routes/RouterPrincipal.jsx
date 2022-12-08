@@ -11,12 +11,15 @@ import ProductPage from "../src/components/pages/ProductPage";
 import NavBar from "../src/components/layout/Navbar/Navbar";
 import Destacados from "../src/components/pages/Destacados";
 import Favorito from "../src/components/pages/Favorito";
+import Footer from "../src/components/layout/Footer";
+import Headers from "../src/components/layout/Headers";
 
 
 const RouterPrincipal = () => {
   return (
     <BrowserRouter>
-    <NavBar/>
+      <NavBar />
+      <Headers />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/recpassword" element={<RecPassword />} />
@@ -29,6 +32,7 @@ const RouterPrincipal = () => {
         <Route exact path="/favoritos" element={<Favorito />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

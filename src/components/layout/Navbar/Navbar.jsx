@@ -1,16 +1,17 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from "../../../imagenes/Imagen1.png";
 
 const NavBar = () => {
   return (
     <div>
       <Navbar className="bg-dark fixed-top" expand="lg">
         <Container>
-          <Navbar.Brand className="logo text-white">
-          <Link className="nav-link text-white" to="/">
-          Taberna Mia
-          </Link>
+          <Navbar.Brand href="#home">
+
+            <img src={logo} alt="logo" width="100" />
+
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

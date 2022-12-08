@@ -8,12 +8,12 @@ import "../../../../css/Footer.css"
 
 
 const Footer = () => {
-  return (
-   
-    <Container fluid>
+    return (
+
+        <Container fluid>
             <Row className="row bg-dark align-items-center">
                 <Col className=" text-center" xs={12} md={4}>
-                    <img src={logo} alt="logo" width="200"/>
+                    <img src={logo} alt="logo" width="200" />
                 </Col>
 
                 <Col className=" text-center" xs={12} md={4}>
@@ -36,7 +36,7 @@ const Footer = () => {
                         className="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2"
                         target="_blank"></a>
                     <p className="mt-4 text-white font-weight-bolder border-bottom-2">Copyrigth 2022 © TODOS LOS DERECHOS
-                        RESERVADOS <span className="text-info">EQUIPO Nº4</span> </p>
+                        RESERVADOS <span className="text-info">Las Fuerzas Especiales Ginyu</span> </p>
                 </Col>
 
                 <Col className="" xs={12} md={4}>
@@ -56,11 +56,11 @@ const Footer = () => {
                     </Col>
                 </Col>
             </Row>
-        </Container> 
-  
-    
-   
-  )
+        </Container>
+
+
+
+    )
 }
 
 export default Footer
