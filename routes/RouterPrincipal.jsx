@@ -18,8 +18,8 @@ import Headers from "../src/components/layout/Headers";
 const RouterPrincipal = () => {
   return (
     <BrowserRouter>
-      <NavBar />
       <Headers />
+      <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/recpassword" element={<RecPassword />} />

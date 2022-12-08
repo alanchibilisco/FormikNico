@@ -2,16 +2,15 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../imagenes/Imagen1.png";
-import "./navBar.css"
 
 const NavBar = () => {
   return (
-    <div>
-      <Navbar className="bg-dark navbarEditado" expand="lg">
+    <div className="sticky-top">
+      <Navbar className="bg-dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
 
-            <img src={logo} alt="logo" width="100" />
+            <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
 
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -5,7 +5,7 @@ import { Carousel } from "react-bootstrap";
 const Calesita = () => {
   return (
     <div>
-      <Carousel  fade>
+      <Carousel fade>
         <Carousel.Item interval={1000}>
           <img
             className="d-block w-100"

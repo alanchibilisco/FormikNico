@@ -1,12 +1,8 @@
 import RouterPrincipal from "../routes/RouterPrincipal"
 
-
-
-
 const App = () => {
   return (
-          <RouterPrincipal/>
-
+    <RouterPrincipal />
   )
 }
 
