@@ -2,6 +2,8 @@ import React from "react";
 import "./Login.css";
 import logo from "../../../imagenes/Imagen1.png";
 import { Link } from "react-router-dom";
+import RecPassword from "../RecPassword";
+import Registro from "../Registro";
 
 const Login = () => {
   return (
@@ -11,7 +13,7 @@ const Login = () => {
           <div class="row">
             {/* <!--Inicio de primera Columna--> */}
             <div class="col">
-              <Link> <img src={logo} alt="logo" width="80" class="mb-5"></img> </Link> 
+              <Link> <img src={logo} alt="logo" width="80" class="mb-5"></img> </Link>
               <div class="col-lg-12">
                 <h2 class="font-weight-bold text-center py-3 border-top border-bottom border-2 ">
                   Bienvenido
@@ -46,27 +48,27 @@ const Login = () => {
                   <div class="d-flex justify-content-between my-3">
                     <div>
                       <span>
-                        <a
-                          href="#"
+                        <Link
+                          exact path="/recpassword" element={<RecPassword />}
                           data-toggle="modal"
                           data-target="#exampleModal"
                           class="font-weight-bold text-decoration-none"
                         >
                           Recuperar contraseña
-                        </a>
+                        </Link>
                       </span>
                     </div>
                     <div>
                       <span>
                         ¿No tienes una cuenta?{" "}
-                        <a
-                          href="#"
+                        <Link
+                          exact path="/recpassword" element={<Registro />}
                           data-toggle="modal"
                           data-target="#exampleModal2"
                           class="font-weight-bold text-decoration-none"
                         >
                           Registrate
-                        </a>
+                        </Link>
                       </span>
                     </div>
                   </div>
@@ -150,126 +152,9 @@ const Login = () => {
         </div>
       </main>
 
-      {/* // <!-- Modal --> */}
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Recuperar Contraseña
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <h3 class="mb-2 text-center">Ingresa tu Email</h3>
-                <div class="mb-4">
-                  <label for="email" class="form-check-label">
-                    Correo electrónico
-                  </label>
-                  {/* <input type="email" class="form-control" placeholder="ejemplo@gmail.com" name="email" maxlength="30" required>*/}
-                  
-                </div>
-                <div>
-                  <p class="text-dark text-center font-weight-bolder">
-                    Te llegara un mail a tu correo para realizar los cambios
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="submit"
-                    class="btn btn-danger mb-2 btn-lg mt-2"
-                    data-dismiss="modal"
-                  >
-                    Cerrar
-                  </button>
-                  <button type="submit" class="btn btn-info mb-2 btn-lg mt-2">
-                    Aceptar
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <!-- Final Modal --> */}
 
-      {/* <!--Modal 2--> */}
-      <div
-        class="modal fade"
-        id="exampleModal2"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                Registro
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form action="#">
-                <h3 class="mb-2 text-center">Ingresa tu Email</h3>
-                <div class="mb-4">
-                  <label for="email" class="form-check-label">
-                    Correo electrónico
-                  </label>
-                  {/* <input type="email" class="form-control" placeholder="ejemplo@gmail.com" name="email"maxlength="30" required> */}
-                  
-                </div>
-                <div class="mb-4">
-                  <label for="password" class="form-check-label">
-                    Password
-                  </label>
-                  {/* <input type="password" class="form-control" placeholder="Contraseña" name="password" minlength="8" maxlength="12" required>*/}
-                  
-                </div>
-                <div>
-                  <p class="text-dark text-center font-weight-bolder">
-                    Te llegara un mail a tu correo para confirmarlo
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="submit"
-                    class="btn btn-danger mb-2 btn-lg mt-2"
-                    data-dismiss="modal"
-                  >
-                    Cerrar
-                  </button>
-                  <button type="submit" class="btn btn-info mb-2 btn-lg mt-2">
-                    Aceptar
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* <!-- Final Modal --> */}
+
+
     </>
   );
 };

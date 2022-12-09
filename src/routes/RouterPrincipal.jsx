@@ -24,7 +24,7 @@ const RouterPrincipal = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/recpassword" element={<RecPassword />} />
+        {/* <Route exact path="/recpassword" element={<RecPassword />} /> */}
         <Route exact path="/tablaproducto" element={<TablaProducto />} />
         <Route exact path="/creacionproducto" element={<CreacionProducto />} />
         <Route exact path="/edicionproducto" element={<EdicionProducto />} />
