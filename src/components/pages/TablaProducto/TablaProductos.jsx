@@ -25,7 +25,7 @@ const TablaProducto = () => {
           </Form>
           </Col>
           <Col lg={3}>
-          <Link to="/creacionproducto" variant="outline-light"><box-icon name='message-square-add' type='solid' ></box-icon></Link>
+          <Button variant="outline-primary mx-1"><Link to="/productpage/creacionproducto" variant="outline-light"><box-icon name='message-square-add' type='solid' ></box-icon></Link></Button>
           </Col>
           <Col lg={12}>
           <Table bordered hover responsive className="align-middle mt-3">

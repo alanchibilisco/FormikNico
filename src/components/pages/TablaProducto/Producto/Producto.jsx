@@ -1,6 +1,7 @@
 import React from "react";
 import 'boxicons';
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Product = () => {
   return (
@@ -19,7 +20,7 @@ const Product = () => {
       <td>si</td>
       <td className="w-25">
         <div className="d-flex justify-content-center">
-          <Button variant="outline-primary mx-1"><box-icon type='solid' name='message-square-edit'></box-icon></Button>
+        <Button variant="outline-success mx-1"><Link to="/productpage/edicionproducto" variant="outline-primary mx-1"><box-icon type='solid' name='message-square-edit'></box-icon></Link></Button>
           <Button variant="outline-danger mx-1"><box-icon name='message-square-x' type='solid' ></box-icon></Button>
         </div>
       </td>
