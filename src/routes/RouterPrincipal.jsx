@@ -13,7 +13,7 @@ import Destacados from "../components/pages/Destacados";
 import Favorito from "../components/pages/Favorito";
 import Footer from "../components/layout/Footer";
 import Headers from "../components/layout/Headers";
-import Login from "../components/pages/Login/Login";
+// import Login from "../components/pages/Login/Login";
 
 
 const RouterPrincipal = () => {
@@ -23,8 +23,8 @@ const RouterPrincipal = () => {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
-        {/* <Route exact path="/recpassword" element={<RecPassword />} /> */}
+        {/* <Route exact path="/login" element={<Login />} /> */}
+        <Route exact path="/recpassword" element={<RecPassword />} />
         <Route exact path="/tablaproducto" element={<TablaProducto />} />
         <Route exact path="/creacionproducto" element={<CreacionProducto />} />
         <Route exact path="/edicionproducto" element={<EdicionProducto />} />
