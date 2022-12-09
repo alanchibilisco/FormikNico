@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import './Carousel.css'
 
 
 const Calesita = () => {
@@ -8,8 +9,8 @@ const Calesita = () => {
       <Carousel fade>
         <Carousel.Item interval={1000}>
           <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/13224174/pexels-photo-13224174.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="d-block w-100 img-carousel"
+            src="https://images.everydayhealth.com/images/why-you-could-be-drinking-more-than-you-think-1440x810.jpg"
             alt="cafe"
           />
           <Carousel.Caption>
@@ -19,8 +20,8 @@ const Calesita = () => {
         </Carousel.Item>
         <Carousel.Item interval={500}>
           <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/1267323/pexels-photo-1267323.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="d-block w-100 img-carousel"
+            src="https://i0.wp.com/www.charlestoncvb.com/blog/wp-content/uploads/EdmundsOast9.jpg?resize=1400%2C750&ssl=1"
             alt="croissant"
           />
           <Carousel.Caption>
@@ -30,8 +31,8 @@ const Calesita = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
-            src="https://images.pexels.com/photos/1267684/pexels-photo-1267684.jpeg?auto=compress&cs=tinysrgb&w=600"
+            className="d-block w-100 img-carousel"
+            src="https://www.eatthis.com/wp-content/uploads/sites/4/2022/02/Beer-flight.jpg?quality=82&strip=1"
             alt="mixed roasts"
           />
           <Carousel.Caption>
