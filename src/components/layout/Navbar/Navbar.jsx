@@ -33,7 +33,7 @@ const NavBar = () => {
               <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
               {/* <Link className="nav-link text-white" to="/login">Login/Registro</Link> */}
               <Button variant="warning" onClick={handleShow}>
-                Login/Register
+                Sign in/Sign up
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -43,7 +43,7 @@ const NavBar = () => {
       <Modal show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title className='d-flex'>
-            <Image src={logo} alt="logo" width="40" />
+          <Image src={logo} alt="logo" width="40"  />
             Login
           </Modal.Title>
         </Modal.Header>
@@ -81,20 +81,20 @@ const NavBar = () => {
                   className="font-weight-bold text-decoration-none"
                   onClick={handleClose}
                 >
-                  Recuperar contraseña
+                  Recover password
                 </Link>
               </span>
             </div>
             <div>
               <span>
-                ¿No tienes una cuenta?{" "}
+              Don't have an account?{" "}
                 <a
                   href="#"
                   data-toggle="modal"
                   data-target="#exampleModal2"
                   className="font-weight-bold text-decoration-none"
                 >
-                  Registrate
+                  Sign up
                 </a>
               </span>
             </div>
@@ -102,7 +102,7 @@ const NavBar = () => {
 
           <div className="container my-3 w-100">
                   <div className="row text-center">
-                    <h3 className="col-12">Iniciar Sesión</h3>
+                    <h3 className="col-12">Sign in with</h3>
                   </div>
                   <div className="row justify-content-center">
                     {/* <!--Row para organizar 2 botones--> */}
