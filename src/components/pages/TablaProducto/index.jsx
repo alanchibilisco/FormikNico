@@ -1,1 +1,1 @@
-export {default} from './TablaProducto'
+export {default} from './TablaProductos'

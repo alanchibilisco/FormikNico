@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../imagenes/Imagen1.png";
 
@@ -20,8 +20,9 @@ const NavBar = () => {
               <Link className="nav-link text-white" to="/destacados">Destacados</Link>
               <Link className="nav-link text-white" to="/contacto">Contactos</Link>
               <Link className="nav-link text-white" to="/favoritos">Favoritos</Link>
-              <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
-              <Link className="nav-link text-white" to="/login">Login/Registro</Link>
+              <Link className="nav-link text-white" to="/productpage">Productos</Link>
+              <Link className="nav-link text-white" to="/login">Login/Registro</Link>           
+              <Link className="nav-link text-white" to="/tablaproducto">ABM Productos </Link>           
             </Nav>
           </Navbar.Collapse>
         </Container>
