@@ -6,24 +6,16 @@ import Contacto from "../components/pages/Contacto"
 import Home from "../components/pages/Home"
 import RecPassword from "../components/pages/RecPassword"
 import TablaProducto from "../components/pages/TablaProducto"
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ProductPage from "../components/pages/ProductPage";
-import NavBar from "../components/layout/Navbar/Navbar";
 import Destacados from "../components/pages/Destacados";
 import Favorito from "../components/pages/Favorito";
-import Footer from "../components/layout/Footer";
-import Headers from "../components/layout/Headers";
-// import Login from "../components/pages/Login/Login";
 
 
 const RouterPrincipal = () => {
   return (
-    <BrowserRouter>
-      <Headers />
-      <NavBar />
-      <Routes>
+    <Routes>
         <Route exact path="/" element={<Home />} />
-        {/* <Route exact path="/login" element={<Login />} /> */}
         <Route exact path="/recpassword" element={<RecPassword />} />
         <Route exact path="/tablaproducto" element={<TablaProducto />} />
         <Route exact path="/creacionproducto" element={<CreacionProducto />} />
@@ -34,8 +26,6 @@ const RouterPrincipal = () => {
         <Route exact path="/favoritos" element={<Favorito />} />
         <Route exact path="*" element={<Error404 />} />
       </Routes>
-      <Footer />
-    </BrowserRouter>
   );
 };
 
