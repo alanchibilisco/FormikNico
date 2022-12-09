@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Nav, Navbar, Button, Modal, Form, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../../../imagenes/Imagen1.png";
-import google from "../../../assets/img/google-logo.png"
-import facebook from "../../../assets/img/facebook-logo.webp"
+// import logo from "../../../imagenes/Imagen1.png";
+import logo from "../../../assets/img/logo/Imagen1.png";
+import google from "../../../assets/img/social-icons/google-logo.png"
+import facebook from "../../../assets/img/social-icons/facebook-logo.webp"
 
 
 const NavBar = () => {
