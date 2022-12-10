@@ -8,7 +8,8 @@ import instance from "../../../../../api/axios";
 const TablaProducto = () => {
 
   const [producto , setProducto] =useState([])
-
+  const [buscadorProducto , setbuscadorProducto] =useState("")
+ 
   const getProductos =async()=>{
 
     try {
@@ -23,10 +24,33 @@ const TablaProducto = () => {
     }
   }
 
-
+const search = async() => {
+  console.log(buscadorProducto)
+if (buscadorProducto === "") {
+  getProductos()
+  return
+}
+  try {
+    const resp = await instance.get(`/productos/?name=${buscadorProducto}&detalle=${buscadorProducto}`)
+    // console.log(res)
+    setProducto(resp.data)
+  } catch (error) {
+    console.log(error)
+  }
+}
   useEffect(()=>{
     getProductos()
   },[])
+
+  const searchEnter = (e) => {
+    // console.log(e)
+   
+    //  console.log(e.code)
+    if(e.code === 'Enter'){
+      search()
+      e.preventDefault()
+    }
+  }
 
   return (
     <div>
@@ -42,8 +66,10 @@ const TablaProducto = () => {
                 placeholder="Buscar Producto"
                 className="me-1 mt-1"
                 aria-label="Search"
+                onChange={(e) => setbuscadorProducto(e.target.value)}
+                onKeyPress={searchEnter}
               />
-              <Button variant="outline-light">
+              <Button variant="outline-light" onClick={search}>
                 <box-icon name="search-alt-2"></box-icon>
               </Button>
             </Form>
@@ -90,8 +116,7 @@ const TablaProducto = () => {
             <Button variant="outline-success mx-1">
               <Link
                 to="/productpage/edicionproducto"
-                variant="outline-primary mx-1"
-              >
+                variant="outline-primary mx-1">
                 <box-icon
                   type="solid"
                   name="message-square-edit"
@@ -108,9 +133,7 @@ const TablaProducto = () => {
         </td>
       </tr>
       ) )
-      : <Spinner color="warning"/> }
-
-               
+      : <Spinner color="warning"/> }               
               </tbody>
             </Table>
           </Col>
