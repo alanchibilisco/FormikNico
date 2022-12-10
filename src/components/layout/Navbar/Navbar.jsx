@@ -9,10 +9,8 @@ import facebook from "../../../assets/img/facebook-logo.webp"
 const NavBar = () => {
 
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   return (
     <div className="sticky-top">
@@ -33,7 +31,7 @@ const NavBar = () => {
               <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
               {/* <Link className="nav-link text-white" to="/login">Login/Registro</Link> */}
               <Button variant="warning" onClick={handleShow}>
-                Sign in/Sign up
+                Login
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -43,7 +41,7 @@ const NavBar = () => {
       <Modal show={show} onHide={handleClose} backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title className='d-flex'>
-          <Image src={logo} alt="logo" width="40"  />
+            <Image src={logo} alt="logo" width="40" />
             Login
           </Modal.Title>
         </Modal.Header>
@@ -79,77 +77,78 @@ const NavBar = () => {
                   data-toggle="modal"
                   data-target="#exampleModal"
                   className="font-weight-bold text-decoration-none"
-                  onClick={handleClose}
-                >
+                  onClick={handleClose}>
                   Recover password
                 </Link>
               </span>
             </div>
             <div>
               <span>
-              Don't have an account?{" "}
-                <a
-                  href="#"
+                Don't have an account?{" "}
+                <Link
+                  to="/registro"
                   data-toggle="modal"
-                  data-target="#exampleModal2"
+                  data-target="#exampleModal"
                   className="font-weight-bold text-decoration-none"
-                >
-                  Sign up
-                </a>
+                  onClick={handleClose}>
+                  sign up
+                </Link>
               </span>
             </div>
           </div>
 
           <div className="container my-3 w-100">
-                  <div className="row text-center">
-                    <h3 className="col-12">Sign in with</h3>
-                  </div>
-                  <div className="row justify-content-center">
-                    {/* <!--Row para organizar 2 botones--> */}
-                    <div className="d-flex">
-                      <Button variant="outline-info" className=" w-100 my-1 mx-2">
-                        <a
-                          href="https://www.facebook.com/login/"
-                          className="text-decoration-none text-dark"
-                          target="_blank"
-                        >
-                          <div className=" row align-content-center">
-                            {/* <!--Row para alinear img y texto--> */}
-                            <div className="col-2 d-none d-md-block">
-                              <Image src={facebook} className="mx-3" width="30" alt="facebook"/>
-                            </div>
-                            <div className="col-12 col-md-10 text-center font-weight-bolder">
-                              Facebook
-                            </div>
-                          </div>
-                        </a>
-                      </Button>
-                      {/* <!--Final de Primer Boton--> */}
-
-                      <Button variant="outline-warning" className=" w-100 my-1 mx-2">
-                        <a
-                          href="https://www.google.com/"
-                          className="text-decoration-none text-dark"
-                          target="_blank"
-                        >
-                          <div className=" row align-content-center">
-                            {/* <!--Row para alinear img y texto--> */}
-                            <div className="col-2 d-none d-md-block">
-                              <Image src={google} className="mx-3" width="30" alt="google"/>
-                            </div>
-                            <div className="col-12 col-md-10 text-center font-weight-bolder">
-                              Google
-                            </div>
-                          </div>
-                        </a>
-                      </Button>
-                      {/* <!--Final de Segundo Boton--> */}
+            <div className="row text-center">
+              <h3 className="col-12">Sign in with</h3>
+            </div>
+            <div className="row justify-content-center">
+              {/* <!--Row para organizar 2 botones--> */}
+              <div className="d-flex">
+                <Button variant="outline-info" className=" w-100 my-1 mx-2">
+                  <a
+                    href="https://www.facebook.com/login/"
+                    className="text-decoration-none text-dark"
+                    target="_blank"
+                  >
+                    <div className=" row align-content-center">
+                      {/* <!--Row para alinear img y texto--> */}
+                      <div className="col-2 d-none d-md-block">
+                        <Image src={facebook} className="mx-3" width="30" alt="facebook" />
+                      </div>
+                      <div className="col-12 col-md-10 text-center font-weight-bolder">
+                        Facebook
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </a>
+                </Button>
+                {/* <!--Final de Primer Boton--> */}
+
+                <Button variant="outline-warning" className=" w-100 my-1 mx-2">
+                  <a
+                    href="https://www.google.com/"
+                    className="text-decoration-none text-dark"
+                    target="_blank"
+                  >
+                    <div className=" row align-content-center">
+                      {/* <!--Row para alinear img y texto--> */}
+                      <div className="col-2 d-none d-md-block">
+                        <Image src={google} className="mx-3" width="30" alt="google" />
+                      </div>
+                      <div className="col-12 col-md-10 text-center font-weight-bolder">
+                        Google
+                      </div>
+                    </div>
+                  </a>
+                </Button>
+                {/* <!--Final de Segundo Boton--> */}
+              </div>
+            </div>
+          </div>
         </Modal.Body>
       </Modal>
     </div>
+
+    
   );
 };
 

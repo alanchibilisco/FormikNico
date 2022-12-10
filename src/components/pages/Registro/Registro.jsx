@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+
 
 const Registro = () => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
@@ -16,107 +17,94 @@ const Registro = () => {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Sing up</Modal.Title>
+                    <Modal.Title>sign up</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control placeholder="Enter name" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="email"
-                                placeholder="name@example.com"
-                                autoFocus
-                            />
+                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else.
+                            </Form.Text>
                         </Form.Group>
-                        <Form.Group
-                            className="mb-3"
-                            controlId="exampleForm.ControlInput2">
+
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="password"
-                                autoFocus
-                            />
+                            <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Remember me" />
+                        </Form.Group>
+                        <div className='d-grid gap-2'>
+                            <Button variant="warning" type="submit">
+                                Sign in
+                            </Button>
+                        </div>
                     </Form>
+                    <div className="container my-3 w-100">
+                        <div className="row text-center">
+                            <h3 className="col-12">Sign in with</h3>
+                        </div>
+                        <div className="row justify-content-center">
+                            {/* <!--Row para organizar 2 botones--> */}
+                            <div className="d-flex">
+                                <Button variant="outline-info" className=" w-100 my-1 mx-2">
+                                    <a
+                                        href="https://www.facebook.com/login/"
+                                        className="text-decoration-none text-dark"
+                                        target="_blank"
+                                    >
+                                        <div className=" row align-content-center">
+                                            {/* <!--Row para alinear img y texto--> */}
+                                            <div className="col-2 d-none d-md-block">
+                                                <Image src={facebook} className="mx-3" width="30" alt="facebook" />
+                                            </div>
+                                            <div className="col-12 col-md-10 text-center font-weight-bolder">
+                                                Facebook
+                                            </div>
+                                        </div>
+                                    </a>
+                                </Button>
+                                {/* <!--Final de Primer Boton--> */}
+
+                                <Button variant="outline-warning" className=" w-100 my-1 mx-2">
+                                    <a
+                                        href="https://www.google.com/"
+                                        className="text-decoration-none text-dark"
+                                        target="_blank"
+                                    >
+                                        <div className=" row align-content-center">
+                                            {/* <!--Row para alinear img y texto--> */}
+                                            <div className="col-2 d-none d-md-block">
+                                                <Image src={google} className="mx-3" width="30" alt="google" />
+                                            </div>
+                                            <div className="col-12 col-md-10 text-center font-weight-bolder">
+                                                Google
+                                            </div>
+                                        </div>
+                                    </a>
+                                </Button>
+                                {/* <!--Final de Segundo Boton--> */}
+                            </div>
+                        </div>
+                    </div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                     <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                        to accept
                     </Button>
                 </Modal.Footer>
             </Modal>
         </>
     )
 }
-
 export default Registro
-
-{/* <!--Modal 2--> */ }
-<div
-    class="modal fade"
-    id="exampleModal2"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
->
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                    Registro
-                </h5>
-                <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                >
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="#">
-                    <h3 class="mb-2 text-center">Ingresa tu Email</h3>
-                    <div class="mb-4">
-                        <label for="email" class="form-check-label">
-                            Correo electrónico
-                        </label>
-                        {/* <input type="email" class="form-control" placeholder="ejemplo@gmail.com" name="email"maxlength="30" required> */}
-
-                    </div>
-                    <div class="mb-4">
-                        <label for="password" class="form-check-label">
-                            Password
-                        </label>
-                        {/* <input type="password" class="form-control" placeholder="Contraseña" name="password" minlength="8" maxlength="12" required>*/}
-
-                    </div>
-                    <div>
-                        <p class="text-dark text-center font-weight-bolder">
-                            Te llegara un mail a tu correo para confirmarlo
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button
-                            type="submit"
-                            class="btn btn-danger mb-2 btn-lg mt-2"
-                            data-dismiss="modal"
-                        >
-                            Cerrar
-                        </button>
-                        <button type="submit" class="btn btn-info mb-2 btn-lg mt-2">
-                            Aceptar
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{/* <!-- Final Modal --> */ }
