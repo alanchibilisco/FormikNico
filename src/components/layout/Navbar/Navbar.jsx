@@ -29,12 +29,12 @@ const NavBar = () => {
             <Nav className="me-auto color-nav">
               <Link className="nav-link text-white" to="/">Home</Link>
               <Link className="nav-link text-white" to="/destacados">Destacados</Link>
-              <Link className="nav-link text-white" to="/contacto">Contactos</Link>
+              <Link className="nav-link text-white" to="/contacto">Contacto</Link>
               <Link className="nav-link text-white" to="/favoritos">Favoritos</Link>
               <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
               {/* <Link className="nav-link text-white" to="/login">Login/Registro</Link> */}
               <Button variant="warning" onClick={handleShow}>
-                Sign in/Sign up
+                Login
               </Button>
             </Nav>
           </Navbar.Collapse>
@@ -45,7 +45,6 @@ const NavBar = () => {
         <Modal.Header closeButton>
           <Modal.Title className='d-flex'>
           <Image src={logo} alt="logo" width="40"  />
-            Login
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -86,7 +85,7 @@ const NavBar = () => {
                 </Link>
               </span>
             </div>
-            <div>
+            {/* <div>
               <span>
               Don't have an account?{" "}
                 <a
@@ -98,7 +97,7 @@ const NavBar = () => {
                   Sign up
                 </a>
               </span>
-            </div>
+            </div> */}
           </div>
 
           <div className="container my-3 w-100">
