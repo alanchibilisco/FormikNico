@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Form, Nav, } from "react-bootstrap";
+import { Button, Col, Container, Form, Nav, Row, } from "react-bootstrap";
 import 'boxicons';
 import './ProductPage.css'
+import CardProduct from '../TablaProducto/Producto/CardProducto/CardProductp';
 
 const ProductPage = () => {
   return (
@@ -26,7 +27,30 @@ const ProductPage = () => {
         </Form>          
         </Nav.Item>
     </Nav>   
+    <Container className="py-5 ">
     <h3> Nuestras Birras</h3>
+    <Row>
+          <Col xl={2} lg={4} md={6}>
+            <CardProduct />
+          </Col>
+   
+          <Col xl={2} lg={4} md={6}>
+            <CardProduct />
+          </Col>
+  
+          <Col xl={2} lg={4} md={6}>
+            <CardProduct />
+          </Col>
+          <Col xl={2} lg={4} md={6}>
+            <CardProduct />
+          </Col>
+  
+          <Col xl={2} lg={4} md={6}>
+            <CardProduct />
+          </Col>
+   </Row>
+   </Container>
+
   </div>
   )
 }

@@ -5,7 +5,7 @@ import Error404 from "../components/pages/Error404"
 import Contacto from "../components/pages/Contacto"
 import Home from "../components/pages/Home"
 import RecPassword from "../components/pages/RecPassword"
-import TablaProducto from "../components/pages/TablaProducto"
+import TablaProducto from "../components/pages/TablaProducto/Producto/TablaProducto"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProductPage from "../components/pages/ProductPage";
 import NavBar from "../components/layout/Navbar/Navbar";
