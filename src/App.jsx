@@ -15,6 +15,26 @@ const App = () => {
       <Footer/>
       </BrowserRouter>
     </div>
+
+
+//     <BrowserRouter>
+//   <Switch>
+//      <Route exact path="/notfound" component={Pagenotfound} />
+//      <Route>
+//        <div className="container">
+//           <Navbar />
+//             <Switch>
+//              <Route exact path="/" component={Home} />
+//              <Route exact path="/about" component={About} />
+//              <Route exact path="/contact" component={Contact} />
+//              <Redirect to="/notfound"/>
+//            </Switch>
+//        </div>
+//     </Route>
+
+//   </Switch>
+
+// </BrowserRouter>
   )
 }
 
