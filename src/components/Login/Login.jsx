@@ -62,11 +62,11 @@ const Login = ({ show, handleClose }) => {
             <span>
               Don't have an account?{" "}
               <Link
-                to="/registro"
+                to="/"
                 data-toggle="modal"
                 data-target="#exampleModal"
                 className="font-weight-bold text-decoration-none"
-                onClick={handleShow}>
+                onClick={handleShow} onHide={handleCloses} >
                 sign up
               </Link>
               <Registro show={reg} handleClose={handleCloses} />

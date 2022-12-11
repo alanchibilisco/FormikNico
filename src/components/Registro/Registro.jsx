@@ -10,11 +10,11 @@ import google from '../../assets/img/google-logo.png'
 const Registro = ({show, handleClose}) => {
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} backdrop="static">
                 <Modal.Header closeButton>
                     <Modal.Title>
                     <Image src={logo} alt="logo" width="40" />
-                        sign up
+                        Register
                         </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

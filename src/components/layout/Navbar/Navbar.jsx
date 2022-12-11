@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Nav, Navbar, Button, Form, Col } from "react-bootstrap";
-import CardHeader from 'react-bootstrap/esm/CardHeader';
 import { Link } from "react-router-dom";
 import logo from "../../../imagenes/Imagen1.png";
 import Login from '../../Login';
@@ -21,19 +20,19 @@ const NavBar = () => {
             <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
           </Navbar.Brand>
           <div className=" text-center" xs={12} md={6} lg={4}>
-              <a href="https://www.facebook.com/login/"
-                className=" redes fa-brands fa-facebook text-decoration-none text-center mx-2 mt-2"
-                target="_blank"></a>
-              <a href="https://www.whatsapp.com/"
-                className="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2"
-                target="_blank"></a>
-              <a href="https://www.youtube.com/"
-                className="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2"
-                target="_blank"></a>
-              <a href="https://www.instagram.com/accounts/login/?"
-                className="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2"
-                target="_blank"></a>
-            </div>
+            <a href="https://www.facebook.com/login/"
+              className=" redes fa-brands fa-facebook text-decoration-none text-center mx-2 mt-2"
+              target="_blank"></a>
+            <a href="https://www.whatsapp.com/"
+              className="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2"
+              target="_blank"></a>
+            <a href="https://www.youtube.com/"
+              className="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2"
+              target="_blank"></a>
+            <a href="https://www.instagram.com/accounts/login/?"
+              className="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2"
+              target="_blank"></a>
+          </div>
           <Form className="d-flex">
             <Form.Control
               type="search"
@@ -55,9 +54,12 @@ const NavBar = () => {
                 Login
               </Button>
               <Col className=''>
-                <Button className=''>
-                  carrito</Button>
-                <Button>?</Button>
+                <Button variant="warning">
+                  <i className="fa-solid fa-beer-mug-empty"></i>
+                </Button>
+                <Button variant="warning">
+                  <i class="fa-solid fa-circle-question"></i>
+                </Button>
               </Col>
 
               <Login show={show} handleClose={handleClose} />
