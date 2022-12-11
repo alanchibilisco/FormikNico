@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Table, Button, Row, Col, Form, Spinner, Modal, Image } from "react-bootstrap";
+import { Container, Table, Button, Row, Col, Form, Spinner, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import 'boxicons';
 import instance from "../../../../../api/axios";
@@ -10,7 +10,7 @@ const TablaProducto = () => {
   const [producto , setProducto] =useState([])
   const [buscadorProducto , setbuscadorProducto] =useState("")
  
-  const getProductos =async()=>{
+const getProductos =async()=>{
 
     try {
       
@@ -42,7 +42,7 @@ if (buscadorProducto === "") {
     getProductos()
   },[])
 
-  const searchEnter = (e) => {
+const searchEnter = (e) => {
     // console.log(e)
    
     //  console.log(e.code)
@@ -97,9 +97,7 @@ if (buscadorProducto === "") {
                 </tr>
               </thead>
               <tbody>
-    {
-
-      producto.length > 0 ? producto.map( ( prod, index) => (
+    {producto.length > 0 ? producto.map( ( prod, index) => (
         <tr key={prod._id} >
         <td>{index}</td>
         <td>{prod.ProductName}</td>
