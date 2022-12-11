@@ -97,7 +97,7 @@ const searchEnter = (e) => {
                 </tr>
               </thead>
               <tbody>
-    {producto.length > 0 ? producto.map( ( prod, index) => (
+        {producto.length > 0 ? producto.map( ( prod, index) => (
         <tr key={prod._id} >
         <td>{index}</td>
         <td>{prod.ProductName}</td>

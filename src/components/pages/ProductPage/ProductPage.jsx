@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react'
 import { Button, Col, Container, Form, Nav, Row, Card,Spinner,} from "react-bootstrap";
 import 'boxicons';
 import './ProductPage.css'
-import CardProduct from '../TablaProducto/Producto/CardProducto/CardProductp';
 import instance from '../../../api/axios';
 
 
@@ -94,8 +93,7 @@ const ProductPage = () => {
                 width={100}
                 height={200}
                 variant="top"
-                src={prod.ImgURL}
-                
+                src={prod.ImgURL}                
               />
               <Card.Body>
                 <div className="d-flex align-items-center justify-content-between mb-2">
@@ -107,9 +105,14 @@ const ProductPage = () => {
                 <Card.Text>
                 {prod.Productdetalle}
                 </Card.Text>
+                <Card.Text>
+                <p className="">Graduacion: {prod.Graduation}</p>
+                </Card.Text>
+                <Card.Text>
+                  <h6 className="mb-0 ms-2 ">Precio:${prod.PriceProduct} </h6>
+                </Card.Text>
                 <div className="d-flex align-items-center justify-content-between">
-                  <p className="mb-0 ms-4 fs-4 ">${prod.PriceProduct}</p>
-                  <button className="btn-gray">Buy</button>
+                  <button className="btn-gray"> Comprar</button>
                 </div>
               </Card.Body>
             </Card>
