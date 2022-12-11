@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { Image } from 'react-bootstrap';
+import logo from '../../imagenes/Imagen1.png'
+import facebook from '../../assets/img/facebook-logo.webp'
+import google from '../../assets/img/google-logo.png'
 
-
-const Registro = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+const Registro = ({show, handleClose}) => {
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button>
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>sign up</Modal.Title>
+                    <Modal.Title>
+                    <Image src={logo} alt="logo" width="40" />
+                        sign up
+                        </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>

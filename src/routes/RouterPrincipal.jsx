@@ -12,14 +12,11 @@ import NavBar from "../components/layout/Navbar/Navbar";
 import Destacados from "../components/pages/Destacados";
 import Favorito from "../components/pages/Favorito";
 import Footer from "../components/layout/Footer";
-import Headers from "../components/layout/Headers";
-// import Login from "../components/pages/Login/Login";
 
 
 const RouterPrincipal = () => {
   return (
     <BrowserRouter>
-      <Headers />
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
