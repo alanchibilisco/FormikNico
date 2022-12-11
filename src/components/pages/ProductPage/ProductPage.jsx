@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ProductPage = () => {
+const ProductPage = (props) => {
+  props.funcNav(true)
   return (
     <div>ProductPage</div>
   )

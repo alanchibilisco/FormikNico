@@ -5,7 +5,8 @@ import Swal from 'sweetalert2';
 
 
 
-const RecPassword = () => {
+const RecPassword = (props) => {
+  props.funcNav(true)
   const navigate = useNavigate()
   const handleSubmit = (e) =>{
     e.preventDefault()

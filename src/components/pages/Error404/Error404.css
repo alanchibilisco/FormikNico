@@ -8,10 +8,6 @@ body {
     top: 50%;
     position: absolute;
     transform: translatex(-50%) translatey(-50%);
-
-    display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .contain svg {
     vertical-align: top;
@@ -24,6 +20,13 @@ body {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     fill: #f9cf68;
+}
+.message{
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translatex(-50%) translatey(-100%);
+
 }
 @keyframes empty {
     0% {

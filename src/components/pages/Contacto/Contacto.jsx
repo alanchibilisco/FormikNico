@@ -1,6 +1,7 @@
 import React from 'react'
 
-const contacto = () => {
+const contacto = (props) => {
+  props.funcNav(true)
   return (
     <div> Contacto</div>
   )
