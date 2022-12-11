@@ -49,15 +49,14 @@ const ProductPage = () => {
       e.preventDefault()
     }
   }
-
     useEffect(()=>{
       getProductos()
     },[])
 
   return (
     <div>
-      
       <Nav className="justify-content-end bg-dark" activeKey="/home">
+       {/* carrito compra */}
         <Nav.Item>
           <Nav.Link href="/home">
             <div className="cart">
@@ -66,6 +65,7 @@ const ProductPage = () => {
             </div>
           </Nav.Link>
         </Nav.Item>
+          {/* carrito compra */}
         <Nav.Item>
           {/* Buscador */}
           <Form className="d-flex">
@@ -91,9 +91,11 @@ const ProductPage = () => {
           <Col xl={2} lg={4} md={6} key={prod._id}>
             <Card className="my-4">
               <Card.Img
-                className="img-fluid"
+                width={100}
+                height={200}
                 variant="top"
                 src={prod.ImgURL}
+                
               />
               <Card.Body>
                 <div className="d-flex align-items-center justify-content-between mb-2">
@@ -115,6 +117,7 @@ const ProductPage = () => {
                 ) )
                 : <Spinner color="warning"/> } 
         </Row>
+         {/* productos */}
       </Container>
     </div>
   );

@@ -104,7 +104,8 @@ const searchEnter = (e) => {
         <td>{prod.Productdetalle}</td>
         <td>${prod.PriceProduct}</td>
         <td>
-          <Image className="truncate-img-link m-0" src={prod.ImgURL} fluid/>
+          <Image className="truncate-img-link m-0" src={prod.ImgURL} width={100}
+        height={100}/>
         </td>
         <td>{prod.Category}</td>
         <td>{prod.Graduation}</td>
