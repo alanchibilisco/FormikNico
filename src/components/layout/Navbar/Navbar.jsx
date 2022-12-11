@@ -17,31 +17,8 @@ const NavBar = () => {
       <Navbar className="bg-dark" expand="lg">
         <Container fluid>
           <Navbar.Brand>
-            <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
+            <Link to='/'><img src={logo} alt="logo" width="200" /></Link>
           </Navbar.Brand>
-          <div className=" text-center" xs={12} md={6} lg={4}>
-            <a href="https://www.facebook.com/login/"
-              className=" redes fa-brands fa-facebook text-decoration-none text-center mx-2 mt-2"
-              target="_blank"></a>
-            <a href="https://www.whatsapp.com/"
-              className="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2"
-              target="_blank"></a>
-            <a href="https://www.youtube.com/"
-              className="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2"
-              target="_blank"></a>
-            <a href="https://www.instagram.com/accounts/login/?"
-              className="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2"
-              target="_blank"></a>
-          </div>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="warning">Search</Button>
-          </Form>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto color-nav">
@@ -53,15 +30,6 @@ const NavBar = () => {
               <Button variant="warning" onClick={handleShow}>
                 Login
               </Button>
-              <Col className=''>
-                <Button variant="warning">
-                  <i className="fa-solid fa-beer-mug-empty"></i>
-                </Button>
-                <Button variant="warning">
-                  <i class="fa-solid fa-circle-question"></i>
-                </Button>
-              </Col>
-
               <Login show={show} handleClose={handleClose} />
             </Nav>
           </Navbar.Collapse>
