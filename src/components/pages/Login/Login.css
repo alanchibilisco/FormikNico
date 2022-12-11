@@ -1,0 +1,23 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(to right, rgba(249, 249, 249, 0.7), rgba(200, 201, 203, 0.7));
+}
+
+/*------------Inicio de Login-------------*/
+
+main .imagen-login{
+    background-image: url("/src/imagenes/FondoBeer.webp");
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+    background-color: rgb(7, 7, 7);
+}
+
+
+main .boton-enviar{
+    font-size: 20px;
+}
+/*------------Fin de Login-------------*/

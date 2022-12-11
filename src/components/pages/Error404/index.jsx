@@ -1,1 +1,1 @@
-export {default} from "./Erro404"
+export {default} from "./Error404"

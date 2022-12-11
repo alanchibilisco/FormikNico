@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Destacados = () => {
+const Destacados = (props) => {
+  props.funcNav(true)
   return (
     <div>Destacados</div>
   )
