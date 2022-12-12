@@ -20,6 +20,8 @@ const RouterPrincipal = () => {
 
 
   return (
+
+
     <>
     {   showNav &&
           <nav>
@@ -37,6 +39,7 @@ const RouterPrincipal = () => {
         <Route exact path="/destacados" element={<Destacados funcNav={setShowNav}/>} />
         <Route exact path="/favoritos" element={<Favorito funcNav={setShowNav}/>} />
         <Route exact path="*" element={<Error404 funcNav={setShowNav}/>} />
+
       </Routes>
       {   showNav &&
           <nav>
