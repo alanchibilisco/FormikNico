@@ -36,7 +36,7 @@ export const validatePrice = (field) => {
 
 export const validateUrl = (field) => {
   console.log(field);
-  if (regExpUrl.test(field) && field.trim() !== "") {
+  if (regExpUrl.test(field) || field.trim() !== "") {
     return true;
   } else {
     return false;

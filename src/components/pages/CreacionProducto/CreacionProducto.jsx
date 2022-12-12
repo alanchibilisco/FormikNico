@@ -17,21 +17,22 @@ const CreacionProducto = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     //validador de campos
-    if (
-     !validateProductName(nombrerProducto) ||
-     !validateDetalleProducto(detalleProducto) ||
-     !validatePrice(precioProducto)||
-     !validateUrl(urlProducto) ||
-     !validateCategory(categoriaProducto)||
-     validatePorcentaje(graduacionProducto)
-    )
-    {
-    alert("Validacion erronea")     
-    return 
-    }    
+     if (
+      !validateProductName(nombrerProducto) ||
+      !validateDetalleProducto(detalleProducto) ||
+      !validatePrice(precioProducto)||
+      !validateUrl(urlProducto) ||
+      !validateCategory(categoriaProducto)||
+      validatePorcentaje(graduacionProducto)
+     )
+     {
+     alert("Validacion erronea")     
+     return 
+     }
+   
   const newProducto = {
     ProductName:nombrerProducto,
-    Productdetalle:detalleProducto ,
+    Productdetalle:detalleProducto,
     PriceProduct:precioProducto,
     ImgURL:urlProducto,
     Category:categoriaProducto,
@@ -48,11 +49,10 @@ const CreacionProducto = () => {
   }).then( async (result) => {
     if (result.isConfirmed) {
       try {
-        const resp = await instance.post("/productos/",{
-        Headers:{
-        "Content-Type":"application/json"},
-        Body: JSON.stringify(newProducto),
-      });
+        const resp = await instance.post("/productos/",
+         newProducto,         
+      );
+
       if (resp.status===201) {
         Swal.fire(
        'Creado!',
@@ -66,7 +66,7 @@ const CreacionProducto = () => {
       }
     }
   });
-};
+} ;
 
 
   return (
@@ -77,7 +77,7 @@ const CreacionProducto = () => {
         <Row>
           <Col lg={6}>
             {/* Form Product */}
-          <Form className="my-2" onSubmit={handleSubmit}>
+          <Form className="my-2" >
           <Form.Group className="my-1 " controlId="nombrerProducto">
             <Form.Label>Producto</Form.Label>
             <Form.Control type="text" placeholder="Ej:Ipa" onChange={({target})=> setnombreProducto(target.value)} />
@@ -122,7 +122,7 @@ const CreacionProducto = () => {
             </Form.Select>
           </Form.Group>
           <div className="text-center">
-            <Button variant="warning" >Crear🍻</Button>
+            <Button variant="warning" onClick={handleSubmit} >Crear🍻</Button>
           </div>
         </Form>
           </Col>      
