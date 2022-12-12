@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Col, Container, Form, Row } from 'react-bootstrap'
+import { Col, Container, Form, Row , Button} from 'react-bootstrap'
+import Swal from 'sweetalert2';
 import logo from "../../../imagenes/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
+import instance from "../../../../../api/axios";
+
 
 const CreacionProducto = () => {
   const [nombrerProducto, setnombreProducto] = useState("")
@@ -25,6 +28,51 @@ const CreacionProducto = () => {
     {
     alert("Validacion erronea")     
     return 
+    }
+  }
+  const newProducto ={
+    nombrerProducto,
+    detalleProducto,
+    precioProducto,
+    urlProducto,
+    categoriaProducto,
+    graduacionProducto,
+    disponibilidadProducto
+  }
+  Swal.fire({
+    title: 'Quieres crear este producto?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'confirmar'
+  }).then( async (result) => {
+    if (result.isConfirmed) {
+      try {
+        const resp = await instance.post("/productos/")
+      } catch (error) {
+      console.log(error);  
+      }
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+
+  const postProductos =async()=>{
+
+    try {
+      
+      const resp = await instance.post("/productos/")
+      console.log(resp)
+      postProductos(resp.data)
+      
+    } catch (error) {
+      console.log(error);
+      alert("Error")     
     }
   }
 
@@ -81,7 +129,7 @@ const CreacionProducto = () => {
             </Form.Select>
           </Form.Group>
           <div className="text-end">
-            <button className="btn-yellow">Save</button>
+            <Button variant="warning">Crear🍻</Button>
           </div>
         </Form>
           </Col>      
