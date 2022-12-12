@@ -67,3 +67,4 @@ export const validatePorcentaje=(field)=>{
     return false;
   }
 }
+

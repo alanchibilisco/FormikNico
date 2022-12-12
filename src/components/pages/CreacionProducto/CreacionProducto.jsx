@@ -3,7 +3,7 @@ import { Col, Container, Form, Row , Button} from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import logo from "../../../imagenes/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
-import instance from "../../../../../api/axios";
+import instance from "../../../api/axios";
 
 
 const CreacionProducto = () => {
@@ -28,53 +28,46 @@ const CreacionProducto = () => {
     {
     alert("Validacion erronea")     
     return 
-    }
-  }
-  const newProducto ={
-    nombrerProducto,
-    detalleProducto,
-    precioProducto,
-    urlProducto,
-    categoriaProducto,
-    graduacionProducto,
-    disponibilidadProducto
+    }    
+  const newProducto = {
+    ProductName:nombrerProducto,
+    Productdetalle:detalleProducto ,
+    PriceProduct:precioProducto,
+    ImgURL:urlProducto,
+    Category:categoriaProducto,
+    Graduation:graduacionProducto,
+    Avaliable:disponibilidadProducto
   }
   Swal.fire({
-    title: 'Quieres crear este producto?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
+    title: 'Quieres crear este producto?',    
+    icon: 'question',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'confirmar'
+    confirmButtonText: 'Aceptar'
   }).then( async (result) => {
     if (result.isConfirmed) {
       try {
-        const resp = await instance.post("/productos/")
+        const resp = await instance.post("/productos/",{
+        Headers:{
+        "Content-Type":"application/json"},
+        Body: JSON.stringify(newProducto),
+      });
+      if (resp.status===201) {
+        Swal.fire(
+       'Creado!',
+       'Su producto se creo correctamente.',
+       'success'
+     )      
+     
+      }      
       } catch (error) {
       console.log(error);  
       }
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
     }
-  })
+  });
+};
 
-  const postProductos =async()=>{
-
-    try {
-      
-      const resp = await instance.post("/productos/")
-      console.log(resp)
-      postProductos(resp.data)
-      
-    } catch (error) {
-      console.log(error);
-      alert("Error")     
-    }
-  }
 
   return (
     <div>
@@ -128,8 +121,8 @@ const CreacionProducto = () => {
               <option value="false">No</option>                          
             </Form.Select>
           </Form.Group>
-          <div className="text-end">
-            <Button variant="warning">Crear🍻</Button>
+          <div className="text-center">
+            <Button variant="warning" >Crear🍻</Button>
           </div>
         </Form>
           </Col>      
