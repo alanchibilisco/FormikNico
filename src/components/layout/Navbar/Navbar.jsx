@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Nav, Navbar, Button, Form, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 import logo from "../../../imagenes/Imagen1.png";
 import Login from '../../Login';
+
 
 
 
@@ -24,7 +26,7 @@ const NavBar = () => {
             <Nav className="me-auto color-nav">
               <Link className="nav-link text-white" to="/">Home</Link>
               <Link className="nav-link text-white" to="/destacados">Destacados</Link>
-              <Link className="nav-link text-white" to="/contacto">Contactos</Link>
+              <Link className="nav-link text-white" to="/contacto">Contacto</Link>
               <Link className="nav-link text-white" to="/favoritos">Favoritos</Link>
               <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
               <Button variant="warning" onClick={handleShow}>
@@ -35,6 +37,8 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+
     </div>
   );
 };

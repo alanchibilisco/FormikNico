@@ -1,13 +1,16 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logo from "../../../imagenes/Imagen1.png";
+
+import logo from "../../../assets/img/logo/Imagen1.png";
+
 //importamos font
 import "./footer.css"
 
 
 const Footer = () => {
     return (
+
 
         // <Container fluid  >
         //     <Row className="row bg-dark align-items-center">
@@ -65,6 +68,7 @@ const Footer = () => {
         //     </Row>
         // </Container>
         <Container fluid>
+
             <Row className="row bg-dark align-items-center">
                 <Col>
                     <Col className=" text-center" xs={12} md={6} lg={4}>
@@ -124,11 +128,13 @@ const Footer = () => {
                     </p>
 
                     <Col className="text-center">
-                        <a href="/404.html" className="text-center">Terminos y Condiciones</a>
+                        <Link to='/terminos' className="text-center">Terminos y Condiciones</Link>
                     </Col>
                 </Row>
             </Row>
         </Container>
+
+
 
 
     )
