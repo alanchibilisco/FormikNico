@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { Image } from 'react-bootstrap';
-import logo from '../../imagenes/Imagen1.png'
-import facebook from '../../assets/img/facebook-logo.webp'
-import google from '../../assets/img/google-logo.png';
+import logo from '../../assets/img/logo/Imagen1.png'
+import facebook from '../../assets/img/social-icons/facebook-logo.webp'
+import google from '../../assets/img/social-icons/google-logo.png';
 import { Link } from 'react-router-dom';
 import Registro from '../Registro/Registro';
 
