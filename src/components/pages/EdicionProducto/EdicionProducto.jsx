@@ -14,8 +14,8 @@ const EdicionProducto = () => {
    const getProductosID = async()=>{
      try {
        const resp =await instance.get(`/productos/${id}`,)
-       const productoApi = await resp
-       setProductoEditar(productoApi)      
+       console.log(resp);      
+       setProductoEditar(resp.data)      
        ;
      } catch (error) {
       console.log(error);
@@ -27,6 +27,7 @@ const EdicionProducto = () => {
     getProductosID()
 
   },[])
+  
   return (
     <div>
          
@@ -37,26 +38,27 @@ const EdicionProducto = () => {
           <Form className="my-2" >
           <Form.Group className="my-1" controlId="nombrerProducto">
             <Form.Label>Producto</Form.Label>
-            <Form.Control type="text" placeholder="Ej:Ipa" />
+            <Form.Control type="text" placeholder="Ej:Ipa" defaultValue={productoEditar.ProductName}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="detalleProducto">
             <Form.Label>Detalle</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo" />
+            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo"  defaultValue={productoEditar.Productdetalle}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="precioProducto">
             <Form.Label>Price</Form.Label>
-            <Form.Control type="number" placeholder="Ej: 250" />
+            <Form.Control type="number" placeholder="Ej: 250" defaultValue={productoEditar.PriceProduct} />
           </Form.Group>
           <Form.Group className="my-1" controlId="urlProducto">
             <Form.Label>Imagen URL</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ej: https://www.tubirra.com"
+              defaultValue={productoEditar.ImgURL}
             />
           </Form.Group>
           <Form.Group className="my-1" controlId="categoriaProducto">
             <Form.Label>Category</Form.Label>
-            <Form.Select>
+            <Form.Select value={productoEditar.Category} onChange={({target})=>setProductoEditar({...productoEditar,Category: target.value})}>
               <option value="">Seleccione una categoria</option>
               <option value="Cerveza">Cerveza</option>
               <option value="Cocteleria">Cocteleria</option>
@@ -65,13 +67,14 @@ const EdicionProducto = () => {
               <option value="Otros">Otros</option>            
             </Form.Select>
           </Form.Group>
-          <Form.Group className="my-1" controlId="Graducaion">
+          <Form.Group className="my-1" controlId="Graduacion">
             <Form.Label>Graduacion</Form.Label>
-            <Form.Control type="number" placeholder="Ej: 5%" />
+            <Form.Control type="text" placeholder="Ej: 5%" defaultValue={productoEditar.Graduation
+            }/>
           </Form.Group>
           <Form.Group className="my-1" controlId="Disponibiliadad">
             <Form.Label>Disponibiidad</Form.Label>
-          <Form.Select>
+          <Form.Select value={productoEditar.Avaliable} onChange={({target})=>setProductoEditar({...productoEditar,Avaliable: target.value})}>
               <option value="">Seleccione una categoria</option>
               <option value="true">Si</option>
               <option value="false">No</option>                          
