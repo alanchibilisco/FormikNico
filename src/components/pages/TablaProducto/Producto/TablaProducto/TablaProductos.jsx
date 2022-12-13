@@ -115,7 +115,7 @@ const searchEnter = (e) => {
           <div className="d-flex justify-content-center">
             <Button variant="outline-success mx-1">
               <Link
-                to="/productpage/edicionproducto"
+                to={`/productpage/edicionproducto/${prod._id}`}
                 variant="outline-primary mx-1">
                 <box-icon
                   type="solid"
