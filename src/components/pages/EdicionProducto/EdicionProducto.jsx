@@ -47,16 +47,48 @@ const EdicionProducto = () => {
        !validateDetalleProducto(productoEditarRef.current.value) ||
        !validatePrice(productoPriceRef.current.value)||
        !validateUrl(productoUrlRef.current.value) ||
-       !validateCategory(productoEditar.Category)||
-       validatePorcentaje(productoPorcentajeRef.current.value)
+       !validateCategory(productoEditar.Category)||       
+        validatePorcentaje(productoPorcentajeRef.current.value)
       )
       {
       Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
      return 
      }
      console.log("datos correctos");
-  }
-  
+     const productoActualizado= {
+      ProductName:productoNameRef.current.value,
+      Productdetalle:productoEditarRef.current.value,
+      PriceProduct:productoPriceRef.current.value,
+      ImgURL:productoUrlRef.current.value,
+      Category:productoEditar.Category,
+      Graduation:productoPorcentajeRef.current.value,
+      Avaliable:productoEditar.Avaliable
+  };
+  Swal.fire({
+    title: 'Quieres actualizar este producto?',    
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Aceptar'
+  }).then( async (result) => {
+    if (result.isConfirmed) {
+      try {
+         const resp = await instance.put(`/productos/${id}`,
+        productoActualizado,         
+      );
+        
+      } catch (error) {
+      console.log(error);  
+      }
+      Swal.fire(
+        'Actualizado',
+        'Su producto se actualizo correctamente.',
+        'success'
+      )    
+    }
+  });
+    }
   
   return (
     <div>
@@ -107,7 +139,7 @@ const EdicionProducto = () => {
           <Form.Group className="my-1" controlId="Disponibiliadad">
             <Form.Label>Disponibiidad</Form.Label>
           <Form.Select value={productoEditar.Avaliable} onChange={({target})=>setProductoEditar({...productoEditar,Avaliable: target.value})}>
-              <option value="">Seleccione una categoria</option>
+              
               <option value="true">Si</option>
               <option value="false">No</option>                          
             </Form.Select>

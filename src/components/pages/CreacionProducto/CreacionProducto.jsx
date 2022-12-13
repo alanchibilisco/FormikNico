@@ -53,7 +53,7 @@ const CreacionProducto = () => {
          newProducto,         
       );
 
-      if (resp.status===201) {
+      if (resp.status===200) {
         Swal.fire(
        'Creado!',
        'Su producto se creo correctamente.',
@@ -116,7 +116,6 @@ const CreacionProducto = () => {
           <Form.Group className="my-1" controlId="Disponibiliadad">
             <Form.Label>Disponibiidad</Form.Label>
           <Form.Select onChange={({target})=> setdisponibilidadProducto(target.value)}>
-              <option value="">Seleccione una categoria</option>
               <option value="true">Si</option>
               <option value="false">No</option>                          
             </Form.Select>
