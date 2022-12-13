@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Form, Row ,} from 'react-bootstrap'
-import { json, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import instance from '../../../api/axios';
 import logo from "../../../imagenes/Imagen1.png";
+import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
+import Swal from 'sweetalert2';
+
 
 
 const EdicionProducto = () => {
@@ -10,6 +13,13 @@ const EdicionProducto = () => {
   
   const{id}= useParams()
    console.log(useParams);
+
+  const productoNameRef =useRef("") 
+  const productoEditarRef =useRef("") 
+  const productoPriceRef =useRef("") 
+  const productoUrlRef =useRef("") 
+  const productoPorcentajeRef =useRef("") 
+  
 
    const getProductosID = async()=>{
      try {
@@ -27,6 +37,26 @@ const EdicionProducto = () => {
     getProductosID()
 
   },[])
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(productoNameRef.current.value);
+     //validador de campos
+      if (
+       !validateProductName(productoNameRef.current.value) ||
+       !validateDetalleProducto(productoEditarRef.current.value) ||
+       !validatePrice(productoPriceRef.current.value)||
+       !validateUrl(productoUrlRef.current.value) ||
+       !validateCategory(productoEditar.Category)||
+       validatePorcentaje(productoPorcentajeRef.current.value)
+      )
+      {
+      Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
+     return 
+     }
+     console.log("datos correctos");
+  }
+  
   
   return (
     <div>
@@ -38,15 +68,16 @@ const EdicionProducto = () => {
           <Form className="my-2" >
           <Form.Group className="my-1" controlId="nombrerProducto">
             <Form.Label>Producto</Form.Label>
-            <Form.Control type="text" placeholder="Ej:Ipa" defaultValue={productoEditar.ProductName}/>
+            <Form.Control type="text" placeholder="Ej:Ipa" defaultValue={productoEditar.ProductName}
+            ref={productoNameRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="detalleProducto">
             <Form.Label>Detalle</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo"  defaultValue={productoEditar.Productdetalle}/>
+            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo"  defaultValue={productoEditar.Productdetalle} ref={productoEditarRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="precioProducto">
             <Form.Label>Price</Form.Label>
-            <Form.Control type="number" placeholder="Ej: 250" defaultValue={productoEditar.PriceProduct} />
+            <Form.Control type="number" placeholder="Ej: 250" defaultValue={productoEditar.PriceProduct} ref={productoPriceRef} />
           </Form.Group>
           <Form.Group className="my-1" controlId="urlProducto">
             <Form.Label>Imagen URL</Form.Label>
@@ -54,6 +85,7 @@ const EdicionProducto = () => {
               type="text"
               placeholder="Ej: https://www.tubirra.com"
               defaultValue={productoEditar.ImgURL}
+              ref={productoUrlRef}
             />
           </Form.Group>
           <Form.Group className="my-1" controlId="categoriaProducto">
@@ -69,8 +101,8 @@ const EdicionProducto = () => {
           </Form.Group>
           <Form.Group className="my-1" controlId="Graduacion">
             <Form.Label>Graduacion</Form.Label>
-            <Form.Control type="text" placeholder="Ej: 5%" defaultValue={productoEditar.Graduation
-            }/>
+            <Form.Control type="text" placeholder="Ej: 5%" defaultValue={productoEditar.Graduation}
+            ref={productoPorcentajeRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="Disponibiliadad">
             <Form.Label>Disponibiidad</Form.Label>
@@ -81,7 +113,7 @@ const EdicionProducto = () => {
             </Form.Select>
           </Form.Group>
           <div className="text-center">
-            <Button variant="warning">Actualizar🍻</Button>
+            <Button variant="warning" onClick={handleSubmit}>Actualizar🍻</Button>
           </div>
         </Form>
           </Col>

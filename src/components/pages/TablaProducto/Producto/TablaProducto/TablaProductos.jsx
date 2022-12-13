@@ -76,8 +76,8 @@ const searchEnter = (e) => {
             </Form>
           </Col>
           <Col lg={3}>
-            <Button variant="outline-primary mx-1">
-              <Link to="/productpage/creacionproducto" variant="outline-light">
+            <Button variant="outline-primary mx-1"> 
+              <Link to="/productpage/creacionproducto" variant="outline-light"> 
                 <box-icon name="message-square-add" type="solid"></box-icon>
               </Link>
             </Button>

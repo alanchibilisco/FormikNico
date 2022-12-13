@@ -26,7 +26,7 @@ const CreacionProducto = () => {
       validatePorcentaje(graduacionProducto)
      )
      {
-     alert("Validacion erronea")     
+      Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
      return 
      }
    
