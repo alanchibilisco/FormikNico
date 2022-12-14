@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/img/logo/Imagen1.png";
 import Login from '../../Login';
 
-
-
-
 const NavBar = () => {
 
   const [show, setShow] = useState(false);
@@ -16,10 +13,10 @@ const NavBar = () => {
 
   return (
     <div className="sticky-top" >
-      <Navbar className="bg-dark" expand="lg">
+      <Navbar className="bg-dark text-center" expand="lg">
         <Container fluid>
           <Navbar.Brand>
-            <Link to='/'><img src={logo} alt="logo" width="200" /></Link>
+            <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -38,8 +35,6 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-
     </div>
   );
 };
