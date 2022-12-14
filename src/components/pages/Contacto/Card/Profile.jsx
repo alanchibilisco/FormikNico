@@ -4,7 +4,7 @@ import './Profile.css'
 
 const Profile = ({img, name, text}) => {
   return (
-    <Card style={{ width: '18rem' }} className='card-test'>
+    <Card className='card-test'>
       <Card.Img variant="top" src={img} className='card-test__image'/>
       <Card.Body>
         <Card.Title className='card-test__title'>{name}</Card.Title>
