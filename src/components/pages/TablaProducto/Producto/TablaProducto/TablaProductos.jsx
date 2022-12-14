@@ -6,7 +6,8 @@ import instance from "../../../../../api/axios";
 import Swal from "sweetalert2";
 
 
-const TablaProducto = () => {
+const TablaProducto = (props) => {
+  props.funcNav(true)
 
   const [producto , setProducto] =useState([])
   const [buscadorProducto , setbuscadorProducto] =useState("")
