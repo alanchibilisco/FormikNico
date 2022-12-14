@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table, Button, Row, Col, Form, Spinner, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import 'boxicons';
 import instance from "../../../../../api/axios";
+import Swal from "sweetalert2";
 
 
 const TablaProducto = () => {
 
   const [producto , setProducto] =useState([])
   const [buscadorProducto , setbuscadorProducto] =useState("")
+  const navigate = useNavigate()
  
 const getProductos =async()=>{
 
@@ -51,6 +53,36 @@ const searchEnter = (e) => {
       e.preventDefault()
     }
   }
+const handleDelete = (id)=>{
+  Swal.fire({
+    title: 'Quieres borrar este producto?',    
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Aceptar'
+  }).then( async (result) => {
+    if (result.isConfirmed) {
+      try {
+         const resp = await instance.delete(`/productos/${id}`,
+            
+      );
+      if (resp.status===200) { 
+        Swal.fire(
+          'Borrado',
+          'Su producto se borro correctamente.',
+          'success'
+        )
+        getProductos()
+
+      }    
+      } catch (error) {
+      console.log(error);  
+      }
+    }
+  });
+    }
+  
 
   
   return (
@@ -123,7 +155,7 @@ const searchEnter = (e) => {
                 ></box-icon>
               </Link>
             </Button>
-            <Button variant="outline-danger mx-1">
+            <Button variant="outline-danger mx-1" onClick={()=>handleDelete(prod._id)}>
               <box-icon
                 name="message-square-x"
                 type="solid"

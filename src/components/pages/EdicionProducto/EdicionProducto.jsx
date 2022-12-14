@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Form, Row ,} from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axios';
 import logo from "../../../imagenes/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
@@ -19,6 +19,7 @@ const EdicionProducto = () => {
   const productoPriceRef =useRef("") 
   const productoUrlRef =useRef("") 
   const productoPorcentajeRef =useRef("") 
+  const navigate = useNavigate()
   
 
    const getProductosID = async()=>{
@@ -77,15 +78,18 @@ const EdicionProducto = () => {
          const resp = await instance.put(`/productos/${id}`,
         productoActualizado,         
       );
-        
+      if (resp.status===200) { 
+        Swal.fire(
+          'Actualizado',
+          'Su producto se actualizo correctamente.',
+          'success'
+        )
+        navigate(`/tablaproducto`)
+
+      }    
       } catch (error) {
       console.log(error);  
       }
-      Swal.fire(
-        'Actualizado',
-        'Su producto se actualizo correctamente.',
-        'success'
-      )    
     }
   });
     }

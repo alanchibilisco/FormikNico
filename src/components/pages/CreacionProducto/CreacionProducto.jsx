@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import logo from "../../../imagenes/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
 import instance from "../../../api/axios";
+import { useNavigate } from 'react-router-dom';
 
 
 const CreacionProducto = () => {
@@ -14,6 +15,7 @@ const CreacionProducto = () => {
   const [categoriaProducto, setcategoriaProducto] = useState("Cerveza")
   const [graduacionProducto, setgraduacionProducto] = useState("")
   const [disponibilidadProducto, setdisponibilidadProducto] = useState("true")
+  const navigate = useNavigate()
   const handleSubmit=(e)=>{
     e.preventDefault()
     //validador de campos
@@ -58,7 +60,9 @@ const CreacionProducto = () => {
        'Creado!',
        'Su producto se creo correctamente.',
        'success'
-     )      
+     )  
+     reset()
+     navigate(`/tablaproducto`)    
      
       }      
       } catch (error) {
