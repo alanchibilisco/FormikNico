@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import logo from "../../../imagenes/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje} from '../../helpers/validateFields';
 import instance from "../../../api/axios";
+import { useNavigate } from 'react-router-dom';
 
 
 const CreacionProducto = (props) => {
@@ -15,6 +16,7 @@ const CreacionProducto = (props) => {
   const [categoriaProducto, setcategoriaProducto] = useState("Cerveza")
   const [graduacionProducto, setgraduacionProducto] = useState("")
   const [disponibilidadProducto, setdisponibilidadProducto] = useState("true")
+  const navigate = useNavigate()
   const handleSubmit=(e)=>{
     e.preventDefault()
     //validador de campos
@@ -27,7 +29,7 @@ const CreacionProducto = (props) => {
       validatePorcentaje(graduacionProducto)
      )
      {
-     alert("Validacion erronea")     
+      Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
      return 
      }
    
@@ -54,12 +56,14 @@ const CreacionProducto = (props) => {
          newProducto,         
       );
 
-      if (resp.status===201) {
+      if (resp.status===200) {
         Swal.fire(
        'Creado!',
        'Su producto se creo correctamente.',
        'success'
-     )      
+     )  
+     reset()
+     navigate(`/tablaproducto`)    
      
       }      
       } catch (error) {
@@ -117,7 +121,6 @@ const CreacionProducto = (props) => {
           <Form.Group className="my-1" controlId="Disponibiliadad">
             <Form.Label>Disponibiidad</Form.Label>
           <Form.Select onChange={({target})=> setdisponibilidadProducto(target.value)}>
-              <option value="">Seleccione una categoria</option>
               <option value="true">Si</option>
               <option value="false">No</option>                          
             </Form.Select>
