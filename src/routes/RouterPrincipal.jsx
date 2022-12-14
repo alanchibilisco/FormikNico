@@ -32,14 +32,13 @@ const RouterPrincipal = () => {
         <Route exact path="/" element={<Home funcNav={setShowNav}/>} />
         <Route exact path="/recpassword" element={<RecPassword funcNav={setShowNav}/>} />
         <Route exact path="/tablaproducto" element={<TablaProducto funcNav={setShowNav}/>} />
-        <Route exact path="/creacionproducto" element={<CreacionProducto funcNav={setShowNav}/>} />
+        <Route exact path="/productpage/creacionproducto" element={<CreacionProducto funcNav={setShowNav} />} />
         <Route exact path="/edicionproducto/:id" element={<EdicionProducto funcNav={setShowNav}/>} />
         <Route exact path="/contacto" element={<Contacto funcNav={setShowNav}/>} />
         <Route exact path="/productpage" element={<ProductPage funcNav={setShowNav}/>} />
         <Route exact path="/destacados" element={<Destacados funcNav={setShowNav}/>} />
         <Route exact path="/favoritos" element={<Favorito funcNav={setShowNav}/>} />
         <Route exact path="*" element={<Error404 funcNav={setShowNav}/>} />
-
       </Routes>
       {   showNav &&
           <nav>

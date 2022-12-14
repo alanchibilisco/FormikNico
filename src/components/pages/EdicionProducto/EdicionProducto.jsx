@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 
 
 
-const EdicionProducto = () => {
+const EdicionProducto = (props) => {
+  props.funcNav(true)
   const [productoEditar, setProductoEditar] = useState({})
   
   const{id}= useParams()
