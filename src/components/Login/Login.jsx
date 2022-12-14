@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -8,11 +8,41 @@ import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
 import { Link } from 'react-router-dom';
 import Registro from '../Registro/Registro';
+import { validateEmail, validatePassword } from '../helpers/validateFields';
+import Swal from 'sweetalert2';
 
 const Login = ({ show, handleClose }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("testing")
+
+    // validacion de los campos
+    if(!validateEmail(email) || !validatePassword(password)) {
+      {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email or password incorrect!'
+        })
+        return
+      }
+    }else{
+      Swal.fire({
+        icon: 'success',
+        title: 'Good job!',
+        text: 'Now you are logged in!'
+      })
+      return
+    }
+  }
+
   return (
     <Modal show={show} onHide={handleClose} backdrop="static">
       <Modal.Header closeButton>
@@ -22,27 +52,22 @@ const Login = ({ show, handleClose }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Enter your password" value={password} onChange={({target})=> setPassword(target.value)} maxLength={30} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
           <div className='d-grid gap-2'>
-            <Button variant="warning" type="submit">
-              Sign in
-            </Button>
+            <Button variant="warning" type="submit">Sign in</Button>
           </div>
         </Form>
         <div className="d-flex justify-content-between my-3">
