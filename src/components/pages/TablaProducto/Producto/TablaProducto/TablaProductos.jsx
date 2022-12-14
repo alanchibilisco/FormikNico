@@ -148,7 +148,7 @@ const handleDelete = (id)=>{
           <div className="d-flex justify-content-center">
             <Button variant="outline-success mx-1">
               <Link
-                to={`/productpage/edicionproducto/${prod._id}`}
+                to={`/edicionproducto/${prod._id}`}
                 variant="outline-primary mx-1">
                 <box-icon
                   type="solid"
