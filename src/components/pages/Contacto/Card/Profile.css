@@ -1,0 +1,35 @@
+.card-test {
+    overflow: hidden;
+    box-shadow: 0 2px 20px #e1e5ee;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+}
+.card-test__image {
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+.card-test__title {
+    padding: 1rem;
+}
+.card-test__text {
+    padding: 0 1rem;
+}
+.card-test__btn {
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    background: transparent;
+    border-radius: 0.2rem;
+}
+.card-test:hover {
+    transform: scale(1.05);
+}
