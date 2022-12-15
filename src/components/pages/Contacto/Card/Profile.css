@@ -12,6 +12,8 @@
     height: 12rem;
     width: 100%;
     object-fit: cover;
+    width: 200px;
+    height: 200px;
 }
 .card-test__title {
     padding: 1rem;
@@ -29,5 +31,5 @@
     border-radius: 0.2rem;
 }
 .card-test:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
 }

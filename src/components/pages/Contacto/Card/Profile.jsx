@@ -1,17 +1,15 @@
-import {Button, Card} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import './Profile.css'
-// import dr from '../assets/img/avatar/doctor_strange_icon_by_thelivingethan_dcax023-pre.jpg'
+import Icons from './social-icons/Icons';
 
-const Profile = ({img, name, text}) => {
+const Profile = ({img, name, text, face, tw, ig, github, linkedin}) => {
   return (
-    <Card className='card-test'>
-      <Card.Img variant="top" src={img} className='card-test__image'/>
+    <Card style={{ width: 'fit-content' }} className='card-test text-center'>
+      <Card.Img variant="top" src={img} className='card-test__image mx-auto'/>
       <Card.Body>
-        <Card.Title className='card-test__title'>{name}</Card.Title>
-        <Card.Text className='card-test__text'>
-          {text}
-        </Card.Text>
-        <Button variant="warning" className='card-test__btn'>Go somewhere</Button>
+        <Card.Title className='card-test__title mb-0'>{name}</Card.Title>
+        <Card.Text className='card-test__text'>{text}</Card.Text>
+        <Icons face={face} tw={tw} ig={ig} github={github} linkedin={linkedin}/>
       </Card.Body>
     </Card>
   )
