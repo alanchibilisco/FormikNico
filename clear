@@ -1,0 +1,218 @@
+[33mcommit 0710badf6ed9800865b7c41d90ceb3b69cf284b1[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Sun Dec 11 21:34:36 2022 -0300
+
+    se resolvieron algunos problemas de merge con la rama Login y se hicieron unas pequeñas modificaciones en el codigo
+
+[33mcommit a48eb56fc2f2d1dfb6f60f650c04c96dc1677ae2[m
+Merge: 6d4f0f0 a2a53a2
+Author: Gabriel Carrizo <109557339+1gabrielcarrizo@users.noreply.github.com>
+Date:   Sun Dec 11 21:11:22 2022 -0300
+
+    Merge pull request #2 from NicolasViruel/Login
+    
+    Login -- se resolvieron 3 conflictos de merge con la rama Login y de la rama dev
+
+[33mcommit a2a53a21b160b7efa9a9cd378cfe8e0adf8c3dd2[m
+Merge: 7a9f414 6d4f0f0
+Author: Gabriel Carrizo <109557339+1gabrielcarrizo@users.noreply.github.com>
+Date:   Sun Dec 11 21:10:40 2022 -0300
+
+    Merge branch 'develop' into Login
+
+[33mcommit 7a9f41409581e153a417030dfc65766cbb9c8043[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Sun Dec 11 20:32:43 2022 -0300
+
+    se modificaron un par de detalles del navbar y del modal registro
+
+[33mcommit d04f0c4bbe5ab33974a336e606d0acb0933051e3[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Sun Dec 11 20:21:47 2022 -0300
+
+    se hicieron unas modificaciones
+
+[33mcommit 6d4f0f026f4c9eca72b96ce3d29648d94be528b2[m
+Merge: fa8ba2a 5109b64
+Author: Gabriel Carrizo <109557339+1gabrielcarrizo@users.noreply.github.com>
+Date:   Sun Dec 11 19:39:32 2022 -0300
+
+    Merge pull request #1 from NicolasViruel/pruebaError404
+    
+    Prueba error404
+
+[33mcommit 5e92c7de306c794961f1a58047952e5f9e6698f5[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Sun Dec 11 16:11:18 2022 -0300
+
+    se creo el modal de registro y se modifico el modal de login, se modifico el nav y el footer
+
+[33mcommit 5109b64f5eea43fabfd4ec3f622e42823ed85290[m[33m ([m[1;31morigin/pruebaError404[m[33m)[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Sun Dec 11 13:01:25 2022 -0300
+
+    pagina error404 finalizada sin navbar y footer pero con advertencias en la consola
+
+[33mcommit 00a28c3e65b3e79b9e8578c8bf1416c942ccc029[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Sun Dec 11 10:58:22 2022 -0300
+
+    modificando algunas cosas en el error404
+
+[33mcommit dd80190354340b5438f2000ba9a9e6308c7f7cc4[m[33m ([m[1;32mpruebaError404[m[33m)[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Sat Dec 10 11:52:28 2022 -0300
+
+    se modifico la pag error404 + se intento corregir el footer
+
+[33mcommit 63a7e324ff4e4afddecf04e995fcdcda86c4e2b5[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Sat Dec 10 11:12:36 2022 -0300
+
+    pequeña modificacion en el modal del login
+
+[33mcommit 69a3034a3dd9da44bb81efa2a210b081a5677091[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Sat Dec 10 07:07:48 2022 -0300
+
+    se crearon las paginas de recuperar contraseña y registro
+
+[33mcommit b5dd69bfbc7426849e52ece1cc011fd214e2257c[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Fri Dec 9 17:42:16 2022 -0300
+
+    se modifico el orden de la ruta de las imagenes
+
+[33mcommit 31f8e1c83b50b573f7e6441d9dc78ea761008aa5[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Fri Dec 9 17:22:21 2022 -0300
+
+    se modifico el orden de las rutas
+
+[33mcommit 748289c5cd96b7fd6ca00e5ae67079632e512559[m
+Merge: a32f065 60c3aa1
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Fri Dec 9 14:24:22 2022 -0300
+
+    Merge branch 'pruebaError404' into Login
+
+[33mcommit 60c3aa1286bb0958ed7ca5b13fd1b2720a0e235e[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Fri Dec 9 14:18:29 2022 -0300
+
+    se agrego la pagina recuperar contraseña
+
+[33mcommit a32f0656d7af624452c8893af8ba1ecf23b21e65[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Fri Dec 9 12:27:30 2022 -0300
+
+    se empezo pagina recuperar contraseña y modal registro
+
+[33mcommit 5de15c62913f2d61507db82d441e957482e57c39[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Fri Dec 9 12:24:45 2022 -0300
+
+    se cambiaron el idioma de loas mensajes
+
+[33mcommit f95262e1a7de42dbb51db467e8062797acf73395[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Fri Dec 9 12:05:57 2022 -0300
+
+    se modifico el login para que quede como modal + se añadieron imagenes/logos
+
+[33mcommit 89bcfcbb3e32ea61471849b591d52ab3c3274656[m
+Author: nicolas <nicolasviruel@gmail.com>
+Date:   Fri Dec 9 09:19:11 2022 -0300
+
+    Se agrego la pagina de login, con css y imagen. Falta retocar los modals y dar funcionalidad
+
+[33mcommit dccdf4934890fb65f86410e6d5a0fd77a736cf89[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Thu Dec 8 22:39:45 2022 -0300
+
+    se modifico el footer y se agrego el qr fiscal
+
+[33mcommit 22a5737754fe407cafdbbcc41ff305276d6878a8[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Thu Dec 8 21:58:29 2022 -0300
+
+    se cambio el tamaño de las imagenes del carousel
+
+[33mcommit 1b959237913112e8ecae4c1fc98687881432d965[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Thu Dec 8 19:10:15 2022 -0300
+
+    se soluciono unos errores en el footer
+
+[33mcommit 8327663214eeb9f7a4032af44272392a78781e7e[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Thu Dec 8 18:08:24 2022 -0300
+
+    se soluciono la sobreposicion del header con el navbar
+
+[33mcommit ade3f89342b050c7de889969ca7ea9d5fdf8c4d9[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Thu Dec 8 17:56:06 2022 -0300
+
+    se sigue modificando el navbar y header
+
+[33mcommit 4910f4177fff829f3c1d6b1a3959e3185eaa97fe[m
+Merge: a5fd495 fa8ba2a
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Thu Dec 8 17:17:07 2022 -0300
+
+    Merge branch 'develop' into pruebaError404
+
+[33mcommit fa8ba2a27a35c74a5e00f474c699b97e5adc219f[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Thu Dec 8 17:12:20 2022 -0300
+
+    se agrego logo de la pagina en el header
+
+[33mcommit a5fd495634f75df172b6ec346db869c6d58c4313[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Thu Dec 8 16:56:41 2022 -0300
+
+    se creo la pagina error404
+
+[33mcommit d0df4bfc3aade38cc47669e0b3696a95e8991fb7[m
+Author: 1gabrielcarrizo <gabriel_glee_97@hotmail.com>
+Date:   Thu Dec 8 01:32:05 2022 -0300
+
+    se solucionaron los errores + se le agrego la propiedad sticky al navbar
+
+[33mcommit 68ce7836de76fec1a78bb52e766a74d0dc170c69[m
+Author: franco monteros <franco.n.monteros@gmail.com>
+Date:   Thu Dec 8 00:30:54 2022 -0300
+
+    se agragaron nuevas rutas y se presentaron algunos problemas
+
+[33mcommit bfaf088734e405172cc33e9dd57a387d49a73d48[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: josetrivino89 <josetrivino89@gmail.com>
+Date:   Tue Dec 6 10:57:32 2022 -0300
+
+     se corrigio el footer para que quede fluid
+
+[33mcommit 21e673e0594f0ce5441dc70055ebe643f14a5e02[m
+Author: nicolas <nicolasviruel@gmail.com>
+Date:   Mon Dec 5 22:12:48 2022 -0300
+
+    Corregimos errores finales para comenzar a trabajar
+
+[33mcommit 5f29736593514320da68f5445ca982ac9023be21[m
+Author: nicolas <nicolasviruel@gmail.com>
+Date:   Mon Dec 5 19:49:20 2022 -0300
+
+    se agrega logo para luego modificarlo
+
+[33mcommit ab4224b02543263e6804b8eb320d14214b5d3537[m
+Author: nicolas <nicolasviruel@gmail.com>
+Date:   Mon Dec 5 18:53:55 2022 -0300
+
+    Se agrego la carpeta de routes para tener un mejor manejo de las rutas y ademas se comenzo con el maquetado del footer, faltaria importar font awesome
+
+[33mcommit 101f4d0abee99be62f7b0a5e81100aa5ab45952c[m
+Author: nicolas <nicolasviruel@gmail.com>
+Date:   Sun Dec 4 23:27:32 2022 -0300
+
+    Se crea el escafolding y ruteo de las paginas
