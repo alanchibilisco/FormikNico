@@ -61,7 +61,7 @@ const CreacionProducto = () => {
        'Su producto se creo correctamente.',
        'success'
      )  
-     reset()
+     
      navigate(`/tablaproducto`)    
      
       }      
@@ -71,6 +71,7 @@ const CreacionProducto = () => {
     }
   });
 } ;
+
 
 
   return (
