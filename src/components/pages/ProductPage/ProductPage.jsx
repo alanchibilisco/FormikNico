@@ -5,7 +5,8 @@ import './ProductPage.css'
 import instance from '../../../api/axios';
 
 
-const ProductPage = () => {
+const ProductPage = (props) => {
+  props.funcNav(true)
   //usamos un useState , para definir las variables
   const [producto,setProductos]=useState([])
   const [buscadorProducto,setbuscadorProductos]=useState("")

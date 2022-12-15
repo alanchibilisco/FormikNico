@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Form, Row ,} from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axios';
-import logo from "../../../imagenes/Imagen1.png";
+import logo from "../../../assets/img/logo/Imagen1.png";
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
 import Swal from 'sweetalert2';
 
 
 
-const EdicionProducto = () => {
+const EdicionProducto = (props) => {
+  props.funcNav(true)
   const [productoEditar, setProductoEditar] = useState({})
   
   const{id}= useParams()

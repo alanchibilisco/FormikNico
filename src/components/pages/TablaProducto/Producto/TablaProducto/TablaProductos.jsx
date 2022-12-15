@@ -6,7 +6,8 @@ import instance from "../../../../../api/axios";
 import Swal from "sweetalert2";
 
 
-const TablaProducto = () => {
+const TablaProducto = (props) => {
+  props.funcNav(true)
 
   const [producto , setProducto] =useState([])
   const [buscadorProducto , setbuscadorProducto] =useState("")
@@ -147,7 +148,7 @@ const handleDelete = (id)=>{
           <div className="d-flex justify-content-center">
             <Button variant="outline-success mx-1">
               <Link
-                to={`/productpage/edicionproducto/${prod._id}`}
+                to={`/edicionproducto/${prod._id}`}
                 variant="outline-primary mx-1">
                 <box-icon
                   type="solid"
