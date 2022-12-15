@@ -97,7 +97,7 @@ const Error404 = (props) => {
       </div>
       <div className='message text-center'>
         <h3>It seems there was an error 🤔 back to home!</h3>
-        <Button size="lg" variant="warning" className='my-4 text-decoration-none'><Link to="/" className=" text-decoration-none text-center text-black">Home</Link></Button>
+        <Button size="lg" variant="warning" className='my-4 text-decoration-none'><Link to="/" className=" text-decoration-none text-center text-black">Home 🍻</Link></Button>
       </div>
     </Container>
     </>

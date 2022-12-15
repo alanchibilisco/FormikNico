@@ -108,3 +108,12 @@
     background: #0072b1;
     color: #fff;
 }
+
+@media screen and (max-width: 359px){
+    .wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+   }
+   

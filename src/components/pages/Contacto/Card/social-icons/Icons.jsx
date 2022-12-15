@@ -5,7 +5,7 @@ import './index.css'
 const Icons = ({face, tw, ig, github, linkedin}) => {
     return (
         <Container>
-            <ul className="wrapper">
+            <ul className="wrapper ">
                 <a className="icon facebook" href={face} target="_blank">
                     <span className="tooltip">Facebook</span>
                     <span>
