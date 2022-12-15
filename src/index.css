@@ -68,9 +68,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+html{
+  position: relative;
+}
 main {
   /* min-height: calc(100vh - 344.48px - 126px); */
-  min-height: calc(100vh - 126px - 344.48px);
+  /* min-height: calc(100vh - 126px - 344.48px); */
+  /* position: relative; */
 }
 
 .cart{
