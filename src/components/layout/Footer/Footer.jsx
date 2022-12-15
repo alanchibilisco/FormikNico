@@ -11,7 +11,7 @@ import "./footer.css"
 
 const Footer = () => {
     return (
-        <Container className='text-center' fluid>
+        <Container className='text-center' fluid style={{position: 'absolute', marginTop: "auto"}}>
             <Row className='bg-dark row'>
                 <Col xs={12} md={6} lg={3} >
                     <Image src={logo} alt="logo" width="150" />
