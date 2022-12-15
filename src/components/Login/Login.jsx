@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -6,13 +6,39 @@ import { Image } from 'react-bootstrap';
 import logo from '../../assets/img/logo/Imagen1.png'
 import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
-import { Link } from 'react-router-dom';
-import Registro from '../Registro/Registro';
+import { Link, Navigate } from 'react-router-dom';
+import Registro from '../../components/Registro/Registro';
+import instance from '../../api/axiosUsuarios'
 
 const Login = ({ show, handleClose }) => {
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
+
+
+  const loginUsuarios = async() =>{
+    // const navigate = useNavigate()
+
+    const user = {
+      email:"nicolasviruel@gmail.com",
+      password:"123456789"
+    }
+    try {
+      const res = await instance.post("/auth/login", user)
+      const user_token = res.data.token
+      localStorage.setItem("token", user_token)
+      return <Navigate to="/" replace/>
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() =>{
+    loginUsuarios()
+
+  }, [])
+
+
   return (
     <Modal show={show} onHide={handleClose} backdrop="static">
       <Modal.Header closeButton>

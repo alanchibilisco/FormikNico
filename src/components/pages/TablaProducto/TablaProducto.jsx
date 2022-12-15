@@ -1,7 +1,19 @@
 import React from 'react'
+import instance from '../../../api/axiosUsuarios'
 
 const TablaProducto = (props) => {
-  props.funcNav(true)
+
+
+  const tablaProducto = async() =>{
+    try {
+      const res = await instance.get("/users")
+    } catch (error) {
+      
+    }
+  }
+
+
+
   return (
     <div>TablaProducto</div>
   )
