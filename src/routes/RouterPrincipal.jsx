@@ -24,7 +24,7 @@ const RouterPrincipal = () => {
 
     <>
     {   showNav &&
-          <nav>
+          <nav className="sticky-top">
             <Navbar />
           </nav>
    }
