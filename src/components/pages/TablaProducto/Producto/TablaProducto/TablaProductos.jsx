@@ -116,7 +116,7 @@ const handleDelete = (id)=>{
             </Button>
           </Col>
           <Col lg={12}>
-            <Table bordered hover responsive className="align-middle mt-3">
+            <Table bordered hover responsive className="align-middle mt-3" >
               <thead>
                 <tr>
                   <th>N.</th>

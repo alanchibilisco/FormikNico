@@ -1,46 +1,106 @@
 import React from "react";
-import { Button, Container, Image, Col, Row } from "react-bootstrap";
-import logo from "../../../assets/img/logo/Imagen1.png";
-import "boxicons";
-import "./carrito.css";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { Table } from "react-bootstrap";
+import {v4 as uuidv4} from 'uuid';
+import moment from 'moment';
 
-const Carrito = () => {
+
+const ModalCarrito = ({show, handleClose}) => {
+    const myuuid = uuidv4()
+    const hoy = moment()
+    moment.locale('es');
+       
   return (
-    <Container fluid>
-      <Row className="d-flex">       
-        <Col>
-        <div className="carritos show">
-          <div className="carrito show">
-            <div className="carrito_close">
-              <box-icon name="x"></box-icon>
-            </div>
-            <h2>Su Carrito:</h2>
-            <div className="carrito_center">
-              <div className="carrito_item">
-                <Image src={logo} width={230} height={230} alt="" />
-                <div>
-                  <h6>title</h6>
-                  <p className="price">$345</p>
-                  <div>
-                    <box-icon type="solid" name="up-arrow"></box-icon>
-                    <p className="cantidad">1</p>
-                    <box-icon name="down-arrow" type="solid"></box-icon>
-                  </div>
-                  <div className="remove_item">
-                    <box-icon Name="trash" type="solid"></box-icon>
-                  </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        
+        <Modal.Title> 🛒 Su carrito: </Modal.Title>
+      </Modal.Header>
+      <h6 className="align-middle text-center mt-3">{hoy.format('llll')}</h6>
+      <Modal.Body>
+        <Table bordered hover responsive className="align-middle text-center mt-3">
+          <thead>
+            <tr>
+              <th>N.</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cant.</th> 
+              <th>Total</th>                            
+              <th>Quitar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>IPA LOCA</td>
+              <td>$400</td>
+              <td>2</td>
+              <td>$800</td>              
+              <td className="w-25">
+                <div className="d-flex justify-content-center">
+                   <Button variant="outline-danger mx-1">
+                    <box-icon name="message-square-x" type="solid"></box-icon>
+                  </Button>
                 </div>
-              </div>
-            </div>
-            <div className="carrito_footer">
-              <h6>Total: $2223</h6>
-              <Button variant="warning">Pagar</Button>
-            </div>
-          </div>
-        </div>
-        </Col>
-      </Row>
-    </Container>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>IPA LOCA</td>
+              <td>$400</td>
+              <td>2</td>
+              <td>$800</td>              
+              <td className="w-25">
+                <div className="d-flex justify-content-center">
+                   <Button variant="outline-danger mx-1">
+                    <box-icon name="message-square-x" type="solid"></box-icon>
+                  </Button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>IPA LOCA</td>
+              <td>$400</td>
+              <td>2</td>
+              <td>$800</td>              
+              <td className="w-25">
+                <div className="d-flex justify-content-center">
+                   <Button variant="outline-danger mx-1">
+                    <box-icon name="message-square-x" type="solid"></box-icon>
+                  </Button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>IPA LOCA</td>
+              <td>$400</td>
+              <td>2</td>
+              <td>$800</td>              
+              <td className="w-25">
+                <div className="d-flex justify-content-center">
+                   <Button variant="outline-danger mx-1">
+                    <box-icon name="message-square-x" type="solid"></box-icon>
+                  </Button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </Modal.Body>
+        <h4 className="text-center">Total: $ 4000</h4>
+      <Modal.Footer className="text-center">
+        <div className="text-center">Ticket Op: {myuuid} </div>
+        <Button variant="secondary" onClick={handleClose}>
+          Vaciar carrito
+        </Button>
+        <Button variant="primary" onClick={handleClose}>
+          Comprar
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
-export default Carrito;
+export default ModalCarrito;

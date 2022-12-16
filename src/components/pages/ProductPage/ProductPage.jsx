@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Nav, Row, Card,Spinner,} from "react-boot
 import 'boxicons';
 import './ProductPage.css'
 import instance from '../../../api/axios';
-import  Carrito  from "../Carrito/carrito.jsx"
+import  ModalCarrito  from "../Carrito/carrito.jsx"
 
 
 const ProductPage = (props) => {
@@ -11,6 +11,12 @@ const ProductPage = (props) => {
   //usamos un useState , para definir las variables
   const [producto,setProductos]=useState([])
   const [buscadorProducto,setbuscadorProductos]=useState("")
+  const [contador, setContador]= useState(0)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
+
   
  //creamos una constante para traer los productos instanciados de DB
   const getProductos= async()=>{
@@ -50,21 +56,24 @@ const ProductPage = (props) => {
       e.preventDefault()
     }
   }
+  const incrementarCarrito =()=>{
+    setContador(contador+1);
+  }
     useEffect(()=>{
       getProductos()
     },[])
 
   return (
-    <div>
+    <>
       <Container className="py-5 ">
         <h3> Nuestras Birras</h3>
         <Nav className="justify-content-end mt-2" activeKey="/home">
           {/* carrito compra */}
           <Nav.Item>
-            <Nav.Link href="/home">
+            <Nav.Link>
               <div className="cart">
-                <box-icon name="cart"></box-icon>
-                <span classname="item_carrito">0</span>
+               <box-icon name="cart" onClick={handleShow}></box-icon>
+                <span classname="item_carrito" onClick={handleShow}>{contador}</span>
               </div>
             </Nav.Link>
           </Nav.Item>
@@ -87,9 +96,6 @@ const ProductPage = (props) => {
           </Nav.Item>
         </Nav>
         {/* productos */}
-        <Col>
-         <Carrito/>
-        </Col>
         <Row>
           {producto.length > 0 ? (
             producto.map((prod) => (
@@ -116,7 +122,7 @@ const ProductPage = (props) => {
                       </h6>
                     </Card.Text>
                     <div className="d-flex align-items-center justify-content-between">
-                      <button className="btn-gray"> Comprar</button>
+                      <button className="btn-gray" onClick={incrementarCarrito}> Agregar 🛒</button>
                     </div>
                   </Card.Body>
                 </Card>
@@ -128,7 +134,8 @@ const ProductPage = (props) => {
         </Row>
         {/* productos */}
       </Container>
-    </div>
+      <ModalCarrito show={show} handleClose={handleClose}/>
+    </>
   );
 }
 
