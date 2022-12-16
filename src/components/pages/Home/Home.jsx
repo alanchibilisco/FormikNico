@@ -40,6 +40,7 @@ const Home = (props) => {
           <img src={PapaNoel} alt="papanoel" width="300" />
             <p >Bienvenido : {userdata.name} </p>
             <p>Email : {userdata.email} </p>
+            <p>Role : {userdata.role} </p>
           </Col>
         </Row>
         

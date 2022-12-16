@@ -43,7 +43,7 @@ const RouterPrincipal = () => {
         <Route exact path="/favoritos" element={<Favorito funcNav={setShowNav}/>} />
         <Route exact path="*" element={<Error404 funcNav={setShowNav}/>} />
 
-        <Route path="admin" element={
+        <Route path="/admin" element={
           <RoutePrivate>
             <TablaUsuarios/>
           </RoutePrivate>

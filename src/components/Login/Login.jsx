@@ -19,53 +19,46 @@ const Login = ({ show, handleClose }) => {
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
     e.preventDefault()
     console.log("testing")
-
-    // validacion de los campos
-    if(!validateEmail(email)) {
-      {
+    if (validateEmail(email) && (validatePassword(password))) {
+      const user = {
+        email,
+        password,
+      }
+      try {
+        const res = await instance.post("/auth/login", user)
+        const user_token = res.data.token
+        localStorage.setItem("token", user_token)
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Email or password incorrect!'
-        })
-        return
+              icon: 'success',
+              title: 'Bienvenido!',
+              text: 'Ahora estas logeado!'
+            })
+            setTimeout(() =>{
+              handleClose();
+              navigate("/") 
+            },1000)
+
+      } catch (error) {
+        Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email o Password incorrectos!'
+              })
+        console.log(error);
       }
     }else{
       Swal.fire({
-        icon: 'success',
-        title: 'Good job!',
-        text: 'Now you are logged in!'
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debe ingresar Email y contraseña!'
       })
-      return
-    }
-  };
-
-
-  const loginUsuarios = async() =>{
-    
-
-    const user = {
-      email,
-      password
-    }
-    try {
-      const res = await instance.post("/auth/login", user)
-      const user_token = res.data.token
-      localStorage.setItem("token", user_token)
-      // return <Navigate to="/" replace/>
-      // reset()
-     navigate("/") 
-    } catch (error) {
       console.log(error);
     }
-  }
-
-  useEffect(() =>{
-    loginUsuarios()
-  }, [])
+  };
 
 
   return (
