@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css"
 import logo from "../../../assets/img/logo/Imagen1.png";
 import Login from '../../Login';
@@ -17,6 +17,9 @@ const NavBar = () => {
     fontWeight: "bolder",
   }
 
+  let token = localStorage.getItem("token") || false
+
+
   return (
     <div className="sticky-top" >
       <Navbar className="bg-dark text-center" expand="lg">
@@ -27,7 +30,41 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="Navbar me-auto color-nav">
-              <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
+              {
+                (token) ? (
+                  <>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto">Contacto</NavLink>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage">Productos</NavLink>
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablaproducto">ABM productos</NavLink>
+                    <Nav.Link onClick={handleClose} className="text-white">
+                      Logout
+                    </Nav.Link>
+                    <div className="text-end">
+                      <Nav.Link className="text-white">USUARIO: "Administrador"</Nav.Link>
+                    </div>
+                    {console.log("estoy en el if")}
+                  </>
+                )
+                  :
+                  (
+                    <>
+                    {console.log("estoy en el else")}
+                      <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
+                      {/* <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink>
+                      <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto">Contacto</NavLink>
+                      <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
+                      <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage">Productos</NavLink> */}
+                      <Button variant="warning" onClick={handleShow}>
+                        Login
+                      </Button>
+                      <Login show={show} handleClose={handleClose} />
+                    </>
+                  )
+              }
+              {/* <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
               <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink>
               <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto">Contacto</NavLink>
               <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
@@ -36,7 +73,7 @@ const NavBar = () => {
               <Button variant="warning" onClick={handleShow}>
                 Login
               </Button>
-              <Login show={show} handleClose={handleClose} />
+              <Login show={show} handleClose={handleClose} /> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
