@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Nav, Navbar, Button, Form, Col } from "react-bootstrap";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "./Navbar.css"
 import logo from "../../../assets/img/logo/Imagen1.png";
 import Login from '../../Login';
-
-
-
 
 const NavBar = () => {
 
@@ -14,21 +11,23 @@ const NavBar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+ 
   return (
     <div className="sticky-top" >
-      <Navbar className="bg-dark" expand="lg">
+      <Navbar className="bg-dark text-center" expand="lg">
         <Container fluid>
           <Navbar.Brand>
-            <Link to='/'><img src={logo} alt="logo" width="200" /></Link>
+            <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto color-nav">
-              <Link className="nav-link text-white" to="/">Home</Link>
-              <Link className="nav-link text-white" to="/destacados">Destacados</Link>
-              <Link className="nav-link text-white" to="/contacto">Contacto</Link>
-              <Link className="nav-link text-white" to="/favoritos">Favoritos</Link>
-              <Link className="nav-link text-white" to="/tablaproducto">Productos</Link>
+            <Nav className="Navbar me-auto color-nav">
+              <Link className="nav-link text-white mx-1" to="/">Home</Link>
+              <Link className="nav-link text-white mx-1" to="/destacados">Destacados</Link>
+              <Link className="nav-link text-white mx-1" to="/contacto">Contacto</Link>
+              <Link className="nav-link text-white mx-1" to="/favoritos">Favoritos</Link>
+              <Link className="nav-link text-white mx-1" to="/productpage">Productos</Link>
+              <Link className="nav-link text-white mx-1" to="/tablaproducto">ABM productos</Link>
               <Button variant="warning" onClick={handleShow}>
                 Login
               </Button>
@@ -37,8 +36,6 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-
     </div>
   );
 };

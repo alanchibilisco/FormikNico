@@ -11,6 +11,9 @@ import Registro from '../../components/Registro/Registro';
 import instance from '../../api/axiosUsuarios'
 
 const Login = ({ show, handleClose }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
@@ -48,27 +51,22 @@ const Login = ({ show, handleClose }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Enter your password" value={password} onChange={({target})=> setPassword(target.value)} maxLength={30} />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
           <div className='d-grid gap-2'>
-            <Button variant="warning" type="submit">
-              Sign in
-            </Button>
+            <Button variant="warning" type="submit">Sign in</Button>
           </div>
         </Form>
         <div className="d-flex justify-content-between my-3">

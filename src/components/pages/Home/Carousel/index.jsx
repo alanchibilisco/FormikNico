@@ -1,1 +1,1 @@
-export {default} from "./Caousel"
+export {default} from "./Carousel"

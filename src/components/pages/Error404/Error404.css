@@ -5,9 +5,9 @@ body {
     height: 400px;
     width: 400px;
     left: 50%;
-    top: 50%;
+    top: 25%;
     position: absolute;
-    transform: translatex(-50%) translatey(-50%);
+    transform: translatex(-50%) translatey(-25%);
 }
 .contain svg {
     vertical-align: top;
@@ -24,8 +24,8 @@ body {
 .message{
     position: absolute;
     left: 50%;
-    top: 100%;
-    transform: translatex(-50%) translatey(-100%);
+    top: 90%;
+    transform: translatex(-50%) translatey(-90%);
 
 }
 @keyframes empty {

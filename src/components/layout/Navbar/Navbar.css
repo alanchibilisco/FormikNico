@@ -1,0 +1,5 @@
+.Navbar .nav-link:hover{
+    background-color: rgb(246, 181, 1);
+    border-radius: 8px;
+    font-weight: bolder;
+}
