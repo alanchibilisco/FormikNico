@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Nav, Row, Card,Spinner,} from "react-boot
 import 'boxicons';
 import './ProductPage.css'
 import instance from '../../../api/axios';
+import  Carrito  from "../Carrito/carrito.jsx"
 
 
 const ProductPage = (props) => {
@@ -55,73 +56,77 @@ const ProductPage = (props) => {
 
   return (
     <div>
-      <Nav className="justify-content-end bg-dark" activeKey="/home">
-       {/* carrito compra */}
-        <Nav.Item>
-          <Nav.Link href="/home">
-            <div className="cart">
-              <box-icon name="cart"></box-icon>
-              <span classname="item_carrito">0</span>
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-          {/* carrito compra */}
-        <Nav.Item>
-          {/* Buscador */}
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="🍻 Busca tu Birra 🍻 "
-              className="me-2 m"
-              onChange={(e) => setbuscadorProductos(e.target.value)}
-              onKeyPress={searchEnter}
-            />
-            <Button variant="light" className="me-3" onClick={search}>
-              🍺
-            </Button>
-          </Form>
-          {/* buscador */}
-        </Nav.Item>
-      </Nav>
       <Container className="py-5 ">
         <h3> Nuestras Birras</h3>
-        {/* productos */}
-        <Row>
-        {producto.length > 0 ? producto.map( ( prod) => (
-          <Col xl={2} lg={4} md={6} key={prod._id}>
-            <Card className="my-4">
-              <Card.Img
-                width={100}
-                height={200}
-                variant="top"
-                src={prod.ImgURL}                
+        <Nav className="justify-content-end mt-2" activeKey="/home">
+          {/* carrito compra */}
+          <Nav.Item>
+            <Nav.Link href="/home">
+              <div className="cart">
+                <box-icon name="cart"></box-icon>
+                <span classname="item_carrito">0</span>
+              </div>
+            </Nav.Link>
+          </Nav.Item>
+          {/* carrito compra */}
+          <Nav.Item>
+            {/* Buscador */}
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="🍻 Busca tu Birra 🍻 "
+                className="me-2 m"
+                onChange={(e) => setbuscadorProductos(e.target.value)}
+                onKeyPress={searchEnter}
               />
-              <Card.Body>
-                <div className="d-flex align-items-center justify-content-between mb-2">
-                  <Card.Title className="">
-                    {prod.ProductName}
-                  </Card.Title>
-                  <span className="badge bg-yellow">{prod.Category}</span>
-                </div>
-                <Card.Text>
-                {prod.Productdetalle}
-                </Card.Text>
-                <Card.Text>
-                <p className="">Graduacion: {prod.Graduation}</p>
-                </Card.Text>
-                <Card.Text>
-                  <h6 className="mb-0 ms-2 ">Precio:${prod.PriceProduct} </h6>
-                </Card.Text>
-                <div className="d-flex align-items-center justify-content-between">
-                  <button className="btn-gray"> Comprar</button>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-                ) )
-                : <Spinner color="warning"/> } 
+              <Button variant="light" className="me-3" onClick={search}>
+                🍺
+              </Button>
+            </Form>
+            {/* buscador */}
+          </Nav.Item>
+        </Nav>
+        {/* productos */}
+        <Col>
+         <Carrito/>
+        </Col>
+        <Row>
+          {producto.length > 0 ? (
+            producto.map((prod) => (
+              <Col xl={2} lg={4} md={6} key={prod._id}>
+                <Card className="my-4">
+                  <Card.Img
+                    width={100}
+                    height={200}
+                    variant="top"
+                    src={prod.ImgURL}
+                  />
+                  <Card.Body>
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <Card.Title className="">{prod.ProductName}</Card.Title>
+                      <span className="badge bg-yellow">{prod.Category}</span>
+                    </div>
+                    <Card.Text>{prod.Productdetalle}</Card.Text>
+                    <Card.Text>
+                      <p className="">Graduacion: {prod.Graduation}</p>
+                    </Card.Text>
+                    <Card.Text>
+                      <h6 className="mb-0 ms-2 ">
+                        Precio:${prod.PriceProduct}{" "}
+                      </h6>
+                    </Card.Text>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <button className="btn-gray"> Comprar</button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Spinner color="warning" />
+          )}
         </Row>
-         {/* productos */}
+        {/* productos */}
       </Container>
     </div>
   );
