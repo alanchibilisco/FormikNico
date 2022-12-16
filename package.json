@@ -9,10 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
-    "animate.css": "^4.1.1",
->>>>>>> 32850047fc7d3a125a82d0242001f0460c49ff02
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
     "boxicons": "^2.1.4",

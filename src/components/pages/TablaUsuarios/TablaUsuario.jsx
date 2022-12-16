@@ -14,9 +14,9 @@ const TablaUsuarios = () => {
     };
     try {
       const resp = await instance.get("/users", config);
-      setUserDate(resp.data);
+      setUserList(resp.data);
     } catch (error) {
-        console.log(error.response.msg);
+        console.log(error);
         alert("Error")
     }
   };

@@ -6,31 +6,58 @@ import { Image } from 'react-bootstrap';
 import logo from '../../assets/img/logo/Imagen1.png'
 import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Registro from '../../components/Registro/Registro';
-import instance from '../../api/axiosUsuarios'
+import instance from '../../api/axiosUsuarios';
+import Swal from 'sweetalert2';
+import { validateEmail, validatePassword } from '../helpers/validateFields';
 
 const Login = ({ show, handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate()
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("testing")
+
+    // validacion de los campos
+    if(!validateEmail(email)) {
+      {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Email or password incorrect!'
+        })
+        return
+      }
+    }else{
+      Swal.fire({
+        icon: 'success',
+        title: 'Good job!',
+        text: 'Now you are logged in!'
+      })
+      return
+    }
+  };
 
 
   const loginUsuarios = async() =>{
-    // const navigate = useNavigate()
+    
 
     const user = {
-      email:"nicolasviruel@gmail.com",
-      password:"123456789"
+      email,
+      password
     }
     try {
       const res = await instance.post("/auth/login", user)
       const user_token = res.data.token
       localStorage.setItem("token", user_token)
-      return <Navigate to="/" replace/>
+      // return <Navigate to="/" replace/>
+      // reset()
+     navigate("/") 
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +65,6 @@ const Login = ({ show, handleClose }) => {
 
   useEffect(() =>{
     loginUsuarios()
-
   }, [])
 
 
