@@ -8,6 +8,7 @@ import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
 
 const Registro = ({show, handleClose}) => {
+    //hacer conexion con el back y enviar name email y password
     return (
         <>
             <Modal show={show} onHide={handleClose} backdrop="static">
