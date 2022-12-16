@@ -12,12 +12,16 @@ const ProductPage = (props) => {
   const [producto,setProductos]=useState([])
   const [buscadorProducto,setbuscadorProductos]=useState("")
   const [contador, setContador]= useState(0)
+  // carrrito
+  const [ productosCart, setProductosCart] = useState([])
+  const [ productosParaCart, setProductosParaCart] = useState("")
+  const [ precioCart, setPrecioCart] = useState("")
+  const [ idCart, setidCart] = useState("")
+
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  
-
-  
+  const handleShow = () => setShow(true);  
  //creamos una constante para traer los productos instanciados de DB
   const getProductos= async()=>{
     try {
@@ -59,8 +63,17 @@ const ProductPage = (props) => {
   const incrementarCarrito =()=>{
     setContador(contador+1);
   }
+  //guardar en carrito
+  const guardaCarrito =(e)=>{
+    e.preventDefault()
+    const miCarrito = {productosParaCart,precioCart,idCart}
+    setProductosCart([...productosCart, miCarrito])
+
+  }
+  
     useEffect(()=>{
       getProductos()
+      localStorage.setItem("productosCard",JSON.stringify(productosCart))
     },[])
 
   return (
@@ -122,7 +135,7 @@ const ProductPage = (props) => {
                       </h6>
                     </Card.Text>
                     <div className="d-flex align-items-center justify-content-between">
-                      <button className="btn-gray" onClick={incrementarCarrito}> Agregar 🛒</button>
+                      <button  type="submit" className="btn-gray" onClick={incrementarCarrito}  onSubmit={guardaCarrito}> Agregar 🛒</button>
                     </div>
                   </Card.Body>
                 </Card>
