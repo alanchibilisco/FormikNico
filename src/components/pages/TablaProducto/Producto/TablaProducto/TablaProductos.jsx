@@ -110,7 +110,7 @@ const TablaProducto = (props) => {
           </Col>
           <Col lg={3}>
             <Button variant="outline-primary mx-1">
-              <Link to="/productpage/creacionproducto" variant="outline-light">
+              <Link to="/creacionproducto" variant="outline-light">
               <i className="fa-solid fa-plus"></i>
               </Link>
             </Button>

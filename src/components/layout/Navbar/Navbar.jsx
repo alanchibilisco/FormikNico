@@ -19,6 +19,7 @@ const NavBar = ({ setUserDate }) => {
     setRole(null
       );
       setUserDate("");
+      navigate("/")
       window.location.reload();
     token = false;
 
