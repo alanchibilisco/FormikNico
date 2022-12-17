@@ -7,6 +7,7 @@ import Moment from 'moment';
 import { Image } from "react-bootstrap";
 
 
+
 const ModalCarrito = ({show, handleClose}) => {
     const myuuid = uuidv4()
     const [cart, setCart] = useState([]);
@@ -23,6 +24,11 @@ const ModalCarrito = ({show, handleClose}) => {
     console.log(cart);
     localStorage.setItem('cart',JSON.stringify(newArr));
     }
+    
+    const vaciarCarrito=()=>{
+        localStorage.setItem('cart',JSON.stringify([]));
+        setCart([]);
+        }
     let total=0;
     for (let index = 0; index < cart.length; index++) {
       total=total + parseFloat(cart[index].PriceProduct)
@@ -34,8 +40,9 @@ const ModalCarrito = ({show, handleClose}) => {
         
         <Modal.Title> 🛒 Su carrito: </Modal.Title>
       </Modal.Header>
+        
       <h6 className="align-middle text-center mt-3">Fecha: {Moment().format('DD-MM-YYYY')}</h6>
-      <h6 className="align-middle text-center mt-3">Hora: {Moment().format(' hh:mm')}</h6>
+      <h6 className="align-middle text-center mt-3">Hora: {Moment().format(' hh:mm A')}</h6>
       <h6 className="align-middle text-center mt-3">DETALLE DE SU COMPRA:</h6>
       <Modal.Body>
         <Table bordered hover responsive className="align-middle text-center mt-3">
@@ -52,11 +59,11 @@ const ModalCarrito = ({show, handleClose}) => {
           </thead>
           <tbody>
           {cart.map((prod, index) => {
-            return (
+              return (
             <tr key={prod.uuid}>
               <td>{index+1}</td>
-              <td> <Image className="truncate-img-link m-0" src={prod.ImgURL} width={35}
-        height={35}/></td>
+              <td> <Image className="truncate-img-link m-0" src={prod.ImgURL} width={27}
+        height={27}/></td>
               <td>{prod.ProductName}</td>
               <td>{`$ ${prod.PriceProduct}`}</td>
               <td>1</td>
@@ -65,7 +72,7 @@ const ModalCarrito = ({show, handleClose}) => {
                 <div className="d-flex justify-content-center">
                    <Button variant="outline-danger mx-1" onClick={()=>{
                         deleteProduct(prod.uuid);
-                      }}>
+                    }}>
                     <box-icon name="message-square-x" type="solid"></box-icon>
                   </Button>
                 </div>
@@ -76,10 +83,10 @@ const ModalCarrito = ({show, handleClose}) => {
           </tbody>
         </Table>
       </Modal.Body>
-        <h4 className="text-center">{`$ ${total}`}</h4>
+        <h4 className="text-center">Total :{`$ ${total}`}</h4>
       <Modal.Footer className="text-center">
         <div className="text-center">Ticket Op: {myuuid} </div>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="secondary" onClick={vaciarCarrito}>
           Vaciar carrito
         </Button>
         <Button variant="primary" onClick={handleClose}>
