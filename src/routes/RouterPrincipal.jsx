@@ -36,7 +36,7 @@ const RouterPrincipal = () => {
         <Route exact path="/tablaproducto" element={<TablaProducto funcNav={setShowNav}/>} />
         <Route exact path="/TablaUsuario" element={<TablaUsuarios funcNav={setShowNav}/>} />
         <Route exact path="/creacionproducto" element={<CreacionProducto funcNav={setShowNav}/>} />
-        <Route exact path="/edicionproducto" element={<EdicionProducto funcNav={setShowNav}/>} />
+        <Route exact path="/edicionproducto/:id" element={<EdicionProducto funcNav={setShowNav}/>} />
         <Route exact path="/contacto" element={<Contacto funcNav={setShowNav}/>} />
         <Route exact path="/productpage" element={<ProductPage funcNav={setShowNav}/>} />
         <Route exact path="/destacados" element={<Destacados funcNav={setShowNav}/>} />
