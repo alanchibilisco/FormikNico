@@ -5,6 +5,7 @@ import './ProductPage.css'
 import instance from '../../../api/axios';
 import  ModalCarrito  from "../Carrito/carrito.jsx"
 import { v4 as uuidv4 } from "uuid";
+import Swal from "sweetalert2";
 
 
 const ProductPage = (props) => {
@@ -64,7 +65,12 @@ const ProductPage = (props) => {
     setContador(contador+1);
   }
   //guardar en carrito
-  const guardaCarrito =(newProduct)=>{    
+  const guardaCarrito =(newProduct)=>{  
+    Swal.fire(
+      "Agregado a Carrito",
+      "",
+      "success"
+  );  
     console.log(newProduct);
     newProduct={
       ...newProduct,
@@ -144,7 +150,7 @@ const ProductPage = (props) => {
                     <div className="d-flex align-items-center justify-content-between">
                       <button  type="submit" className="btn-gray" onClick={()=>{
                         incrementarCarrito();
-                        guardaCarrito(prod)}}> Agregar 🛒</button>
+                        guardaCarrito(prod)}}> 🛒</button>
                     </div>
                   </Card.Body>
                 </Card>
