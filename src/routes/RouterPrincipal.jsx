@@ -19,20 +19,7 @@ import TablaProducto from "../components/pages/TablaProducto/Producto/TablaProdu
 const RouterPrincipal = () => {
   const [showNav, setShowNav] = useState(true);
   const [userdata , setUserDate] = useState("");
-
-  const getUSer = async(token) =>{
-    const config ={
-        headers:{
-            "authorization" : `Bearer ${token}`
-        }
-    }
-    try {
-        const resp = await instance.get("/users/info", config );
-       setUserDate(resp.data)
-    } catch (error) {
-        
-    }
-   } 
+ 
  
   return (
 
