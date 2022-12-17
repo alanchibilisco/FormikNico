@@ -3,7 +3,7 @@ import { Col, Container, Form, Row , Button} from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import logo from "../../../assets/img/logo/Imagen1.png"
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
-import instance from "../../../api/axios";
+import instance from "../../../api/axiosUsuarios";
 import { useNavigate } from 'react-router-dom';
 
 

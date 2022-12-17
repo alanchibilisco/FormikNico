@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { Button, Col, Container, Form, Nav, Row, Card,Spinner,} from "react-bootstrap";
 import 'boxicons';
 import './ProductPage.css'
-import instance from '../../../api/axios';
+import instance from '../../../api/axiosUsuarios';
 import  ModalCarrito  from "../Carrito/carrito.jsx"
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";

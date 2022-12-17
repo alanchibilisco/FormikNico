@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -6,8 +6,61 @@ import { Image } from 'react-bootstrap';
 import logo from '../../assets/img/logo/Imagen1.png'
 import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
+import instance from "../../api/axiosUsuarios"
+import { validateEmail, validatePassword } from '../helpers/validateFields';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Registro = ({show, handleClose}) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate()
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    console.log("testing")
+    if (validateEmail(email) && (validatePassword(password))) {
+      const user = {
+        name,
+        email,
+        password
+      }
+      try {
+        const res = await instance.post("/auth/register", user)
+        console.log(res);
+        const user_token = res.data.token
+        localStorage.setItem("token", user_token)
+        Swal.fire({
+              icon: 'success',
+              title: 'Bienvenido!',
+              text: 'Ahora estas Registrado!'
+            })
+            setTimeout(() =>{
+              handleClose();
+              navigate("/") 
+            },1000)
+
+      } catch (error) {
+        Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email o Password incorrectos!'
+              })
+        console.log(error);
+      }
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debe ingresar Email y contraseña!'
+      })
+      console.log(error);
+    }
+  };
+
+  
+    //hacer conexion con el back y enviar name email y password
     return (
         <>
             <Modal show={show} onHide={handleClose} backdrop="static">
@@ -18,14 +71,15 @@ const Registro = ({show, handleClose}) => {
                         </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control placeholder="Enter name" />
+                            <Form.Control placeholder="Enter name" onChange={({target})=> setName(target.value)} maxLength={50}/>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            {/* <Form.Control type="email" placeholder="Enter email" /> */}
+                            <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
                             </Form.Text>
@@ -33,7 +87,8 @@ const Registro = ({show, handleClose}) => {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            {/* <Form.Control type="password" placeholder="Password" /> */}
+                            <Form.Control type="password" placeholder="Enter your password" value={password} onChange={({target})=> setPassword(target.value)} maxLength={30} />
                         </Form.Group>
                         <div className='d-grid gap-2'>
                             <Button variant="warning" type="submit">
@@ -90,11 +145,8 @@ const Registro = ({show, handleClose}) => {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="danger" onClick={handleClose}>
                         Close
-                    </Button>
-                    <Button variant="warning" onClick={handleClose}>
-                        to accept
                     </Button>
                 </Modal.Footer>
             </Modal>

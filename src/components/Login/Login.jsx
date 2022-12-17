@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -6,45 +6,65 @@ import { Image } from 'react-bootstrap';
 import logo from '../../assets/img/logo/Imagen1.png'
 import facebook from '../../assets/img/social-icons/facebook-logo.webp'
 import google from '../../assets/img/social-icons/google-logo.png';
-import { Link } from 'react-router-dom';
-import Registro from '../Registro/Registro';
-import { validateEmail, validatePassword } from '../helpers/validateFields';
+import { Link, useNavigate } from 'react-router-dom';
+import Registro from '../../components/Registro/Registro';
+import instance from '../../api/axiosUsuarios';
 import Swal from 'sweetalert2';
+import { validateEmail, validatePassword } from '../helpers/validateFields';
 
-const Login = ({ show, handleClose }) => {
+const Login = ({ show, handleClose , setUserDate}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate()
   const [reg, setReg] = useState(false);
   const handleCloses = () => setReg(false);
   const handleShow = () => setReg(true);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault()
     console.log("testing")
-
-    // validacion de los campos
-    if(!validateEmail(email) || !validatePassword(password)) {
-      {
+    if (validateEmail(email) && (validatePassword(password))) {
+      const user = {
+        email,
+        password,
+      }
+      try {
+        const res = await instance.post("/auth/login", user);
+        const user_token = res.data.token;
+        localStorage.setItem("token", user_token);
+        setUserDate(user_token);
+        window.location.reload();
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Email or password incorrect!'
-        })
-        return
+              icon: 'success',
+              title: 'Bienvenido!',
+              text: 'Ahora estas logeado!'
+            })
+            setTimeout(() =>{
+              handleClose();
+              navigate("/") 
+            },1000)
+
+      } catch (error) {
+        Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email o Password incorrectos!'
+              })
+        console.log(error);
       }
     }else{
       Swal.fire({
-        icon: 'success',
-        title: 'Good job!',
-        text: 'Now you are logged in!'
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debe ingresar Email y contraseña!'
       })
-      return
+      console.log(error);
     }
-  }
+  };
+
 
   return (
-    <Modal show={show} onHide={handleClose} backdrop="static">
+    <Modal show={show} onHide={handleCloses} backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title className='d-flex'>
           <Image src={logo} alt="logo" width="40" />
@@ -91,7 +111,7 @@ const Login = ({ show, handleClose }) => {
                 data-toggle="modal"
                 data-target="#exampleModal"
                 className="font-weight-bold text-decoration-none"
-                onClick={handleShow} onHide={handleCloses} >
+                onClick={handleShow}  >
                 sign up
               </Link>
               <Registro show={reg} handleClose={handleCloses} />
