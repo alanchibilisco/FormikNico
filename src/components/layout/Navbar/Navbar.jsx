@@ -43,11 +43,13 @@ const NavBar = ({ setUserDate }) => {
 
 
   return (
-    <div className="sticky-top" >
+    <div className="sticky-top">
       <Navbar className="bg-dark text-center" expand="lg">
         <Container fluid>
           <Navbar.Brand>
-            <Link to='/'><img src={logo} alt="logo" width="100" /></Link>
+            <Link to="/">
+              <img src={logo} alt="logo" width="100" />
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

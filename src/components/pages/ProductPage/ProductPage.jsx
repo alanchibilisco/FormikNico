@@ -2,7 +2,10 @@ import React, { useState,useEffect } from 'react'
 import { Button, Col, Container, Form, Nav, Row, Card,Spinner,} from "react-bootstrap";
 import 'boxicons';
 import './ProductPage.css'
-import instance from '../../../api/axios';
+import instance from '../../../api/axiosUsuarios';
+import  ModalCarrito  from "../Carrito/carrito.jsx"
+import { v4 as uuidv4 } from "uuid";
+import Swal from "sweetalert2";
 
 
 const ProductPage = (props) => {
@@ -10,7 +13,16 @@ const ProductPage = (props) => {
   //usamos un useState , para definir las variables
   const [producto,setProductos]=useState([])
   const [buscadorProducto,setbuscadorProductos]=useState("")
-  
+  const [contador, setContador]= useState(0)
+  // carrrito
+  const [ productosCart, setProductosCart] = useState([])
+
+
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);  
+
  //creamos una constante para traer los productos instanciados de DB
   const getProductos= async()=>{
     try {
@@ -49,81 +61,109 @@ const ProductPage = (props) => {
       e.preventDefault()
     }
   }
+  const incrementarCarrito =()=>{
+    setContador(contador+1);
+  }
+  //guardar en carrito
+  const guardaCarrito =(newProduct)=>{  
+    Swal.fire(
+      "Agregado a Carrito",
+      "",
+      "success"
+  );  
+    console.log(newProduct);
+    newProduct={
+      ...newProduct,
+      uuid: uuidv4()
+    };
+    const newArr=productosCart;
+    newArr.push(newProduct);
+    setProductosCart(newArr);
+    localStorage.setItem('cart', JSON.stringify(productosCart));
+  }
+  
     useEffect(()=>{
       getProductos()
     },[])
+    useEffect(()=>{
+      setProductosCart(JSON.parse(localStorage.getItem('cart'))||[]);
+    },[show])
 
   return (
-    <div>
-      <Nav className="justify-content-end bg-dark" activeKey="/home">
-       {/* carrito compra */}
-        <Nav.Item>
-          <Nav.Link href="/home">
-            <div className="cart">
-              <box-icon name="cart"></box-icon>
-              <span classname="item_carrito">0</span>
-            </div>
-          </Nav.Link>
-        </Nav.Item>
-          {/* carrito compra */}
-        <Nav.Item>
-          {/* Buscador */}
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="🍻 Busca tu Birra 🍻 "
-              className="me-2 m"
-              onChange={(e) => setbuscadorProductos(e.target.value)}
-              onKeyPress={searchEnter}
-            />
-            <Button variant="light" className="me-3" onClick={search}>
-              🍺
-            </Button>
-          </Form>
-          {/* buscador */}
-        </Nav.Item>
-      </Nav>
+    <>
       <Container className="py-5 ">
         <h3> Nuestras Birras</h3>
+        <Nav className="justify-content-end mt-2" activeKey="/home">
+          {/* carrito compra */}
+          <Nav.Item>
+            <Nav.Link>
+              <div className="cart">
+               <box-icon name="cart" onClick={handleShow}></box-icon>
+                <span className="item_carrito" onClick={handleShow}>{productosCart.length}</span>
+              </div>
+            </Nav.Link>
+          </Nav.Item>
+          {/* carrito compra */}
+          <Nav.Item>
+            {/* Buscador */}
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="🍻 Busca tu Birra 🍻 "
+                className="me-2 m"
+                onChange={(e) => setbuscadorProductos(e.target.value)}
+                onKeyPress={searchEnter}
+              />
+              <Button variant="light" className="me-3" onClick={search}>
+                🍺
+              </Button>
+            </Form>
+            {/* buscador */}
+          </Nav.Item>
+        </Nav>
         {/* productos */}
         <Row>
-        {producto.length > 0 ? producto.map( ( prod) => (
-          <Col xl={2} lg={4} md={6} key={prod._id}>
-            <Card className="my-4">
-              <Card.Img
-                width={100}
-                height={200}
-                variant="top"
-                src={prod.ImgURL}                
-              />
-              <Card.Body>
-                <div className="d-flex align-items-center justify-content-between mb-2">
-                  <Card.Title className="">
-                    {prod.ProductName}
-                  </Card.Title>
-                  <span className="badge bg-yellow">{prod.Category}</span>
-                </div>
-                <Card.Text>
-                {prod.Productdetalle}
-                </Card.Text>
-                <Card.Text>
-                <p className="">Graduacion: {prod.Graduation}</p>
-                </Card.Text>
-                <Card.Text>
-                  <h6 className="mb-0 ms-2 ">Precio:${prod.PriceProduct} </h6>
-                </Card.Text>
-                <div className="d-flex align-items-center justify-content-between">
-                  <button className="btn-gray"> Comprar</button>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-                ) )
-                : <Spinner color="warning"/> } 
+          {producto.length > 0 ? (
+            producto.map((prod) => (
+              <Col xl={2} lg={4} md={6} key={prod._id}>
+                <Card className="my-4">
+                  <Card.Img
+                    width={100}
+                    height={200}
+                    variant="top"
+                    src={prod.ImgURL}
+                  />
+                  <Card.Body>
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <Card.Title className="">{prod.ProductName}</Card.Title>
+                      <span className="badge bg-yellow">{prod.Category}</span>
+                    </div>
+                    <Card.Text>{prod.Productdetalle}</Card.Text>
+                    <Card.Text>
+                      <p className="">Graduacion: {prod.Graduation}</p>
+                    </Card.Text>
+                    <Card.Text>
+                      <h6 className="mb-0 ms-2 ">
+                        Precio:${prod.PriceProduct}{" "}
+                      </h6>
+                    </Card.Text>
+                    <div className="d-flex align-items-center justify-content-between">
+                      <button  type="submit" className="btn-gray" onClick={()=>{
+                        incrementarCarrito();
+                        guardaCarrito(prod)}}> 🛒</button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Spinner color="warning" />
+          )}
         </Row>
-         {/* productos */}
+        {/* productos */}
       </Container>
-    </div>
+      <ModalCarrito show={show} handleClose={handleClose}/>
+    </>
   );
 }
 

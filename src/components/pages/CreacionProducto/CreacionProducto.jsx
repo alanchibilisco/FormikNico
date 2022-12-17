@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Col, Container, Form, Row , Button} from 'react-bootstrap'
 import Swal from 'sweetalert2';
-import logo from "../../../assets/img/logo/Imagen1.png";
-import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje} from '../../helpers/validateFields';
-import instance from "../../../api/axios";
+import logo from "../../../assets/img/logo/Imagen1.png"
+import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
+import instance from "../../../api/axiosUsuarios";
 import { useNavigate } from 'react-router-dom';
 
 
-const CreacionProducto = (props) => {
-  props.funcNav(true)
+const CreacionProducto = () => {
   const [nombrerProducto, setnombreProducto] = useState("")
   const [detalleProducto, setdetallerProducto] = useState("Cerveza")
   const [precioProducto, setprecioProducto] = useState("0")
@@ -62,16 +61,17 @@ const CreacionProducto = (props) => {
        'Su producto se creo correctamente.',
        'success'
      )  
-     reset()
+     
      navigate(`/tablaproducto`)    
      
       }      
       } catch (error) {
-      console.log(error);  
+      console.log(error);   
       }
     }
   });
 } ;
+
 
 
   return (

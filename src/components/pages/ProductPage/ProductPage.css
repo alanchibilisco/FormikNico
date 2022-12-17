@@ -1,21 +1,24 @@
 .cart{
     cursor: pointer;
     position: relative;
-    left: -20px;
+    right: 30px;
+    
     
 }
-.cart box-icon{
-    width: 44px;
-    height: 44px;
+.cart box-icon{  
+    width: 34px;
+    height: 34px;
+    
+    ;    
     
 }
 .cart span{
     position: absolute;
-    top:   -0.5rem;
-    right: -0.5rem;
+    top:   -0.9rem;
+    right: -1.0rem;
     width:  2.0rem;
     height: 1.9rem;
-    opacity: 78%;
+    opacity: 98%;
     border: 0.1px solid red;
     border-radius: 100%;
     display: flex;

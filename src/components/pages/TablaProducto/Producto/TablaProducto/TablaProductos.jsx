@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Table, Button, Row, Col, Form, Spinner, Image } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import 'boxicons';
-import instance from "../../../../../api/axios";
+import instance from "../../../../../api/axiosUsuarios";
 import Swal from "sweetalert2";
 
 
@@ -116,60 +116,6 @@ const TablaProducto = (props) => {
             </Button>
           </Col>
           <Col lg={12}>
-            {/* <Table bordered hover responsive className="align-middle mt-3">
-              <thead>
-                <tr>
-                  <th>N.</th>
-                  <th>Producto</th>
-                  <th>Detalle</th>
-                  <th>Precio</th>
-                  <th>ImagenURL</th>
-                  <th>Categoria</th>
-                  <th>Graduacion</th>
-                  <th>Disponible</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                {producto.length > 0 ? producto.map((prod, index) => (
-                  <tr key={prod._id} >
-                    <td>{index}</td>
-                    <td>{prod.ProductName}</td>
-                    <td>{prod.Productdetalle}</td>
-                    <td>${prod.PriceProduct}</td>
-                    <td>
-                      <Image className="truncate-img-link m-0" src={prod.ImgURL} width={100}
-                        height={100} />
-                    </td>
-                    <td>{prod.Category}</td>
-                    <td>{prod.Graduation}</td>
-                    <td>{prod.Avaliable ? 'si' : 'no'}</td>
-                    <td className="w-25">
-                      <div className="d-flex justify-content-center">
-                        <Button variant="outline-success mx-1">
-                          <Link
-                            to={`/edicionproducto/${prod._id}`}
-                            variant="outline-primary mx-1">
-                            <box-icon
-                              type="solid"
-                              name="message-square-edit"
-                            ></box-icon>
-                          </Link>
-                        </Button>
-                        <Button variant="outline-danger mx-1" onClick={() => handleDelete(prod._id)}>
-                          <box-icon
-                            name="message-square-x"
-                            type="solid"
-                          ></box-icon>
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-                  : <Spinner color="warning" />}
-              </tbody>
-            </Table> */}
-
             <Table bordered responsive hover className="text-center align-middle mt-3 border-3 border-dark">
               <thead>
                 <tr>
