@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import instance from "../../../api/axiosUsuarios";
 
 const TablaUsuarios = () => {
@@ -50,6 +51,16 @@ const TablaUsuarios = () => {
                     <td>{user.name} </td>
                     <td>{user.email}</td>
                     <td>{user.role}</td>
+                    <div className="d-flex justify-content-center">
+                      <Button variant="outline-success mx-1">
+                        <Link to={`/edicionproducto/${user._id}`} variant="outline-primary mx-1" style={{color: 'black'}}>
+                          <i className="fa-solid fa-pen-to-square"></i>
+                        </Link>
+                      </Button>
+                      <Button variant="outline-danger mx-1" onClick={() => handleDelete(user._id)}>
+                        <i className="fa-solid fa-trash-can"></i>
+                      </Button>
+                      </div>
                   </tr>
 
               ))

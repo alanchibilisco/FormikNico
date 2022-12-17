@@ -12,7 +12,7 @@ import instance from '../../api/axiosUsuarios';
 import Swal from 'sweetalert2';
 import { validateEmail, validatePassword } from '../helpers/validateFields';
 
-const Login = ({ show, handleClose }) => {
+const Login = ({ show, handleClose , setUserDate}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
@@ -29,9 +29,11 @@ const Login = ({ show, handleClose }) => {
         password,
       }
       try {
-        const res = await instance.post("/auth/login", user)
-        const user_token = res.data.token
-        localStorage.setItem("token", user_token)
+        const res = await instance.post("/auth/login", user);
+        const user_token = res.data.token;
+        localStorage.setItem("token", user_token);
+        setUserDate(user_token);
+        window.location.reload();
         Swal.fire({
               icon: 'success',
               title: 'Bienvenido!',
@@ -62,7 +64,7 @@ const Login = ({ show, handleClose }) => {
 
 
   return (
-    <Modal show={show} onHide={handleClose} backdrop="static">
+    <Modal show={show} onHide={handleCloses} backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title className='d-flex'>
           <Image src={logo} alt="logo" width="40" />
@@ -109,7 +111,7 @@ const Login = ({ show, handleClose }) => {
                 data-toggle="modal"
                 data-target="#exampleModal"
                 className="font-weight-bold text-decoration-none"
-                onClick={handleShow} onHide={handleCloses} >
+                onClick={handleShow}  >
                 sign up
               </Link>
               <Registro show={reg} handleClose={handleCloses} />

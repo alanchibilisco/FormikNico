@@ -9,8 +9,7 @@ import CartelBeer2 from "../../../image/CartelBeer2.jpg"
 
 const Home = (props) => {
   props.funcNav(true)
-  const [userdata , setUserDate] = useState("")
-
+  
     const getUSer = async(token) =>{
      const config ={
          headers:{
@@ -19,7 +18,7 @@ const Home = (props) => {
      }
      try {
          const resp = await instance.get("/users/info", config );
-        setUserDate(resp.data)
+       props.setUserDate(resp.data)
      } catch (error) {
          
      }
@@ -30,13 +29,13 @@ const Home = (props) => {
          if (user_token) {
              getUSer(user_token)
          }
-    }, [])
+    }, [props.userdata])
   
   return (
     <div>
       {/* Carousel */}
       <Calesita />
-      {userdata && <>
+      {props.userdata && <>
           <Container >
             <Row >
           <Col className="text-center" xs={12} md={6} lg={4}>
@@ -46,9 +45,9 @@ const Home = (props) => {
           </Col>
           <Col className="text-center" xs={12} md={6} lg={4}>
           <div className="mt-5">
-          <h1 className="mt-5 my-2 text-warning">Bienvenido : {userdata.name} </h1>
-            <p className=" mt-5 fw-bolder">Email : {userdata.email} </p>
-            <p className="fw-bolder">Role : {userdata.role} </p>
+          <h1 className="mt-5 my-2 text-warning">Bienvenido : {props.userdata.name} </h1>
+            <p className=" mt-5 fw-bolder">Email : {props.userdata.email} </p>
+            <p className="fw-bolder">Role : {props.userdata.role} </p>
             <h3 className=" mt-5 fw-bolder text-dark">Beer les desea una</h3>
           <img src={PapaNoel} alt="papanoel" width="300" />
           <h1 className=" text-warning">SALUD!!!</h1>
@@ -61,8 +60,7 @@ const Home = (props) => {
           </div>
           </Col>
            
-          
-          
+
         </Row>
         </Container>
       </>}

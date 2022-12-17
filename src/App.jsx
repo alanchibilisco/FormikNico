@@ -8,11 +8,11 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-      {/* <Navbar/> */}
+      
       <main>
         <RouterPrincipal/>
       </main>
-      {/* <Footer/> */}
+    
       </BrowserRouter>
     </div>
   )

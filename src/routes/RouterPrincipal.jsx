@@ -12,26 +12,39 @@ import Favorito from "../components/pages/Favorito";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import TablaUsuarios from "../components/pages/TablaUsuarios/TablaUsuario";
-import RoutePrivate from "./RoutePrivate";
 
 import TablaProducto from "../components/pages/TablaProducto/Producto/TablaProducto";
 
 
 const RouterPrincipal = () => {
   const [showNav, setShowNav] = useState(true);
- 
+  const [userdata , setUserDate] = useState("");
 
+  const getUSer = async(token) =>{
+    const config ={
+        headers:{
+            "authorization" : `Bearer ${token}`
+        }
+    }
+    try {
+        const resp = await instance.get("/users/info", config );
+       setUserDate(resp.data)
+    } catch (error) {
+        
+    }
+   } 
+ 
   return (
 
 
     <>
     {   showNav &&
           <nav className="sticky-top">
-            <Navbar />
+            <Navbar setUserDate={setUserDate} />
           </nav>
    }
     <Routes>
-        <Route exact path="/" element={<Home funcNav={setShowNav}/>} />
+        <Route exact path="/" element={<Home funcNav={setShowNav} userdata={userdata} setUserDate={setUserDate} />} />
         <Route exact path="/recpassword" element={<RecPassword funcNav={setShowNav}/>} />
         <Route exact path="/tablaproducto" element={<TablaProducto funcNav={setShowNav}/>} />
         <Route exact path="/TablaUsuario" element={<TablaUsuarios funcNav={setShowNav}/>} />
