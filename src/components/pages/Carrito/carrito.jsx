@@ -26,7 +26,7 @@ const ModalCarrito = ({show, handleClose}) => {
     }
     
     const vaciarCarrito=()=>{
-        localStorage.setItem('cart',JSON.stringify([]));
+        localStorage.removeItem('cart');
         setCart([]);
         }
     let total=0;
@@ -67,7 +67,7 @@ const ModalCarrito = ({show, handleClose}) => {
               <td>{prod.ProductName}</td>
               <td>{`$ ${prod.PriceProduct}`}</td>
               <td>1</td>
-              <td>{`$ ${prod.PriceProduct}`}</td>              
+              <td>{`$ ${prod.PriceProduct }`}</td>              
               <td className="w-25">
                 <div className="d-flex justify-content-center">
                    <Button variant="outline-danger mx-1" onClick={()=>{
