@@ -39,11 +39,11 @@ const NavBar = () => {
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage">Productos</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablaproducto">ABM productos</NavLink>
+                    <div className="text-end">
+                    <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablausuarios">ABM Usuarios</NavLink>
                     <Nav.Link onClick={handleClose} className="text-white">
                       Logout
                     </Nav.Link>
-                    <div className="text-end">
-                      <Nav.Link className="text-white">USUARIO: "Administrador"</Nav.Link>
                     </div>
                     {console.log("estoy en el if")}
                   </>

@@ -6,12 +6,13 @@ const RoutePrivate = ({ children}) =>{
     const [user, setUser] = useState(null)
     
   useEffect( () =>{
-    const user = localStorage.getItem("token");
-    setUser(user);
+    const users = localStorage.getItem("token");
+    console.log(users);
+    setUser(users);
   }, []);
 
 
-    if (!user) {
+    if (user) {
         return <Navigate to="TablaUsuario" replace/>
     }
     return children
