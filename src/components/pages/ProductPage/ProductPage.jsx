@@ -4,6 +4,7 @@ import 'boxicons';
 import './ProductPage.css'
 import instance from '../../../api/axios';
 import  ModalCarrito  from "../Carrito/carrito.jsx"
+import { v4 as uuidv4 } from "uuid";
 
 
 const ProductPage = (props) => {
@@ -14,14 +15,13 @@ const ProductPage = (props) => {
   const [contador, setContador]= useState(0)
   // carrrito
   const [ productosCart, setProductosCart] = useState([])
-  const [ productosParaCart, setProductosParaCart] = useState("")
-  const [ precioCart, setPrecioCart] = useState("")
-  const [ idCart, setidCart] = useState("")
+
 
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);  
+
  //creamos una constante para traer los productos instanciados de DB
   const getProductos= async()=>{
     try {
@@ -64,17 +64,24 @@ const ProductPage = (props) => {
     setContador(contador+1);
   }
   //guardar en carrito
-  const guardaCarrito =(e)=>{
-    e.preventDefault()
-    const miCarrito = {productosParaCart,precioCart,idCart}
-    setProductosCart([...productosCart, miCarrito])
-
+  const guardaCarrito =(newProduct)=>{    
+    console.log(newProduct);
+    newProduct={
+      ...newProduct,
+      uuid: uuidv4()
+    };
+    const newArr=productosCart;
+    newArr.push(newProduct);
+    setProductosCart(newArr);
+    localStorage.setItem('cart', JSON.stringify(productosCart));
   }
   
     useEffect(()=>{
       getProductos()
-      localStorage.setItem("productosCard",JSON.stringify(productosCart))
     },[])
+    useEffect(()=>{
+      setProductosCart(JSON.parse(localStorage.getItem('cart'))||[]);
+    },[show])
 
   return (
     <>
@@ -86,7 +93,7 @@ const ProductPage = (props) => {
             <Nav.Link>
               <div className="cart">
                <box-icon name="cart" onClick={handleShow}></box-icon>
-                <span classname="item_carrito" onClick={handleShow}>{contador}</span>
+                <span className="item_carrito" onClick={handleShow}>{productosCart.length}</span>
               </div>
             </Nav.Link>
           </Nav.Item>
@@ -135,7 +142,9 @@ const ProductPage = (props) => {
                       </h6>
                     </Card.Text>
                     <div className="d-flex align-items-center justify-content-between">
-                      <button  type="submit" className="btn-gray" onClick={incrementarCarrito}  onSubmit={guardaCarrito}> Agregar 🛒</button>
+                      <button  type="submit" className="btn-gray" onClick={()=>{
+                        incrementarCarrito();
+                        guardaCarrito(prod)}}> Agregar 🛒</button>
                     </div>
                   </Card.Body>
                 </Card>
