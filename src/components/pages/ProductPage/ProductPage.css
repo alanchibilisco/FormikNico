@@ -31,3 +31,9 @@
     background-color: crimson;
 
 }
+
+
+.imagen-tarjeta{
+    height: 200px;
+    object-fit: cover;
+}
