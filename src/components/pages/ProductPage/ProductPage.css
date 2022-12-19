@@ -37,3 +37,9 @@
     height: 200px;
     object-fit: cover;
 }
+
+@media screen and (max-width: 349px){
+    .textCard{
+    margin-bottom: 10px;
+    }
+   }

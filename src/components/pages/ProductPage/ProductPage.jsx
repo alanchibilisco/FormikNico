@@ -7,6 +7,7 @@ import ModalCarrito from "../Carrito/carrito.jsx"
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
+// import BtnPaginacion from '../../BtnPaginacion/BtnPaginacion';
 
 
 const ProductPage = (props) => {
@@ -147,7 +148,7 @@ const navigate = useNavigate()
                       {/* <p className="">Graduacion: {prod.Graduation}</p> */}
                       Graduacion: {prod.Graduation}
                     </Card.Text>
-                    <Card.Text>
+                    <Card.Text className='textCard'>
                       {/* <p className="mb-0 ms-2 ">Precio:${prod.PriceProduct}{" "}</p> */}
                       Precio:${prod.PriceProduct}
                     </Card.Text>
@@ -167,6 +168,7 @@ const navigate = useNavigate()
               <Spinner color="warning" />
             </div>
           )}
+          {/* <BtnPaginacion registro={registro} total={posts.total} nextPage={nextPage} prevPage={prevPage}/> */}
         </Row>
         {/* productos */}
       </Container>

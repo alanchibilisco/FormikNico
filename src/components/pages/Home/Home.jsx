@@ -7,6 +7,7 @@ import PapaNoel from "../../../image/Papanoel.png"
 import CartelBeer from "../../../image/CartelBeer.jpeg"
 import CartelBeer2 from "../../../image/CartelBeer2.jpg"
 // import publicidad from "../../../assets/publicidad.png"
+// import publicidad2 from "../../../assets/publicidad2.jpg"
 
 const Home = (props) => {
   props.funcNav(true)
@@ -62,6 +63,7 @@ const Home = (props) => {
             </Col>
           </Row>
             {/* <Image className='my-3' src={publicidad} alt="publicidad" /> */}
+            {/* <Image className='my-3' src={publicidad2} alt="publicidad" /> */}
         </Container>
       </>}
       {/* Products */}
