@@ -1,36 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Button, Image } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
+import instance from '../../../api/axiosUsuarios';
 
-const DetProd = () => {
-
+const DetProd = (props) => {
+    props.funcNav(true)
+    const [productsDetalle, setProductsDetalle] = useState({})
     const { id } = useParams();
-    const [product, setProduct] = useState({});
 
-    // useEffect(() => {
-    //     getBlogById(id).then((respuesta) => {
-    //         console.log(respuesta);
-    //         if (respuesta?.msg) {
-    //             setMensaje(respuesta.msg);
-    //         } else {
-    //             setPost(respuesta.blog);
-    //         }
-    //         setLoading(false);
-    //     });
-    // }, []);
+    const getProductosID = async()=>{
+        try {
+          const resp =await instance.get(`/productos/${id}`,)
+          console.log(resp);      
+          setProductsDetalle(resp.data)      
+          ;
+        } catch (error) {
+         console.log(error);
+         alert("Error")       
+        }
+      }
+   
+     useEffect(()=>{
+       getProductosID()
+   
+     },[])
 
+
+   
     return (
         <Container>
             <Row className='my-3'>
                 <Col>
-                    <Image style={{ width: '350px' }} src={product.ImgURL} />
+                    <Image style={{ width: '350px' }} src={productsDetalle.ImgURL} />
                 </Col>
                 <Col>
-                    <h1>titulo</h1>
-                    <h3>{product.Category}</h3>
-                    <h3>{product.Productdetalle}</h3>
-                    <h3>{product.PriceProduct}</h3>
-                    <h3>{product.Graduation}</h3>
+                    <h1>{productsDetalle.ProductName}</h1>
+                    <h3>{productsDetalle.Category}</h3>
+                    <h3>{productsDetalle.Productdetalle}</h3>
+                    <h3>{productsDetalle.PriceProduct}</h3>
+                    <h3>{productsDetalle.Graduation}</h3>
                 </Col>
             </Row>
             <Row>
