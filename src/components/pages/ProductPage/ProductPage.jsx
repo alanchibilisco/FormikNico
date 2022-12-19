@@ -153,7 +153,8 @@ const navigate = useNavigate()
                     </Card.Text>
                     <div style={{ position: 'absolute', bottom: 0 }} className="mb-3">
                       <Button type="submit" variant="warning" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
-                      <Button className='ms-3' variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
+                      <Button className='mx-3' variant='danger' onClick={() => navigate(`/favoritos`)}>Add to ❤</Button>
+                      <Button variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
                         Details
                       </Button>
                     </div>

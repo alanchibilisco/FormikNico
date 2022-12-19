@@ -10,7 +10,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 const contacto = () => {
   return (
     <Container className='mb-5'>
-      <h1 className='my-3 text-center'>Las personas que trabajaron en este proyecto son:</h1>
+      <h1 className='text-center'>Las personas que trabajaron en este proyecto son:</h1>
+      <hr />
       <Row className='text-center'>
         <Col className='mb-4 mx-auto text-center d-flex justify-content-center'>
           <Profile img={ironMan} name='Nicolas Viruel' text='BackEnd' face="https://www.facebook.com/" tw="https://twitter.com/" ig="https://www.instagram.com/" github="https://github.com/" linkedin="https://www.linkedin.com/" />
