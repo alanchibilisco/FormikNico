@@ -129,7 +129,7 @@ const navigate = useNavigate()
             producto.map((prod) => (
               <Col xs={12} lg={4} md={6} key={prod._id} className="mb-3">
                 {console.log(prod)}
-                <Card className="my-4 h-100" style={{ position: 'relative' }}>
+                <Card className="my-4 h-100 card-test" style={{ position: 'relative' }}>
                   <Card.Img variant="top" src={prod.ImgURL} className="imagen-tarjeta" />
                   <Card.Body>
                     <div className="d-flex align-items-center justify-content-between mb-2">
