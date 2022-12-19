@@ -6,6 +6,7 @@ import instance from '../../../api/axiosUsuarios';
 import ModalCarrito from "../Carrito/carrito.jsx"
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 
 const ProductPage = (props) => {
@@ -17,7 +18,7 @@ const ProductPage = (props) => {
   // carrrito
   const [productosCart, setProductosCart] = useState([])
 
-
+const navigate = useNavigate()
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -126,21 +127,22 @@ const ProductPage = (props) => {
           {producto.length > 0 ? (
             producto.map((prod) => (
               <Col xs={12} lg={4} md={6} key={prod._id} className="mb-3">
-                <Card className="my-4 h-100" style={{position: 'relative'}}>
-                  <Card.Img variant="top" src={prod.ImgURL} className="imagen-tarjeta"/>
+                {console.log(prod)}
+                <Card className="my-4 h-100" style={{ position: 'relative' }}>
+                  <Card.Img variant="top" src={prod.ImgURL} className="imagen-tarjeta" />
                   <Card.Body>
                     <div className="d-flex align-items-center justify-content-between mb-2">
                       <Card.Title className="">{prod.ProductName}</Card.Title>
                       {/* <span className="badge bg-yellow">{prod.Category}</span> */}
                     </div>
-                      <Badge bg="warning" text="dark">{prod.Category}</Badge>{' '}
+                    <Badge bg="warning" text="dark">{prod.Category}</Badge>{' '}
                     <Card.Text className='mt-3'>
                       {/* <p className="">
                       {prod.Category}
                       </p> */}
                       {/* <p className='mt-3'>{prod.Productdetalle}</p> */}
                       {prod.Productdetalle}
-                      </Card.Text>
+                    </Card.Text>
                     <Card.Text>
                       {/* <p className="">Graduacion: {prod.Graduation}</p> */}
                       Graduacion: {prod.Graduation}
@@ -149,16 +151,18 @@ const ProductPage = (props) => {
                       {/* <p className="mb-0 ms-2 ">Precio:${prod.PriceProduct}{" "}</p> */}
                       Precio:${prod.PriceProduct}
                     </Card.Text>
-                    <div style={{position: 'absolute', bottom: 0}} className="mb-3">
-                      <button  type="submit" className="btn-gray" onClick={()=>{
-                        incrementarCarrito(); guardaCarrito(prod)}}> Add to 🛒</button>
+                    <div style={{ position: 'absolute', bottom: 0 }} className="mb-3">
+                      <Button type="submit" variant="warning" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
+                      <Button className='ms-3' variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
+                        Details
+                      </Button>
                     </div>
                   </Card.Body>
                 </Card>
               </Col>
             ))
           ) : (
-            <div>
+            <div className='d-flex justify-content-center'>
               <Spinner color="warning" />
             </div>
           )}

@@ -14,6 +14,7 @@ import Footer from "../components/layout/Footer";
 import TablaUsuarios from "../components/pages/TablaUsuarios/TablaUsuario";
 
 import TablaProducto from "../components/pages/TablaProducto/Producto/TablaProducto";
+import DetProd from "../components/pages/DetProducto/DetProd";
 
 
 const RouterPrincipal = () => {
@@ -41,6 +42,7 @@ const RouterPrincipal = () => {
         <Route exact path="/productpage" element={<ProductPage funcNav={setShowNav}/>} />
         <Route exact path="/destacados" element={<Destacados funcNav={setShowNav}/>} />
         <Route exact path="/favoritos" element={<Favorito funcNav={setShowNav}/>} />
+        <Route exact path="/products/:id" element={<DetProd funcNav={setShowNav} />} />
         <Route exact path="*" element={<Error404 funcNav={setShowNav}/>} />
 
         <Route path="/tablausuarios" element={<TablaUsuarios/>}></Route>
