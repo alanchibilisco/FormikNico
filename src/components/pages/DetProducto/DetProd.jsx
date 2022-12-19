@@ -30,23 +30,23 @@ const DetProd = (props) => {
     return (
         <Container>
             <Row className='my-3'>
-                <Col>
-                    <Image style={{ width: '350px' }} src={productsDetalle.ImgURL} />
+                <Col xs={12} md={4} className="d-flex justify-content-center">
+                    <Image style={{width: '300px', height: '300px', objectFit: 'cover'}} src={productsDetalle.ImgURL}/>
                 </Col>
-                <Col>
-                    <h1>{productsDetalle.ProductName}</h1>
-                    <h3>{productsDetalle.Category}</h3>
-                    <h3>{productsDetalle.Productdetalle}</h3>
-                    <h3>{productsDetalle.PriceProduct}</h3>
-                    <h3>{productsDetalle.Graduation}</h3>
+                <Col xs={12} md={8} className="d-flex flex-column my-auto">
+                    <h1><span className='text-danger'>Name: </span>{productsDetalle.ProductName}</h1>
+                    <h2><span className='text-danger'>Category: </span>{productsDetalle.Category}</h2>
+                    <h3><span className='text-danger'>Description: </span>{productsDetalle.Productdetalle}</h3>
+                    <h3><span className='text-danger'>Price: </span>{productsDetalle.PriceProduct}</h3>
+                    <h3><span className='text-danger'>Graduaction: </span>{productsDetalle.Graduation}</h3>
                 </Col>
             </Row>
-            <Row>
+            {/* <Row>
                 <Col><Button variant="warning">comprar</Button>
                     <Button className='mx-3' variant="warning">cancelar</Button>
                     <Button variant="warning">agragar al carrito</Button>
                 </Col>
-            </Row>
+            </Row> */}
         </Container>
     )
 }

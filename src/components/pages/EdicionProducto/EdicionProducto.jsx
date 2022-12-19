@@ -154,7 +154,7 @@ const EdicionProducto = (props) => {
           </Col>
           {/* Form Product */}
           <Col className="d-sm-none d-md-block">
-            <Image src={logo} alt="logo" style={{maxWidth: '100%'}} className="d-sm-none d-md-block"/>
+            <Image src={logo} alt="logo" style={{maxWidth: '100%'}} />
           </Col>
         </Row>
       </Container>
