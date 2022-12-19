@@ -59,19 +59,20 @@ const NavBar = ({ setUserDate }) => {
                 (token) ? 
                   role == "admin" ? 
                   (<>
+                  <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
                   <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablausuarios">ABM Usuarios</NavLink>
                   <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablaproducto">ABM productos</NavLink>
-                  <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/">Home</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto">Contacto</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage">Productos</NavLink>
                     
-                    <div className="text-end">
+                    {/* <div className="text-end bg-danger logout">
                     <Nav.Link onClick={handleLogout} className="text-white">
                       Logout
                     </Nav.Link>
-                    </div>
+                    </div> */}
+                    <Button onClick={handleLogout} variant="danger">Logout</Button>
                   </>
                     
                   )
@@ -83,12 +84,12 @@ const NavBar = ({ setUserDate }) => {
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos">Favoritos</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage">Productos</NavLink>
                     
-                    <div className="text-end">
-                    
+                    {/* <div className="text-end">
                     <Nav.Link onClick={handleLogout} className="text-white">
                       Logout
                     </Nav.Link>
-                    </div>
+                    </div> */}
+                    <Button onClick={handleLogout} variant="danger">Logout</Button>
                   </>
                 
                   :
