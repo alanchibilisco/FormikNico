@@ -26,7 +26,7 @@ const DetProd = () => {
                     <Image style={{ width: '350px' }} src={product.ImgURL} />
                 </Col>
                 <Col>
-                    <h1>{product.ProductName}</h1>
+                    <h1>titulo</h1>
                     <h3>{product.Category}</h3>
                     <h3>{product.Productdetalle}</h3>
                     <h3>{product.PriceProduct}</h3>
