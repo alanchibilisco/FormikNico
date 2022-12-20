@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
 import { Col, Container, Row,Form, Button } from 'react-bootstrap';
-
 import { useNavigate } from 'react-router-dom';
 import logo from "../../../assets/img/logo/Imagen1.png";
 import CartelBeer from "../../../image/CartelBeer.jpeg"
 import Swal from 'sweetalert2';
-
 import instance from "../../../api/axiosUsuarios"
 import { validateEmail} from "../../helpers/validateFields"
 

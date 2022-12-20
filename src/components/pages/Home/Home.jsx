@@ -5,10 +5,9 @@ import instance from "../../../api/axiosUsuarios"
 import { Col, Container, Row, Image } from "react-bootstrap";
 import PapaNoel from "../../../image/Papanoel.png"
 import CartelBeer from "../../../image/CartelBeer.jpeg"
-import CartelBeer2 from "../../../image/CartelBeer2.jpg"
+import CartelBeer3 from "../../../image/CartelBeer3.jpg"
+import CartelBeer4 from "../../../image/CartelBeer4.jpeg"
 import CardProducto from "./CardProducto/CardProducto";
-// import publicidad from "../../../assets/publicidad.png"
-// import publicidad2 from "../../../assets/publicidad2.jpg"
 import ipa from '../../../assets/img/imgHome/IPA1.jpg'
 import Lagers from '../../../assets/img/imgHome/amberLager.webp'
 import Porter from '../../../assets/img/imgHome/porter.png'
@@ -63,13 +62,19 @@ const Home = (props) => {
                 <h1 className=" text-warning">SALUD!!!</h1>
               </div>
             </Col>
-            <Col className="text-center" xs={12} md={6} lg={4}>
-              <div className="mt-5">
-
-                <img src={CartelBeer2} alt="CartelBeer2" width="300" className="d-none d-md-block" />
+            <Col className="d-flex" xs={12} md={6} lg={4}>
+              <div className="mx-auto mt-3 text-center">
+                <img src={CartelBeer3} alt="CartelBeer3" width="300" className="d-none d-md-block mb-4" />
+                <img src={CartelBeer4} alt="CartelBeer4" width="300" className="d-none d-md-block" />
               </div>
             </Col>
+            <Col className="text-center" xs={6} md={3} lg={2}> 
+              <div className="d-flex mt-5">
+                
+              </div>       
+            </Col>
           </Row>
+          {/* Products */}
           <Row>
             <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
               <CardProducto img={ipa} name="Ipa" text="poner algo aqui" graduation="3%" price="100" category="Cerveceria" id="1" />
@@ -93,12 +98,10 @@ const Home = (props) => {
               <CardProducto img={Scottisch} name="Scottisch" text="poner algo aqui" graduation="4%" price="350" category="Cerveceria" id="7" />
             </Col>
           </Row>
-          {/* <CardProducto/> */}
-          {/* <Image className='my-3' src={publicidad} alt="publicidad" /> */}
-          {/* <Image className='my-3' src={publicidad2} alt="publicidad" /> */}
+        
         </Container>
       </>}
-      {/* Products */}
+      
 
     </div>
   );

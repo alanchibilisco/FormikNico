@@ -78,7 +78,6 @@ const Registro = ({show, handleClose}) => {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
-                            {/* <Form.Control type="email" placeholder="Enter email" /> */}
                             <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
@@ -87,7 +86,6 @@ const Registro = ({show, handleClose}) => {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            {/* <Form.Control type="password" placeholder="Password" /> */}
                             <Form.Control type="password" placeholder="Enter your password" value={password} onChange={({target})=> setPassword(target.value)} maxLength={30} />
                         </Form.Group>
                         <div className='d-grid gap-2 my-2'>
@@ -101,7 +99,6 @@ const Registro = ({show, handleClose}) => {
                             <h3 className="col-12">Sign in with</h3>
                         </div>
                         <div className="row justify-content-center">
-                            {/* <!--Row para organizar 2 botones--> */}
                             <div className="d-flex">
                                 <Button variant="outline-info" className=" w-100 my-1 mx-2">
                                     <a

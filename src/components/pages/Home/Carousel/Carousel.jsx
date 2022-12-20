@@ -1,10 +1,5 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-// import './Carousel.css'
-// import cerveza1 from '../../../../assets/img/carousel/cerveza1.png'
-// import cerveza2 from '../../../../assets/img/carousel/cerveza2.png'
-// import cerveza3 from '../../../../assets/img/carousel/cerveza3.jpg'
-
 
 
 const Calesita = () => {

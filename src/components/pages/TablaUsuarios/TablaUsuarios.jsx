@@ -99,7 +99,6 @@ const TablaUsuarios = () => {
                             variant="outline-primary mx-1"
                             style={{ color: "black" }}
                           >
-                            {/* <i className="fa-solid fa-pen-to-square"></i> */}
                             <i className="fa-solid fa-user-pen"></i>
                           </Link>
                         </Button>
@@ -107,7 +106,6 @@ const TablaUsuarios = () => {
                           variant="outline-danger mx-1"
                           onClick={() => handleDelete(user._id)}
                         >
-                          {/* <i className="fa-solid fa-trash-can"></i> */}
                           <i className="fa-solid fa-user-xmark"></i>
                         </Button>
                       </div>

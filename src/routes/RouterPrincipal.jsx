@@ -48,7 +48,6 @@ const RouterPrincipal = () => {
         <Route exact path="*" element={<Error404 funcNav={setShowNav}/>} />
 
         <Route path="/tablausuarios" element={<TablaUsuarios/>}></Route>
-        {/* <Route path="/tablausuarios" element={<TablaUsuarios funcNav={setShowNav}/>}/> */}
 
       </Routes>
       {   showNav &&

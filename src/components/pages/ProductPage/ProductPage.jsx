@@ -55,9 +55,7 @@ const navigate = useNavigate()
     }
   }
   const searchEnter = (e) => {
-    // console.log(e)
 
-    //  console.log(e.code)
     if (e.code === 'Enter') {
       search()
       e.preventDefault()
@@ -135,22 +133,15 @@ const navigate = useNavigate()
                   <Card.Body>
                     <div className="d-flex align-items-center justify-content-between mb-2">
                       <Card.Title className="">{prod.ProductName}</Card.Title>
-                      {/* <span className="badge bg-yellow">{prod.Category}</span> */}
                     </div>
                     <Badge bg="warning" text="dark">{prod.Category}</Badge>{' '}
                     <Card.Text className='mt-3'>
-                      {/* <p className="">
-                      {prod.Category}
-                      </p> */}
-                      {/* <p className='mt-3'>{prod.Productdetalle}</p> */}
                       {prod.Productdetalle}
                     </Card.Text>
                     <Card.Text>
-                      {/* <p className="">Graduacion: {prod.Graduation}</p> */}
                       Graduacion: {prod.Graduation}
                     </Card.Text>
                     <Card.Text className='textCard'>
-                      {/* <p className="mb-0 ms-2 ">Precio:${prod.PriceProduct}{" "}</p> */}
                       Precio:${prod.PriceProduct}
                     </Card.Text>
                     <div style={{ position: 'absolute', bottom: 0 }} className="mb-3">
@@ -169,7 +160,7 @@ const navigate = useNavigate()
               <Spinner color="warning" />
             </div>
           )}
-          {/* <BtnPaginacion registro={registro} total={posts.total} nextPage={nextPage} prevPage={prevPage}/> */}
+          
         </Row>
         {/* productos */}
       </Container>
