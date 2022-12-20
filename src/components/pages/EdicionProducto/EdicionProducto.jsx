@@ -52,7 +52,7 @@ const EdicionProducto = (props) => {
       !validateCategory(productoEditar.Category) ||
       validatePorcentaje(productoPorcentajeRef.current.value)
     ) {
-      Swal.fire("ops!", "Uno o mas Datos son Invalidos", "Error")
+      Swal.fire("ops!", "One or more fields are invalid", "Error")
       return
     }
     console.log("datos correctos");
@@ -66,12 +66,12 @@ const EdicionProducto = (props) => {
       Avaliable: productoEditar.Avaliable
     };
     Swal.fire({
-      title: 'Quieres actualizar este producto?',
+      title: 'Do you want to update this product?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Accept'
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -80,8 +80,8 @@ const EdicionProducto = (props) => {
           );
           if (resp.status === 200) {
             Swal.fire(
-              'Actualizado',
-              'Su producto se actualizo correctamente.',
+              'Updated',
+              'The product was successfully updated.',
               'success'
             )
             navigate(`/tablaproducto`)
@@ -96,20 +96,20 @@ const EdicionProducto = (props) => {
 
   return (
     <div>
-      <Container className="py-1" >
-        <h3 className='mt-2'>Editar Producto</h3>
+      <Container className="py-5" >
+        <h1 >Edit Product</h1>
         <hr />
         <Row>
 
           <Col xs={12} md={6}>
             <Form className="my-2" >
               <Form.Group className="my-1" controlId="nombrerProducto">
-                <Form.Label>Producto</Form.Label>
+                <Form.Label>Product</Form.Label>
                 <Form.Control type="text" placeholder="Ej:Ipa" defaultValue={productoEditar.ProductName}
                   ref={productoNameRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="detalleProducto">
-                <Form.Label>Detalle</Form.Label>
+                <Form.Label>Details</Form.Label>
                 <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo" defaultValue={productoEditar.Productdetalle} ref={productoEditarRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="precioProducto">
@@ -128,12 +128,12 @@ const EdicionProducto = (props) => {
               <Form.Group className="my-1" controlId="categoriaProducto">
                 <Form.Label>Category</Form.Label>
                 <Form.Select value={productoEditar.Category} onChange={({ target }) => setProductoEditar({ ...productoEditar, Category: target.value })}>
-                  <option value="">Seleccione una categoria</option>
-                  <option value="Cerveza">Cerveza</option>
-                  <option value="Cocteleria">Cocteleria</option>
+                  <option value="">Select a category</option>
+                  <option value="Cerveza">Beer</option>
+                  <option value="Cocteleria">Cocktail</option>
                   <option value="Merchandising">Merchandising</option>
-                  <option value="comidas">Comidas</option>
-                  <option value="Otros">Otros</option>
+                  <option value="comidas">Foods</option>
+                  <option value="Otros">Others</option>
                 </Form.Select>
               </Form.Group>
               <Form.Group className="my-1" controlId="Graduacion">
@@ -142,14 +142,14 @@ const EdicionProducto = (props) => {
                   ref={productoPorcentajeRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="Disponibiliadad">
-                <Form.Label>Disponibiidad</Form.Label>
+                <Form.Label>Stock</Form.Label>
                 <Form.Select value={productoEditar.Avaliable} onChange={({ target }) => setProductoEditar({ ...productoEditar, Avaliable: target.value })}>
-                  <option value="true">Si</option>
+                  <option value="true">Yes</option>
                   <option value="false">No</option>
                 </Form.Select>
               </Form.Group>
               <div className="text-center mt-3">
-                <Button variant="warning" onClick={handleSubmit}>Actualizar🍻</Button>
+                <Button variant="warning" onClick={handleSubmit}>Update 🍻</Button>
               </div>
             </Form>
           </Col>

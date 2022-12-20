@@ -56,12 +56,12 @@ const TablaProducto = (props) => {
   }
   const handleDelete = (id) => {
     Swal.fire({
-      title: 'Quieres borrar este producto?',
+      title: 'Do you want to delete this product?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Accept'
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -70,8 +70,8 @@ const TablaProducto = (props) => {
           );
           if (resp.status === 200) {
             Swal.fire(
-              'Borrado',
-              'Su producto se borro correctamente.',
+              'Deleted',
+              'The product was successfully deleted.',
               'success'
             )
             getProductos()
@@ -90,10 +90,9 @@ const TablaProducto = (props) => {
     <>
       <Container className="py-5">
         <Row>
-          <Col lg={6}>
-            <h5> Tabla de Productos:</h5>
-          </Col>
-          <Col lg={3}>
+          <h1>Products table</h1>
+          <hr />
+          {/* <Col lg={3} className="ms-auto">
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -103,20 +102,51 @@ const TablaProducto = (props) => {
                 onChange={(e) => setbuscadorProducto(e.target.value)}
                 onKeyPress={searchEnter}
               />
-              <Button variant="outline-light" onClick={search}>
+              <Button variant="outline-light" onClick={search} className="float-end">
                 <box-icon name="search-alt-2"></box-icon>
               </Button>
             </Form>
-          </Col>
-          <Col lg={3}>
+          </Col> */}
+          <div className="d-flex justify-content-end">
+            <div >
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Buscar Producto"
+                className="me-1"
+                aria-label="Search"
+                onChange={(e) => setbuscadorProducto(e.target.value)}
+                onKeyPress={searchEnter}
+              />
+              <Button variant="outline-dark" onClick={search} className="float-end">
+                {/* <box-icon name="search-alt-2"></box-icon> */}
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </Button>
+            </Form>
+            </div>
+            <div>
+            {/* <Button variant="outline-primary mx-1">
+              <Link to="/creacionproducto" >
+              <i className="fa-solid fa-plus"></i>
+              </Link>
+            </Button> */}
+            <Button variant="primary" className="ms-2">
+            <Link to="/creacionproducto" >
+              <i className="fa-solid fa-plus" style={{color: "white"}}></i>
+              </Link>
+              </Button>{' '}
+            </div>
+          </div>
+          {/* <Col lg={3} className="ms-auto">
             <Button variant="outline-primary mx-1">
               <Link to="/creacionproducto" variant="outline-light">
               <i className="fa-solid fa-plus"></i>
               </Link>
             </Button>
-          </Col>
-          <Col lg={12}>
-            <Table bordered responsive hover className="text-center align-middle mt-3 border-3 border-dark">
+          </Col> */}
+          
+          <Col xs={12}>
+            <Table bordered striped variant="dark" responsive hover className="text-center align-middle mt-3">
               <thead>
                 <tr>
                   <th>N.</th>
@@ -143,7 +173,7 @@ const TablaProducto = (props) => {
                     </td>
                     <td>{prod.Category}</td>
                     <td>{prod.Graduation}</td>
-                    <td>{prod.Avaliable ? 'si' : 'no'}</td>
+                    <td>{prod.Avaliable ? 'Yes' : 'No'}</td>
                     <td >
                       <div className="d-flex justify-content-center">
                       <Button variant="outline-success mx-1">

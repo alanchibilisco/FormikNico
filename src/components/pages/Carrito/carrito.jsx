@@ -38,23 +38,23 @@ const ModalCarrito = ({show, handleClose}) => {
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         
-        <Modal.Title> 🛒 Su carrito: </Modal.Title>
+        <Modal.Title> 🛒 Your cart: </Modal.Title>
       </Modal.Header>
         
-      <h6 className="align-middle text-center mt-3">Fecha: {Moment().format('DD-MM-YYYY')}</h6>
-      <h6 className="align-middle text-center mt-3">Hora: {Moment().format(' hh:mm A')}</h6>
-      <h6 className="align-middle text-center mt-3">DETALLE DE SU COMPRA:</h6>
+      <h6 className="align-middle text-center mt-3">Date: {Moment().format('DD-MM-YYYY')}</h6>
+      <h6 className="align-middle text-center mt-3">Hour: {Moment().format(' hh:mm A')}</h6>
+      <h6 className="align-middle text-center mt-3">DETAILS OF YOUR PURCHASE:</h6>
       <Modal.Body>
         <Table bordered hover responsive className="align-middle text-center mt-3">
           <thead>
             <tr>
               <th>N.</th>
               <th>Imagen</th>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th>Cant.</th> 
+              <th>Product</th>
+              <th>Price</th>
+              <th>Amount</th> 
               <th>Total</th>                            
-              <th>Quitar</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody>
@@ -87,10 +87,10 @@ const ModalCarrito = ({show, handleClose}) => {
       <Modal.Footer className="text-center">
         <div className="text-center">Ticket Op: {myuuid} </div>
         <Button variant="secondary" onClick={vaciarCarrito}>
-          Vaciar carrito
+        Clear cart
         </Button>
         <Button variant="primary" onClick={handleClose}>
-          Comprar
+          Buy
         </Button>
       </Modal.Footer>
     </Modal>
