@@ -156,26 +156,7 @@ const TablaProducto = (props) => {
                       </Button>
                       </div>
                     </td>
-                    {/* <td className="w-25">
-                      <div className="d-flex justify-content-center">
-                        <Button variant="outline-success mx-1">
-                          <Link
-                            to={`/edicionproducto/${prod._id}`}
-                            variant="outline-primary mx-1">
-                            <box-icon
-                              type="solid"
-                              name="message-square-edit"
-                            ></box-icon>
-                          </Link>
-                        </Button>
-                        <Button variant="outline-danger mx-1" onClick={() => handleDelete(prod._id)}>
-                          <box-icon
-                            name="message-square-x"
-                            type="solid"
-                          ></box-icon>
-                        </Button>
-                      </div>
-                    </td> */}
+              
                   </tr>
                 ))
                   :

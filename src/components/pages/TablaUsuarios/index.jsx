@@ -1,1 +1,1 @@
-export {default} from './TablaUsuario'
+export {default} from './TablaUsuarios'
