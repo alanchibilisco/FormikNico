@@ -90,7 +90,7 @@ const Registro = ({show, handleClose}) => {
                             {/* <Form.Control type="password" placeholder="Password" /> */}
                             <Form.Control type="password" placeholder="Enter your password" value={password} onChange={({target})=> setPassword(target.value)} maxLength={30} />
                         </Form.Group>
-                        <div className='d-grid gap-2'>
+                        <div className='d-grid gap-2 my-2'>
                             <Button variant="warning" type="submit">
                                 Sign in
                             </Button>

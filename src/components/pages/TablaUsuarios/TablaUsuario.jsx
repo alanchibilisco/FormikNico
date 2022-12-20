@@ -95,7 +95,7 @@ const TablaUsuarios = () => {
                       <div className="d-flex justify-content-center">
                         <Button variant="outline-success mx-1">
                           <Link
-                            to={`/edicionproducto/${user._id}`}
+                            to={`/edicionUsuario/${user._id}`}
                             variant="outline-primary mx-1"
                             style={{ color: "black" }}
                           >

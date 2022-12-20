@@ -3,10 +3,10 @@ import { Button, Col, Container, Form, Row ,} from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axiosUsuarios';
 import logo from "../../../assets/img/logo/Imagen1.png";
-import { validatePassword } from '../../helpers/validateFields';
+import { validateEmail, validatePassword } from '../../helpers/validateFields';
 
 
-const EdicionUsuario = () => {
+const EdicionUsuario = (props) => {
     props.funcNav(true)
   const [usuarioEditar, setUsuarioEditar] = useState({})
 
@@ -20,7 +20,7 @@ const EdicionUsuario = () => {
 
   const getUsuariosID = async()=>{
     try {
-      const resp =await instance.get(`/users/${id}`,)
+      const resp =await instance.get(`/users/${id}`);
       console.log(resp);      
       setUsuarioEditar(resp.data)      
       ;
@@ -31,7 +31,7 @@ const EdicionUsuario = () => {
   }
 
   useEffect(()=>{
-    getProductosID()
+    getUsuariosID ()
 
   },[])
 
@@ -39,7 +39,7 @@ const EdicionUsuario = () => {
     e.preventDefault()
     console.log(usuarioNameRef.current.value);
     if (!validateName(usuarioNameRef.current.value) ||
-    !validatePassword(usuarioEmailRef.current.value) ||
+    !validateEmail(usuarioEmailRef.current.value) ||
     !validatePassword(usuarioPasswordRef.current.value) ||
     !validateRole(usuarioRoleRef.current.value)) {
         Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
@@ -64,7 +64,7 @@ const EdicionUsuario = () => {
         if (result.isConfirmed) {
           try {
              const resp = await instance.put(`/users/${id}`,
-            usuarioActualizado,         
+            usuarioActualizado         
           );
           if (resp.status===200) { 
             Swal.fire(
@@ -89,26 +89,26 @@ const EdicionUsuario = () => {
   return (
     <div>
         <Container className="py-1" >
-        <h5>Editar Producto</h5>        
+        <h5 className='my-3'>Editar Usuario</h5>        
         <Row>
           <Col lg={6}>
           <Form className="my-2" >
           <Form.Group className="my-1" controlId="nombreUsuario">
             <Form.Label>Nombre</Form.Label>
             <Form.Control type="text" placeholder="Ej:Carlos" defaultValue={usuarioEditar.name}
-            ref={productoNameRef}/>
+            ref={usuarioNameRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="emailUsuario">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="example@gmail.com"  defaultValue={usuarioEditar.email} ref={usuarioEditarRef}/>
+            <Form.Control type="email" placeholder="example@gmail.com"  defaultValue={usuarioEditar.email} ref={usuarioEmailRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="passwordUsuario">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="text" placeholder="Enter your password" defaultValue={usuarioEditar.password} ref={productoPriceRef} />
+            <Form.Control type="text" placeholder="Enter your password" defaultValue={usuarioEditar.password} ref={usuarioPasswordRef} />
           </Form.Group>
           <Form.Group className="my-1" controlId="roleUsuario">
             <Form.Label>Role</Form.Label>
-            <Form.Control type="text" placeholder="Enter your role" defaultValue={usuarioEditar.role} ref={productoPriceRef} />
+            <Form.Control type="text" placeholder="Enter your role" defaultValue={usuarioEditar.role} ref={usuarioRoleRef} />
           </Form.Group>
           <div className="text-center">
             <Button variant="warning" onClick={handleSubmit}>Actualizar🍻</Button>
@@ -118,7 +118,7 @@ const EdicionUsuario = () => {
       
         {/* Form Product */}
         <Col lg={6} >
-        <img src={logo} alt="" />
+        <img src={logo} alt="logo" className='d-none d-md-block mb-5' />
         </Col>
         </Row>
       </Container>       

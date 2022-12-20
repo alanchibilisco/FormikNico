@@ -142,7 +142,7 @@ const EdicionProducto = (props) => {
             ref={productoPorcentajeRef}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="Disponibiliadad">
-            <Form.Label>Disponibiidad</Form.Label>
+            <Form.Label>Disponibilidad</Form.Label>
           <Form.Select value={productoEditar.Avaliable} onChange={({target})=>setProductoEditar({...productoEditar,Avaliable: target.value})}>
               
               <option value="true">Si</option>
@@ -157,7 +157,7 @@ const EdicionProducto = (props) => {
       
         {/* Form Product */}
         <Col lg={6} >
-        <img src={logo} alt="" />
+        <img src={logo} alt="logo" className='d-none d-md-block'/>
         </Col>
         </Row>
       </Container>       
