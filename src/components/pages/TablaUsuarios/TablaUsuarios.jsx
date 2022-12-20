@@ -10,14 +10,14 @@ const TablaUsuarios = () => {
   const [userList, setUserList] = useState([]);
   
   const getUsers = async (token) => {
+
     const config = {
       headers: {
-        authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     };
     try {
       const resp = await instance.get("/users", config);
-      console.log(resp)
       setUserList(resp.data);
     } catch (error) {
       console.log(error);

@@ -64,7 +64,7 @@ const EdicionUsuario = (props) => {
       }).then( async (result) => {
         if (result.isConfirmed) {
           try {
-             const resp = await instance.put(`/users`,
+             const resp = await instance.put(`/users/${id}`,
             usuarioActualizado         
           );
           if (resp.status===200) { 
