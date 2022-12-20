@@ -69,7 +69,7 @@ const navigate = useNavigate()
   //guardar en carrito
   const guardaCarrito = (newProduct) => {
     Swal.fire(
-      "Agregado a Carrito",
+      "Added to cart",
       "",
       "success"
     );

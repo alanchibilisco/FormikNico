@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Button, Image } from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axiosUsuarios';
 
 const DetProd = (props) => {
     props.funcNav(true)
     const [productsDetalle, setProductsDetalle] = useState({})
     const { id } = useParams();
+
+    const navigate = useNavigate()
 
     const getProductosID = async()=>{
         try {
@@ -39,6 +41,11 @@ const DetProd = (props) => {
                     <h3><span className='text-danger'>Description: </span>{productsDetalle.Productdetalle}</h3>
                     <h3><span className='text-danger'>Graduation: </span>{productsDetalle.Graduation}</h3>
                     <h3><span className='text-danger'>Price: </span>{productsDetalle.PriceProduct}</h3>
+                    <div className='d-flex'>
+                    <Button variant="primary">Buy</Button>
+                    <Button variant="danger" className='mx-3' onClick={() => navigate(`/favoritos`)}>Favorite</Button>
+                    <Button variant="secondary">Cancel</Button>
+                    </div>
                 </Col>
             </Row>
             {/* <Row>

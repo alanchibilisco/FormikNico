@@ -112,7 +112,7 @@ const TablaProducto = (props) => {
             <Form className="d-flex">
               <Form.Control
                 type="search"
-                placeholder="Buscar Producto"
+                placeholder="Search Product"
                 className="me-1"
                 aria-label="Search"
                 onChange={(e) => setbuscadorProducto(e.target.value)}
