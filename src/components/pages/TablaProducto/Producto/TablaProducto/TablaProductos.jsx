@@ -56,12 +56,12 @@ const TablaProducto = (props) => {
   }
   const handleDelete = (id) => {
     Swal.fire({
-      title: 'Quieres borrar este producto?',
+      title: 'Do you want to delete this product?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Aceptar'
+      confirmButtonText: 'Accept'
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -70,8 +70,8 @@ const TablaProducto = (props) => {
           );
           if (resp.status === 200) {
             Swal.fire(
-              'Borrado',
-              'Su producto se borro correctamente.',
+              'Deleted',
+              'The product was successfully deleted.',
               'success'
             )
             getProductos()
@@ -173,7 +173,7 @@ const TablaProducto = (props) => {
                     </td>
                     <td>{prod.Category}</td>
                     <td>{prod.Graduation}</td>
-                    <td>{prod.Avaliable ? 'si' : 'no'}</td>
+                    <td>{prod.Avaliable ? 'Yes' : 'No'}</td>
                     <td >
                       <div className="d-flex justify-content-center">
                       <Button variant="outline-success mx-1">

@@ -34,20 +34,20 @@ const TablaUsuarios = () => {
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Quieres borrar este Usuario?",
+      title: "Do you want to delete this user?",
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Aceptar",
+      confirmButtonText: "Accept",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           const resp = await instance.delete(`/users/${id}`);
           if (resp.status === 200) {
             Swal.fire(
-              "Borrado",
-              "El Usuario se borro correctamente.",
+              "Deleted",
+              "The user was successfully deleted.",
               "success"
             );
             getUsers();
@@ -99,14 +99,16 @@ const TablaUsuarios = () => {
                             variant="outline-primary mx-1"
                             style={{ color: "black" }}
                           >
-                            <i className="fa-solid fa-pen-to-square"></i>
+                            {/* <i className="fa-solid fa-pen-to-square"></i> */}
+                            <i className="fa-solid fa-user-pen"></i>
                           </Link>
                         </Button>
                         <Button
                           variant="outline-danger mx-1"
                           onClick={() => handleDelete(user._id)}
                         >
-                          <i className="fa-solid fa-trash-can"></i>
+                          {/* <i className="fa-solid fa-trash-can"></i> */}
+                          <i className="fa-solid fa-user-xmark"></i>
                         </Button>
                       </div>
                       </td>
