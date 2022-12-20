@@ -100,6 +100,7 @@ const EdicionProducto = (props) => {
         <h3 className='mt-2'>Editar Producto</h3>
         <hr />
         <Row>
+
           <Col xs={12} md={6}>
             <Form className="my-2" >
               <Form.Group className="my-1" controlId="nombrerProducto">
@@ -156,6 +157,7 @@ const EdicionProducto = (props) => {
           <Col className="d-sm-none d-md-block">
             <Image src={logo} alt="logo" style={{maxWidth: '100%'}} />
           </Col>
+
         </Row>
       </Container>
     </div>

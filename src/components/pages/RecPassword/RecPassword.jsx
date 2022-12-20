@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
-import { Col, Container, Button, Row, Form } from 'react-bootstrap';
+
+import { Col, Container, Row,Form, Button } from 'react-bootstrap';
+
 import { useNavigate } from 'react-router-dom';
+import logo from "../../../assets/img/logo/Imagen1.png";
+import CartelBeer from "../../../image/CartelBeer.jpeg"
 import Swal from 'sweetalert2';
-import instance from '../../../api/axiosUsuarios';
-import { validateEmail } from '../../helpers/validateFields';
+
+import instance from "../../../api/axiosUsuarios"
+import { validateEmail} from "../../helpers/validateFields"
+
 
 
 
@@ -14,73 +20,64 @@ const RecPassword = (props) => {
 
   const navigate = useNavigate()
 
-
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    console.log("testing")
-    if (validateEmail(email)) {
-      const user = {
-        email
+  const handleSubmit = async (e) =>{
+      e.preventDefault()
+      if (validateEmail(email)) {
+        const user = { email}
       }
       try {
-        const res = await instance.post("/auth/recovery-password", user);
-        const user_token = res.data.token;
-        localStorage.setItem("token", user_token);
-        setUserDate(user_token);
-        window.location.reload();
+        const res = await instance.post("/recovery-password", user);
+        console.log(res);
+        const user_token = res.data.token
+        localStorage.setItem("token", user_token)
         Swal.fire({
               icon: 'success',
-              title: 'Ok!',
-              text: 'You will receive an email to your email to make the changes!'
+              title: 'You will receive an email to your email to make the changes',
+              text: 'revisa tu correo para continuar!'
             })
-            // setTimeout(() =>{
-            //   handleClose();
-            //   navigate("/") 
-            // },1000)
-            // navigate("/") 
+            setTimeout(() =>{
+              // handleClose();
+              navigate("/") 
+            },1000)
+    
       } catch (error) {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Email is required!'
-        })
-        return console.log(error);
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Email incorrecto!'
+              })
+        console.log(error);
       }
     }
-    // else{
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Oops...',
-    //     text: 'Email is required!'
-    //   })
-    //   console.log(error);
-    // }
-  };
+  
+
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col lg={6}>
+              <Form >
+                <Form.Group className="mb-3">
+                  <Form.Label htmlFor="disabledTextInput" className='mt-3'>Enter your Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
+                </Form.Group>
+                <Button variant="warning" type="submit"> Sign in</Button>
+                <div className='mx-auto text-center'>
+                <img src={CartelBeer} alt="CartelBeer2" width="300" className="my-3"/>
+                </div>
+              </Form>
+              </Col>
+              <Col lg={6} >
+              <img src={logo} alt="logo" className='d-none d-md-block mb-5' />
+              </Col>
+            
+          </Row>
+        </Container>
+      </>
+    )
+  }
+ 
 
 
-  return (
-    <>
-      <Container>
-        <Row className='my-5'>
-          <h4 className=''>Recover your password</h4>
-          <hr />
-          <Col>
-          <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
-          </Form.Group>
-
-          <div className='d-grid gap-2'>
-            <Button variant="warning" type="submit">Send</Button>
-          </div>
-        </Form>
-          </Col>
-          <Col>2 of 2</Col>
-        </Row>
-      </Container>
-    </>
-  )
-}
 
 export default RecPassword
