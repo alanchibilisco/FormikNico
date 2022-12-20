@@ -9,7 +9,7 @@ import { validateEmail} from "../../helpers/validateFields"
 
 
 
-const RecPassword = async (props) => {
+const RecPassword = (props) => {
   props.funcNav(true)
 
   const [email, setEmail] = useState("");
@@ -43,7 +43,6 @@ const RecPassword = async (props) => {
               })
         console.log(error);
       }
-    console.log("asdasd");
     }
   
 
@@ -52,14 +51,14 @@ const RecPassword = async (props) => {
         <Container>
           <Row>
             <Col lg={6}>
-              <Form onSubmit={handleSubmit}>
+              <Form >
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="disabledTextInput" className='mt-3'>Enter your Email</Form.Label>
                   <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />
                 </Form.Group>
                 <Button variant="warning" type="submit"> Sign in</Button>
-                <div className='d-flex'>
-                <img src={CartelBeer} alt="CartelBeer2" width="300" className="d-none d-md-block my-3"/>
+                <div className='mx-auto text-center'>
+                <img src={CartelBeer} alt="CartelBeer2" width="300" className="my-3"/>
                 </div>
               </Form>
               </Col>

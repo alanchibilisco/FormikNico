@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Spinner, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import instance from "../../../api/axiosUsuarios";
 import Swal from "sweetalert2";
 import "boxicons";
 
 const TablaUsuarios = () => {
+  
   const [userList, setUserList] = useState([]);
-
+  
   const getUsers = async (token) => {
     const config = {
       headers: {
@@ -15,7 +16,8 @@ const TablaUsuarios = () => {
       },
     };
     try {
-      const resp = await instance.get("/users/", config);
+      const resp = await instance.get("/users", config);
+      console.log(resp)
       setUserList(resp.data);
     } catch (error) {
       console.log(error);

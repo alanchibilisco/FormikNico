@@ -64,7 +64,7 @@ const Login = ({ show, handleClose , setUserDate}) => {
 
 
   return (
-    <Modal show={show} onHide={handleCloses} backdrop="static">
+    <Modal show={show} onHide={handleClose} backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title className='d-flex'>
           <Image src={logo} alt="logo" width="40" />

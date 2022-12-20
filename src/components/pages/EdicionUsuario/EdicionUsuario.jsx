@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Row ,} from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axiosUsuarios';
 import logo from "../../../assets/img/logo/Imagen1.png";
-import { validateEmail, validatePassword } from '../../helpers/validateFields';
+import { validatePassword } from '../../helpers/validateFields';
 
 
 const EdicionUsuario = (props) => {
@@ -11,7 +11,7 @@ const EdicionUsuario = (props) => {
   const [usuarioEditar, setUsuarioEditar] = useState({})
 
   const{id}= useParams()
-
+    console.log(useParams);
   const usuarioNameRef =useRef("") 
   const usuarioEmailRef =useRef("") 
   const usuarioPasswordRef =useRef("") 
@@ -22,7 +22,8 @@ const EdicionUsuario = (props) => {
     try {
       const resp =await instance.get(`/users/${id}`);
       console.log(resp);      
-      setUsuarioEditar(resp.data)      
+      setUsuarioEditar(resp.data)  
+      console.log((resp.data) );    
       ;
     } catch (error) {
      console.log(error);
@@ -38,10 +39,10 @@ const EdicionUsuario = (props) => {
   const handleSubmit = (e) =>{
     e.preventDefault()
     console.log(usuarioNameRef.current.value);
-    if (!validateName(usuarioNameRef.current.value) ||
+    if ((usuarioNameRef.current.value) ||
     !validateEmail(usuarioEmailRef.current.value) ||
     !validatePassword(usuarioPasswordRef.current.value) ||
-    !validateRole(usuarioRoleRef.current.value)) {
+    (usuarioRoleRef.current.value)) {
         Swal.fire("ops!","Uno o mas Datos son Invalidos","Error")     
      return 
     };
@@ -63,7 +64,7 @@ const EdicionUsuario = (props) => {
       }).then( async (result) => {
         if (result.isConfirmed) {
           try {
-             const resp = await instance.put(`/users/${id}`,
+             const resp = await instance.put(`/users`,
             usuarioActualizado         
           );
           if (resp.status===200) { 
