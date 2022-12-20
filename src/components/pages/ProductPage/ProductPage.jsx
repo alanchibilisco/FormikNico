@@ -94,7 +94,8 @@ const navigate = useNavigate()
   return (
     <>
       <Container className="py-5 ">
-        <h3> Nuestras Birras</h3>
+        <h1>Our products</h1>
+        <hr />
         <Nav className="justify-content-end mt-2" activeKey="/home">
           {/* carrito compra */}
           <Nav.Item>
@@ -111,12 +112,12 @@ const navigate = useNavigate()
             <Form className="d-flex">
               <Form.Control
                 type="search"
-                placeholder="🍻 Busca tu Birra 🍻 "
+                placeholder="🍻 Search your beer 🍻"
                 className="me-2 m"
                 onChange={(e) => setbuscadorProductos(e.target.value)}
                 onKeyPress={searchEnter}
               />
-              <Button variant="light" className="me-3" onClick={search}>
+              <Button variant="outline-dark" className="me-3" onClick={search}>
                 🍺
               </Button>
             </Form>
@@ -153,7 +154,7 @@ const navigate = useNavigate()
                       Precio:${prod.PriceProduct}
                     </Card.Text>
                     <div style={{ position: 'absolute', bottom: 0 }} className="mb-3">
-                      <Button type="submit" variant="warning" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
+                      <Button type="submit" variant="info" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
                       <Button className='mx-3' variant='danger' onClick={() => navigate(`/favoritos`)}>Add to ❤</Button>
                       <Button variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
                         Details

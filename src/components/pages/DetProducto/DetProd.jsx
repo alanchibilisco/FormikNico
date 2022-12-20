@@ -37,8 +37,8 @@ const DetProd = (props) => {
                     <h1><span className='text-danger'>Name: </span>{productsDetalle.ProductName}</h1>
                     <h2><span className='text-danger'>Category: </span>{productsDetalle.Category}</h2>
                     <h3><span className='text-danger'>Description: </span>{productsDetalle.Productdetalle}</h3>
+                    <h3><span className='text-danger'>Graduation: </span>{productsDetalle.Graduation}</h3>
                     <h3><span className='text-danger'>Price: </span>{productsDetalle.PriceProduct}</h3>
-                    <h3><span className='text-danger'>Graduaction: </span>{productsDetalle.Graduation}</h3>
                 </Col>
             </Row>
             {/* <Row>

@@ -9,8 +9,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const contacto = () => {
   return (
-    <Container className='mb-5'>
-      <h1 className='text-center'>Las personas que trabajaron en este proyecto son:</h1>
+    <Container className='mb-5 pt-5'>
+      <h1 >The team who worked on this project</h1>
       <hr />
       <Row className='text-center'>
         <Col className='mb-4 mx-auto text-center d-flex justify-content-center'>

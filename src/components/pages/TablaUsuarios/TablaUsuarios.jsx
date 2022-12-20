@@ -62,10 +62,8 @@ const TablaUsuarios = () => {
   return (
     <Container className="py-5">
       <Row>
-        <Col lg={6}>
-        <h1 className="h2">Usuarios</h1>
-        </Col>
-
+      <h1 >User table</h1>
+        <hr />
         
         <Col lg={12}>
           <Table
