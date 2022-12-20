@@ -36,8 +36,8 @@ const Login = ({ show, handleClose , setUserDate}) => {
         window.location.reload();
         Swal.fire({
               icon: 'success',
-              title: 'Bienvenido!',
-              text: 'Ahora estas logeado!'
+              title: 'Welcome!',
+              text: 'Now you are logged!'
             })
             setTimeout(() =>{
               handleClose();
@@ -48,7 +48,7 @@ const Login = ({ show, handleClose , setUserDate}) => {
         Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Email o Password incorrectos!'
+                text: 'Email or password incorrects!'
               })
         console.log(error);
       }
@@ -56,7 +56,7 @@ const Login = ({ show, handleClose , setUserDate}) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Debe ingresar Email y contraseña!'
+        text: 'All the fields are required!'
       })
       console.log(error);
     }

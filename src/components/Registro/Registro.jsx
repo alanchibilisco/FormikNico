@@ -34,7 +34,7 @@ const Registro = ({show, handleClose}) => {
         Swal.fire({
               icon: 'success',
               title: 'Bienvenido!',
-              text: 'Ahora estas Registrado!'
+              text: 'Now you are registred!'
             })
             setTimeout(() =>{
               handleClose();
@@ -45,7 +45,7 @@ const Registro = ({show, handleClose}) => {
         Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Email o Password incorrectos!'
+                text: 'Email or password incorrects!'
               })
         console.log(error);
       }
@@ -53,7 +53,7 @@ const Registro = ({show, handleClose}) => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Debe ingresar Email y contraseña!'
+        text: 'All the fields are required!'
       })
       console.log(error);
     }
