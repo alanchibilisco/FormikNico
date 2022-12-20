@@ -6,8 +6,16 @@ import { Col, Container, Row, Image } from "react-bootstrap";
 import PapaNoel from "../../../image/Papanoel.png"
 import CartelBeer from "../../../image/CartelBeer.jpeg"
 import CartelBeer2 from "../../../image/CartelBeer2.jpg"
+import CardProducto from "./CardProducto/CardProducto";
 // import publicidad from "../../../assets/publicidad.png"
 // import publicidad2 from "../../../assets/publicidad2.jpg"
+import ipa from '../../../assets/img/imgHome/IPA1.jpg'
+import Lagers from '../../../assets/img/imgHome/amberLager.webp'
+import Porter from '../../../assets/img/imgHome/porter.png'
+import Stout from '../../../assets/img/imgHome/stout.jfif'
+import Apa from '../../../assets/img/imgHome/apa.jpg'
+import Honey from '../../../assets/img/imgHome/honey.jpg'
+import Scottisch from '../../../assets/img/imgHome/Scottisch.jfif'
 
 const Home = (props) => {
   props.funcNav(true)
@@ -51,7 +59,7 @@ const Home = (props) => {
                 <p className=" mt-5 fw-bolder">Email : {props.userdata.email} </p>
                 <p className="fw-bolder">Role : {props.userdata.role} </p>
                 <h3 className=" mt-5 fw-bolder text-dark">Beer les desea una</h3>
-                <img src={PapaNoel} alt="papanoel" width="300" />
+                <img src={PapaNoel} alt="papanoel" style={{ maxWidth: '100%'}} />
                 <h1 className=" text-warning">SALUD!!!</h1>
               </div>
             </Col>
@@ -62,8 +70,32 @@ const Home = (props) => {
               </div>
             </Col>
           </Row>
-            {/* <Image className='my-3' src={publicidad} alt="publicidad" /> */}
-            {/* <Image className='my-3' src={publicidad2} alt="publicidad" /> */}
+          <Row>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={ipa} name="Ipa" text="poner algo aqui" graduation="3%" price="100" category="Cerveceria" id="1" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Lagers} name="Lagers" text="poner algo aqui" graduation="4%" price="250" category="Cerveceria" id="2" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Porter} name="Porter" text="poner algo aqui" graduation="1%" price="300" category="Cerveceria" id="3" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Stout} name="Stout" text="poner algo aqui" graduation="2%" price="450" category="Cerveceria" id="4" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Apa} name="Apa" text="poner algo aqui" graduation="5%" price="200" category="Cerveceria" id="5" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Honey} name="Honey" text="poner algo aqui" graduation="3%" price="150" category="Cerveceria" id="6" />
+            </Col>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+              <CardProducto img={Scottisch} name="Scottisch" text="poner algo aqui" graduation="4%" price="350" category="Cerveceria" id="7" />
+            </Col>
+          </Row>
+          {/* <CardProducto/> */}
+          {/* <Image className='my-3' src={publicidad} alt="publicidad" /> */}
+          {/* <Image className='my-3' src={publicidad2} alt="publicidad" /> */}
         </Container>
       </>}
       {/* Products */}
