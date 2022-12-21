@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ProductPage = (props) => {
-  props.funcNav(true)
   //usamos un useState , para definir las variables
   const [producto, setProductos] = useState([])
   const [buscadorProducto, setbuscadorProductos] = useState("")
@@ -40,7 +39,6 @@ const navigate = useNavigate()
 
   }
   const search = async () => {
-    console.log(buscadorProducto);
     if (buscadorProducto === "") {
       getProductos()
       return
@@ -70,7 +68,6 @@ const navigate = useNavigate()
       "",
       "success"
     );
-    console.log(newProduct);
     newProduct = {
       ...newProduct,
       uuid: uuidv4()
@@ -87,6 +84,10 @@ const navigate = useNavigate()
   useEffect(() => {
     setProductosCart(JSON.parse(localStorage.getItem('cart')) || []);
   }, [show])
+
+  useEffect(() => {
+    props.funcNav(true)
+  }, [])
 
   return (
     <>
@@ -126,7 +127,6 @@ const navigate = useNavigate()
           {producto.length > 0 ? (
             producto.map((prod) => (
               <Col xs={12} lg={4} md={6} key={prod._id} className="mb-3">
-                {console.log(prod)}
                 <Card className="my-4 h-100 card-test" style={{ position: 'relative' }}>
                   <Card.Img variant="top" src={prod.ImgURL} className="imagen-tarjeta" />
                   <Card.Body>

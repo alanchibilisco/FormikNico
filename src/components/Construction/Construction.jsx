@@ -10,11 +10,6 @@ const Construction = () => {
             <Image src={construction1} alt="construction" className='construction'/>
             <h4 className='mb-5'>This page is not ready.. yet. Come back later, thanks!</h4>
         </Container>
-
-        // <Container className='text-center'>
-        //     <Image src={construction2} alt="construction" className='construction' />
-        //     <h4 className='mb-5'>This page is not ready.. yet. Come back later, thanks!</h4>
-        // </Container>
     )
 }
 

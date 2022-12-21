@@ -25,7 +25,6 @@ const EdicionProducto = (props) => {
   const getProductosID = async () => {
     try {
       const resp = await instance.get(`/productos/${id}`,)
-      console.log(resp);
       setProductoEditar(resp.data)
         ;
     } catch (error) {
@@ -45,7 +44,6 @@ const EdicionProducto = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(productoNameRef.current.value);
     //validador de campos
     if (
       !validateProductName(productoNameRef.current.value) ||

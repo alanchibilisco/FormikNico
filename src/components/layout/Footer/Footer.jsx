@@ -19,7 +19,6 @@ const Footer = () => {
                 <Col className='d-flex align-items-center flex-wrap justify-content-center' xs={12} md={6} lg={3}>
                     <div className='d-flex align-items-center flex-wrap justify-content-center'>
                         <Link className="nav-link text-warning" to="/">Home</Link>
-                        {/* <Link className="nav-link text-warning mx-2" to="/destacados">Destacados</Link> */}
                         <Link className="nav-link text-warning mx-2" to="/contacto">Contact</Link>
                         <Link className="nav-link text-warning" to="/favoritos">Favorites</Link>
                         <Link className="nav-link text-warning mx-2" to="/tablaproducto">Featured</Link>
@@ -31,8 +30,6 @@ const Footer = () => {
                         <a href="https://www.facebook.com/login/" className=" redes fa-brands fa-facebook text-decoration-none text-center mx-2 mt-2" target="_blank"></a>
                         <a href="https://www.whatsapp.com/" className="fa-brands fa-whatsapp redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
                         <a href="https://twitter.com/i/flow/login" className="fa-brands fa-twitter redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
-                        {/* <a href="tel:+549-3813368181" className="fa-solid fa-phone redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a> */}
-                        {/* <a href="https://www.youtube.com/" className="fa-brands fa-youtube redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a> */}
                         <a href="https://www.instagram.com/accounts/login/?" className="fa-brands fa-instagram redes text-center text-decoration-none mx-2 mt-2" target="_blank"></a>
                     </div>
                 </Col>

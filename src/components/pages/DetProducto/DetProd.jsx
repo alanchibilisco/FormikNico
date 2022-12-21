@@ -13,7 +13,6 @@ const DetProd = (props) => {
     const getProductosID = async()=>{
         try {
           const resp =await instance.get(`/productos/${id}`,)
-          console.log(resp);      
           setProductsDetalle(resp.data)      
           ;
         } catch (error) {
@@ -42,9 +41,8 @@ const DetProd = (props) => {
                     <h3><span className='text-danger'>Graduation: </span>{productsDetalle.Graduation}</h3>
                     <h3><span className='text-danger'>Price: </span>{productsDetalle.PriceProduct}</h3>
                     <div className='d-flex'>
-                    <Button variant="primary">Buy</Button>
+                    <Button variant="primary" onClick={() => navigate(`/productpage`)}>Buy</Button>
                     <Button variant="danger" className='mx-3' onClick={() => navigate(`/favoritos`)}>Favorite</Button>
-                    <Button variant="secondary">Cancel</Button>
                     </div>
                 </Col>
             </Row>

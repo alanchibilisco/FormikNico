@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 
 const TablaProducto = (props) => {
-  props.funcNav(true)
 
   const [producto, setProducto] = useState([])
   const [buscadorProducto, setbuscadorProducto] = useState("")
@@ -18,7 +17,6 @@ const TablaProducto = (props) => {
     try {
 
       const resp = await instance.get("/productos/")
-      console.log(resp)
       setProducto(resp.data)
 
     } catch (error) {
@@ -28,14 +26,12 @@ const TablaProducto = (props) => {
   }
 
   const search = async () => {
-    console.log(buscadorProducto)
     if (buscadorProducto === "") {
       getProductos()
       return
     }
     try {
       const resp = await instance.get(`/productos/?name=${buscadorProducto}&detalle=${buscadorProducto}`)
-      // console.log(res)
       setProducto(resp.data)
     } catch (error) {
       console.log(error)
@@ -45,10 +41,11 @@ const TablaProducto = (props) => {
     getProductos()
   }, [])
 
-  const searchEnter = (e) => {
-    // console.log(e)
+  useEffect(() => {
+    props.funcNav(true)
+  }, [])
 
-    //  console.log(e.code)
+  const searchEnter = (e) => {
     if (e.code === 'Enter') {
       search()
       e.preventDefault()

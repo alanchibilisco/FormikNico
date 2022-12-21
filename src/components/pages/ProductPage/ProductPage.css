@@ -36,14 +36,14 @@
 
 
 .imagen-tarjeta {
-    height: 200px;
+    height: 320px;
+    width: 320px;
     object-fit: cover;
 }
 
-@media screen and (max-width: 349px) {
-    .textCard {
-        margin-bottom: 50px;
-    }
+.imagen-tarjeta-home {
+    height: 200px;
+    object-fit: cover;
 }
 
 .card-test {

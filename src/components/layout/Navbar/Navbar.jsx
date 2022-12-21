@@ -52,7 +52,7 @@ const NavBar = ({ setUserDate }) => {
               <img src={logo} alt="logo" width="100" />
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className='bg-warning'/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="Navbar me-auto color-nav">
               {
@@ -62,16 +62,10 @@ const NavBar = ({ setUserDate }) => {
                   <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/"><i className="fa-solid fa-house"></i> Home</NavLink>
                   <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablausuarios"><i className="fa-solid fa-lock"></i> ABM Users</NavLink>
                   <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/tablaproducto"><i className="fa-solid fa-lock"></i> ABM Products</NavLink>
-                    {/* <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink> */}
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto"><i className="fa-solid fa-users"></i> Contact</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos"><i className="fa-solid fa-heart"></i> Favorites</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage"><i className="fa-solid fa-beer-mug-empty"></i> Featured</NavLink>
-                    
-                    {/* <div className="text-end bg-danger logout">
-                    <Nav.Link onClick={handleLogout} className="text-white">
-                      Logout
-                    </Nav.Link>
-                    </div> */}
+          
                     <Button onClick={handleLogout} variant="danger"><i className="fa-solid fa-person-running"></i> Logout</Button>
                   </>
                     
@@ -79,16 +73,10 @@ const NavBar = ({ setUserDate }) => {
                   :
                   <>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/"><i className="fa-solid fa-house"></i> Home</NavLink>
-                    {/* <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/destacados">Destacados</NavLink> */}
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/contacto"><i className="fa-solid fa-users"></i> Contact</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/favoritos"><i className="fa-solid fa-heart"></i> Favorites</NavLink>
                     <NavLink className="nav-link text-white mx-1" style={({ isActive }) => isActive ? activeStyle : undefined} to="/productpage"><i className="fa-solid fa-beer-mug-empty"></i> Featured</NavLink>
-                    
-                    {/* <div className="text-end">
-                    <Nav.Link onClick={handleLogout} className="text-white">
-                      Logout
-                    </Nav.Link>
-                    </div> */}
+                
                     <Button onClick={handleLogout} variant="danger"><i className="fa-solid fa-person-running"></i> Logout</Button>
                   </>
                 

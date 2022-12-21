@@ -23,7 +23,7 @@ const EdicionUsuario = (props) => {
     try {
       const resp = await instance.get(`/users/${id}`);
       setUsuarioEditar(resp.data)
-      console.log((resp.data));
+      // console.log((resp.data));
       ;
     } catch (error) {
       console.log(error);
@@ -41,10 +41,10 @@ const EdicionUsuario = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(usuarioNameRef.current.value);
-    console.log(usuarioEmailRef.current.value);
-    console.log(usuarioPasswordRef.current.value);
-    console.log(usuarioRoleRef.current.value);
+    // console.log(usuarioNameRef.current.value);
+    // console.log(usuarioEmailRef.current.value);
+    // console.log(usuarioPasswordRef.current.value);
+    // console.log(usuarioRoleRef.current.value);
 
     if (
       !validateEmail(usuarioEmailRef.current.value) ||
