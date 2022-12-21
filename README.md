@@ -20,7 +20,7 @@
 
 ## App subida a netlify:tw-270c:
 
-- 
+- https://fancy-crostata-21596e.netlify.app/
 
 
 ## Herramientas Utilizadas🛠️
@@ -44,7 +44,7 @@
 ###### 6. Mongoose
 ###### 7. Nodemailes
 
-## Integrantes del Proyecto:tw-1f60e:
+## Integrantes del Proyecto
 
 ###### - Nicolas Viruel
 ###### - Jose Triviño
