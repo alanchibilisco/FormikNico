@@ -53,7 +53,7 @@ const RecPassword = (props) => {
         <Container>
           <Row>
             <Col lg={6}>
-              <Form >
+              <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="disabledTextInput" className='mt-3'>Enter your Email</Form.Label>
                   <Form.Control type="email" placeholder="Enter your email" name='email' value={email} onChange={({target})=> setEmail(target.value)} maxLength={50} />

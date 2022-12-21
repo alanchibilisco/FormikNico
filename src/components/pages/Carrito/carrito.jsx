@@ -73,7 +73,6 @@ const ModalCarrito = ({show, handleClose}) => {
                    <Button variant="outline-danger mx-1" onClick={()=>{
                         deleteProduct(prod.uuid);
                     }}>
-                    {/* <box-icon name="message-square-x" type="solid"></box-icon> */}
                     <i className="fa-solid fa-trash"></i>
                   </Button>
                 </div>

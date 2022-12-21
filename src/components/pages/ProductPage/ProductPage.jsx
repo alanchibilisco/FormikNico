@@ -30,7 +30,6 @@ const navigate = useNavigate()
     try {
       //creamos una constante para poner la info de la base
       const resp = await instance.get("/productos/")
-      console.log(resp);
       //si la base tiene info seteamos producto para que traiga la info de la base
       setProductos(resp.data)
     } catch (error) {

@@ -17,7 +17,6 @@ import Honey from '../../../assets/img/imgHome/honey.jpg'
 import Scottisch from '../../../assets/img/imgHome/Scottisch.jfif'
 
 const Home = (props) => {
-  props.funcNav(true)
 
   const getUSer = async (token) => {
     const config = {
@@ -39,6 +38,11 @@ const Home = (props) => {
       getUSer(user_token)
     }
   }, [props.userdata])
+
+  useEffect(() => {
+    props.funcNav(true)
+  }, [])
+  
 
   return (
     <div>

@@ -3,25 +3,25 @@ import { Button, Col, Container, Form, Row, Image } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axiosUsuarios';
 import logo from "../../../assets/img/logo/Imagen1.png";
-import { validatePassword } from '../../helpers/validateFields';
-
+import { validatePassword, validateEmail } from '../../helpers/validateFields';
+import Swal from 'sweetalert2';
 
 const EdicionUsuario = (props) => {
   props.funcNav(true)
   const [usuarioEditar, setUsuarioEditar] = useState({})
 
   const { id } = useParams()
-  console.log(useParams);
+
   const usuarioNameRef = useRef("")
   const usuarioEmailRef = useRef("")
   const usuarioPasswordRef = useRef("")
   const usuarioRoleRef = useRef("")
   const navigate = useNavigate()
 
+//   const volverTabla = navigate("/tablaUsuarios")
   const getUsuariosID = async () => {
     try {
       const resp = await instance.get(`/users/${id}`);
-      console.log(resp);
       setUsuarioEditar(resp.data)
       console.log((resp.data));
       ;
@@ -35,17 +35,33 @@ const EdicionUsuario = (props) => {
     getUsuariosID()
 
   }, [])
+  useEffect(() => {
+    props.funcNav(true)
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(usuarioNameRef.current.value);
-    if ((usuarioNameRef.current.value) ||
+    console.log(usuarioEmailRef.current.value);
+    console.log(usuarioPasswordRef.current.value);
+    console.log(usuarioRoleRef.current.value);
+
+    if (
       !validateEmail(usuarioEmailRef.current.value) ||
-      !validatePassword(usuarioPasswordRef.current.value) ||
-      (usuarioRoleRef.current.value)) {
-      Swal.fire("ops!", "One or more fields are invalid", "Error")
+      !validatePassword(usuarioPasswordRef.current.value)) {
+        Swal.fire({
+            icon: 'Error',
+            title: 'Oops...',
+            text: 'One or more fields are invalid!'
+          })
       return
     };
+    const user_token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user_token}`,
+      },
+    }
     console.log("datos correctos");
     const usuarioActualizado = {
       name: usuarioNameRef.current.value,
@@ -65,7 +81,7 @@ const EdicionUsuario = (props) => {
       if (result.isConfirmed) {
         try {
           const resp = await instance.put(`/users/${id}`,
-            usuarioActualizado
+            usuarioActualizado, config
           );
           if (resp.status === 200) {
             Swal.fire(
@@ -83,10 +99,6 @@ const EdicionUsuario = (props) => {
     });
   }
 
-
-
-
-
   return (
     <div>
       <Container className="py-5" >
@@ -98,7 +110,7 @@ const EdicionUsuario = (props) => {
               <Form.Group className="my-1" controlId="nombreUsuario">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" placeholder="Ej:Carlos" defaultValue={usuarioEditar.name}
-                  ref={usuarioNameRef} />
+                  ref={usuarioNameRef} maxLength={50} minLength={4} />
               </Form.Group>
               <Form.Group className="my-1" controlId="emailUsuario">
                 <Form.Label>Email</Form.Label>
@@ -106,14 +118,15 @@ const EdicionUsuario = (props) => {
               </Form.Group>
               <Form.Group className="my-1" controlId="passwordUsuario">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="text" placeholder="Enter your password" defaultValue={usuarioEditar.password} ref={usuarioPasswordRef} />
+                <Form.Control type="password" placeholder="Enter your password" defaultValue={usuarioEditar.password} ref={usuarioPasswordRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="roleUsuario">
                 <Form.Label>Role</Form.Label>
                 <Form.Control type="text" placeholder="Enter your role" defaultValue={usuarioEditar.role} ref={usuarioRoleRef} />
               </Form.Group>
-              <div className="text-center">
+              <div className="text-center mt-3">
                 <Button variant="warning" onClick={handleSubmit}>Update 🍻</Button>
+                <Button variant="danger" className='mx-3' onClick={() => navigate(`/tablaUsuarios`)}>Go to Back 🡆</Button>
               </div>
             </Form>
           </Col>
