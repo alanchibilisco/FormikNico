@@ -21,7 +21,7 @@ const Footer = () => {
                         <Link className="nav-link text-warning" to="/">Home</Link>
                         <Link className="nav-link text-warning mx-2" to="/contacto">Contact</Link>
                         <Link className="nav-link text-warning" to="/favoritos">Favorites</Link>
-                        <Link className="nav-link text-warning mx-2" to="/tablaproducto">Featured</Link>
+                        <Link className="nav-link text-warning mx-2" to="/q">Featured</Link>
                     </div>
                 </Col>
                 <Col xs={12} md={6} lg={3} >

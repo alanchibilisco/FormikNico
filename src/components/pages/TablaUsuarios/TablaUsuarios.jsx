@@ -3,7 +3,7 @@ import { Button, Col, Container, Row, Spinner, Table } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import instance from "../../../api/axiosUsuarios";
 import Swal from "sweetalert2";
-import "boxicons";
+// import "boxicons";
 
 const TablaUsuarios = () => {
   

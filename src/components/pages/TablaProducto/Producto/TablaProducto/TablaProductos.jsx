@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table, Button, Row, Col, Form, Spinner, Image } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import 'boxicons';
+// import 'boxicons';
 import instance from "../../../../../api/axiosUsuarios";
 import Swal from "sweetalert2";
 
