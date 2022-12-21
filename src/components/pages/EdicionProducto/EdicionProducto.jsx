@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Col, Container, Form, Image, Row, } from 'react-bootstrap'
+import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 import instance from '../../../api/axiosUsuarios';
 import logo from "../../../assets/img/logo/Imagen1.png";
@@ -101,7 +101,6 @@ const EdicionProducto = (props) => {
         <h1 >Edit Product</h1>
         <hr />
         <Row>
-
           <Col xs={12} md={6}>
             <Form className="my-2" >
               <Form.Group className="my-1" controlId="nombrerProducto">
@@ -156,7 +155,7 @@ const EdicionProducto = (props) => {
             </Form>
           </Col>
           {/* Form Product */}
-          <Col className="d-sm-none d-md-block">
+          <Col className="d-none d-md-block text-center">
             <Image src={logo} alt="logo" style={{maxWidth: '100%'}} />
           </Col>
 

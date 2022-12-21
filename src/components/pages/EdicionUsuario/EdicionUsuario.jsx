@@ -50,7 +50,7 @@ const EdicionUsuario = (props) => {
       !validateEmail(usuarioEmailRef.current.value) ||
       !validatePassword(usuarioPasswordRef.current.value)) {
         Swal.fire({
-            icon: 'Error',
+            icon: 'error',
             title: 'Oops...',
             text: 'One or more fields are invalid!'
           })
@@ -132,7 +132,7 @@ const EdicionUsuario = (props) => {
           </Col>
 
           {/* Form Product */}
-          <Col className="d-sm-none d-md-block text-center">
+          <Col className="d-none d-md-block text-center">
             <Image src={logo} alt="logo" style={{maxWidth: '80%'}} />
           </Col>
         </Row>

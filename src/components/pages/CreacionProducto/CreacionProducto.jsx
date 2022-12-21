@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Container, Form, Row , Button} from 'react-bootstrap'
+import { Col, Container, Form, Row , Button, Image} from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import logo from "../../../assets/img/logo/Imagen1.png"
 import { validateProductName, validateDetalleProducto,validatePrice,validateUrl,validateCategory, validatePorcentaje,} from '../../helpers/validateFields';
@@ -133,9 +133,9 @@ const CreacionProducto = () => {
           </Col>      
         {/* Form Product */}
         {/* logo lateral */}
-        <Col lg={6} >
-        <img src={logo} alt="" />
-        </Col>
+        <Col className="d-none d-md-block text-center">
+            <Image src={logo} alt="logo" style={{maxWidth: '100%'}} />
+          </Col>
         {/* logo lateral */}
         </Row>
       </Container>

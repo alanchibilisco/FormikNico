@@ -127,7 +127,7 @@ const navigate = useNavigate()
           {producto.length > 0 ? (
             producto.map((prod) => (
               <Col xs={12} lg={4} md={6} key={prod._id} className="mb-3">
-                <Card className="my-4 h-100 card-test" style={{ position: 'relative' }}>
+                <Card className="mt-4 h-100 card-test" style={{ position: 'relative' }}>
                   <Card.Img variant="top" src={prod.ImgURL} className="imagen-tarjeta" />
                   <Card.Body>
                     <div className="d-flex align-items-center justify-content-between mb-2">
@@ -140,12 +140,12 @@ const navigate = useNavigate()
                     <Card.Text>
                       Graduacion: {prod.Graduation}
                     </Card.Text>
-                    <Card.Text className='textCard'>
+                    <Card.Text >
                       Precio:${prod.PriceProduct}
                     </Card.Text>
-                    <div style={{ position: 'absolute', bottom: 0 }} className="mb-3">
-                      <Button type="submit" variant="info" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
-                      <Button className='mx-3' variant='danger' onClick={() => navigate(`/favoritos`)}>Add to ❤</Button>
+                    <div className="d-grid gap-2">
+                    <Button type="submit" variant="info" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
+                      <Button variant='danger' onClick={() => navigate(`/favoritos`)}>Add to ❤</Button>
                       <Button variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
                         Details
                       </Button>
