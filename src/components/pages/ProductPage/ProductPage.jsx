@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ProductPage = (props) => {
+  
   //usamos un useState , para definir las variables
   const [producto, setProductos] = useState([])
   const [buscadorProducto, setbuscadorProductos] = useState("")
@@ -159,11 +160,29 @@ const navigate = useNavigate()
               <Spinner color="warning" />
             </div>
           )}
+        
           
         </Row>
         {/* productos */}
+    
       </Container>
       <ModalCarrito show={show} handleClose={handleClose} />
+      <nav aria-label="...">
+        <ul className="pagination pagination-sm justify-content-center pl-3">
+          <li className="page-item">
+            <a className="page-link" href="./*"> Anterior</a>
+          </li>
+          <li className="page-item"><a className="page-link" href="./*">1</a></li>
+          <li className="page-item active" aria-current="page">
+            <a className="page-link" href="#">2</a>
+          </li>
+          <li className="page-item"><a className="page-link" href="./*">3</a></li>
+          <li className="page-item"><a className="page-link" href="./*">4</a></li>
+          <li className="page-item">
+            <a className="page-link" href="./*">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }

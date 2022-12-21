@@ -34,6 +34,7 @@ const ModalCarrito = ({show, handleClose}) => {
     for (let index = 0; index < cart.length; index++) {
       total=total + parseFloat(cart[index].PriceProduct)
     }
+    
         
   return (
     <Modal show={show} onHide={handleClose}>
