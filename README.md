@@ -4,19 +4,21 @@
 
 #####  Proyecto final de Rolling Code School. es un e-commerce de una cerveceria, se utilizó react, CSS, Bootstrap, axios, express, font-awesome, jwt-decode, sweetalert2 para el front-end, y se utilizó NodeJs, bcryptJs, crypto, express, Json web token, mongoose y nodemailes para el back-end.
 
-Pre-requisitos 📋
-Cosas que se necesitan tener instaladas o configuradas previamente para utilizar tu proyecto
+## Pre-requisitos 📋
+###### Cosas que se necesitan tener instaladas o configuradas previamente para utilizar tu proyecto
 
-NodeJS
-Npm (viene incluido en NodeJS)
-Instalación ⚙️
-Puedes instalar el proyecto desde npm:
+###### -NodeJS 
+###### -Npm (viene incluido en NodeJS) 
 
-npm install
+## Instalación ⚙️ 
 
-Para ejecutarlo de forma local:
+###### Puedes instalar el proyecto desde npm:
 
-npm run dev
+###### npm install
+
+###### Para ejecutarlo de forma local:
+
+###### npm run dev
 
 ## Estructura del sitio
 
@@ -32,7 +34,7 @@ npm run dev
 ###### - Pagina Recuperar Contraseña
 ###### - Pagina Productos Favoritos 
 
-## App subida a netlify:tw-270c:
+## App subida a netlify
 
 - https://fancy-crostata-21596e.netlify.app/
 
