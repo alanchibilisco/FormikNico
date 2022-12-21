@@ -126,8 +126,9 @@ const CreacionProducto = () => {
               <option value="false">No</option>                          
             </Form.Select>
           </Form.Group>
-          <div className="text-center">
+          <div className="text-center mt-3">
             <Button variant="warning" onClick={handleSubmit} >Create 🍻</Button>
+            <Button variant="danger" className='mx-3' onClick={() => navigate(`/tablaproducto`)}>Go to Back 🡆</Button>
           </div>
         </Form>
           </Col>      

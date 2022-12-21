@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Col, Container, Form, Nav, Row, Card, Spinner, Badge } from "react-bootstrap";
-// import 'boxicons';
+import 'boxicons';
 import './ProductPage.css'
 import instance from '../../../api/axiosUsuarios';
 import ModalCarrito from "../Carrito/carrito.jsx"
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
-// import BtnPaginacion from '../../BtnPaginacion/BtnPaginacion';
+
 
 
 const ProductPage = (props) => {

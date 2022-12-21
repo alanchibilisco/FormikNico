@@ -5,10 +5,11 @@ import { Table } from "react-bootstrap";
 import {v4 as uuidv4} from 'uuid';
 import Moment from 'moment';
 import { Image } from "react-bootstrap";
-
+import { useNavigate } from 'react-router-dom';
 
 
 const ModalCarrito = ({show, handleClose}) => {
+  const navigate = useNavigate()
     const myuuid = uuidv4()
     const [cart, setCart] = useState([]);
   useEffect(() => {
@@ -89,7 +90,7 @@ const ModalCarrito = ({show, handleClose}) => {
         <Button variant="secondary" onClick={vaciarCarrito}>
         Clear cart
         </Button>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={() => navigate(`/*`)}>
           Buy
         </Button>
       </Modal.Footer>
