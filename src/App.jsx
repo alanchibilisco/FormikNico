@@ -1,23 +1,17 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-import RouterApp from "../routes/RouterApp"
-import Footer from "./components/layout/Footer"
-import NavBar from "./components/layout/Navbar"
-
+import RouterPrincipal from "./routes/RouterPrincipal"
+import { BrowserRouter } from "react-router-dom";
 
 
 const App = () => {
   return (
     <div>
-      
       <BrowserRouter>
-        <NavBar/>
-        
-        <main>
-          <RouterApp/>
-        </main>  
+      
+      <main>
+        <RouterPrincipal/>
+      </main>
+    
       </BrowserRouter>
-
-    <Footer/>
     </div>
   )
 }

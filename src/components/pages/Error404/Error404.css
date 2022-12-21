@@ -1,0 +1,47 @@
+body {
+    background-color: #fff;
+}
+.contain {
+    height: 400px;
+    width: 400px;
+    left: 50%;
+    top: 25%;
+    position: absolute;
+    transform: translatex(-50%) translatey(-25%);
+}
+.contain svg {
+    vertical-align: top;
+    width: 100%;
+}
+.contain svg .beer {
+    animation-name: empty;
+    animation-fill-mode: forwards;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    fill: #f9cf68;
+}
+.message{
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translatex(-50%) translatey(-90%);
+
+}
+@keyframes empty {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+   }
+    30% {
+        clip-path: polygon(0 16%, 100% 12%, 100% 100%, 0% 100%);
+   }
+    50% {
+        clip-path: polygon(0 40%, 100% 44%, 100% 100%, 0% 100%);
+   }
+    70% {
+        clip-path: polygon(0 69%, 100% 66%, 100% 100%, 0% 100%);
+   }
+    100% {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+   }
+}

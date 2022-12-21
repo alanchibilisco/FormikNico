@@ -1,0 +1,15 @@
+.Navbar .nav-link:hover {
+    background-color: rgb(246, 181, 1);
+    border-radius: 8px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 991px) {
+    .btnTest {
+        margin-bottom: 5px;
+    }
+    .Navbar .nav-link {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}

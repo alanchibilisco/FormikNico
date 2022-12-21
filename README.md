@@ -27,7 +27,7 @@
 ###### - Modal Registro
 ###### - Carrito de compras
 ###### - Pagina de tabla Usuarios (Admin)
-###### -  Pagina de tabla Productos (Admin)
+###### - Pagina de tabla Productos (Admin)
 ###### - Pagina de Nosotros
 ###### - Pagina de Detalles
 ###### - Pagina Error 404
