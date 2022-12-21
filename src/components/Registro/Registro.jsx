@@ -45,7 +45,7 @@ const Registro = ({show, handleClose}) => {
         Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Email or password incorrects!'
+                text: error?.response?.msg ? error?.response?.msg : 'error'
               })
         console.log(error);
       }

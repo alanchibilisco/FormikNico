@@ -33,6 +33,13 @@ const TablaUsuarios = () => {
   }, []);
 
   const handleDelete = (id) => {
+    const user_token = localStorage.getItem("token");
+    console.log(user_token);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${user_token}`,
+      },
+    }
     Swal.fire({
       title: "Do you want to delete this user?",
       icon: "question",
@@ -43,14 +50,14 @@ const TablaUsuarios = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const resp = await instance.delete(`/users/${id}`);
+          const resp = await instance.delete(`/users/${id}`, config);
           if (resp.status === 200) {
             Swal.fire(
               "Deleted",
               "The user was successfully deleted.",
               "success"
             );
-            getUsers();
+            getUsers(user_token);
           }
         } catch (error) {
           console.log(error);

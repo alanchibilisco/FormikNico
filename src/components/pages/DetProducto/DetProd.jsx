@@ -48,12 +48,6 @@ const DetProd = (props) => {
                     </div>
                 </Col>
             </Row>
-            {/* <Row>
-                <Col><Button variant="warning">comprar</Button>
-                    <Button className='mx-3' variant="warning">cancelar</Button>
-                    <Button variant="warning">agragar al carrito</Button>
-                </Col>
-            </Row> */}
         </Container>
     )
 }

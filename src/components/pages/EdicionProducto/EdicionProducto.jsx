@@ -13,7 +13,6 @@ const EdicionProducto = (props) => {
   const [productoEditar, setProductoEditar] = useState({})
 
   const { id } = useParams()
-  console.log(useParams);
 
   const productoNameRef = useRef("")
   const productoEditarRef = useRef("")
@@ -38,6 +37,10 @@ const EdicionProducto = (props) => {
   useEffect(() => {
     getProductosID()
 
+  }, [])
+
+  useEffect(() => {
+    props.funcNav(true)
   }, [])
 
   const handleSubmit = (e) => {
@@ -150,6 +153,7 @@ const EdicionProducto = (props) => {
               </Form.Group>
               <div className="text-center mt-3">
                 <Button variant="warning" onClick={handleSubmit}>Update 🍻</Button>
+                <Button variant="danger" className='mx-3' onClick={() => navigate(`/tablaproducto`)}>Go to Back 🡆</Button>
               </div>
             </Form>
           </Col>
