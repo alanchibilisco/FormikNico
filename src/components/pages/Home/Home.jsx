@@ -53,10 +53,10 @@ const Home = (props) => {
           <Row >
             <Col className="text-center" xs={12} md={6} lg={4}>
               <div className=" d-flex mx-2 my-2 ">
-                <img src={CartelBeer} alt="CartelBeer" width="300" className="d-none d-md-block" />
+                <img src={CartelBeer} alt="CartelBeer" width="300" className="d-none d-lg-block" />
               </div>
             </Col>
-            <Col className="text-center" xs={12} md={6} lg={4}>
+            <Col className="text-center" xs={12} md={12} lg={4}>
               <div className="mt-5">
                 <h1 className="mt-5 my-2 text-warning">Bienvenido : {props.userdata.name} </h1>
                 <p className=" mt-5 fw-bolder">Email : {props.userdata.email} </p>
@@ -68,8 +68,8 @@ const Home = (props) => {
             </Col>
             <Col className="d-flex" xs={12} md={6} lg={4}>
               <div className="mx-auto mt-3 text-center">
-                <img src={CartelBeer3} alt="CartelBeer3" width="300" className="d-none d-md-block mb-4" />
-                <img src={CartelBeer4} alt="CartelBeer4" width="300" className="d-none d-md-block" />
+                <img src={CartelBeer3} alt="CartelBeer3" width="300" className="d-none d-lg-block mb-4" />
+                <img src={CartelBeer4} alt="CartelBeer4" width="300" className="d-none d-lg-block" />
               </div>
             </Col>
             <Col className="text-center" xs={6} md={3} lg={2}> 

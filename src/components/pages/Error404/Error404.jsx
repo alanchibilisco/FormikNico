@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Image, Button } from 'react-bootstrap'
-// import error404 from '../../../assets/img/error404.gif'
 import './Error404.css'
 
 const Error404 = (props) => {
-  props.funcNav(false)
+  // props.funcNav(false)
+
+  useEffect(() => {
+    props.funcNav(false)
+  }, [])
   return (
     <>
     <Container>
