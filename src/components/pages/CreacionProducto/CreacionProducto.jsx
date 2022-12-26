@@ -86,11 +86,11 @@ const CreacionProducto = () => {
           <Form className="my-2" >
           <Form.Group className="my-1 " controlId="nombrerProducto">
             <Form.Label>Product</Form.Label>
-            <Form.Control type="text" placeholder="Ej:Ipa" onChange={({target})=> setnombreProducto(target.value)} />
+            <Form.Control type="text" placeholder="Ej:Ipa" maxLength={50} minLength={1} onChange={({target})=> setnombreProducto(target.value)} />
           </Form.Group>
           <Form.Group className="my-1" controlId="detalleProducto">
             <Form.Label>Details</Form.Label>
-            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo" onChange={({target})=> setdetallerProducto(target.value)}/>
+            <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo"  maxLength={100} minLength={10} onChange={({target})=> setdetallerProducto(target.value)}/>
           </Form.Group>
           <Form.Group className="my-1" controlId="precioProducto">
             <Form.Label>Price</Form.Label>

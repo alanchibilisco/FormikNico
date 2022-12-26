@@ -105,12 +105,12 @@ const EdicionProducto = (props) => {
             <Form className="my-2" >
               <Form.Group className="my-1" controlId="nombrerProducto">
                 <Form.Label>Product</Form.Label>
-                <Form.Control type="text" placeholder="Ej:Ipa" defaultValue={productoEditar.ProductName}
+                <Form.Control type="text" placeholder="Ej:Ipa" maxLength={50} minLength={1}defaultValue={productoEditar.ProductName}
                   ref={productoNameRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="detalleProducto">
                 <Form.Label>Details</Form.Label>
-                <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo" defaultValue={productoEditar.Productdetalle} ref={productoEditarRef} />
+                <Form.Control type="text" placeholder="Ej: Cerveza Aromatizada con caramelo" maxLength={100} minLength={10}defaultValue={productoEditar.Productdetalle} ref={productoEditarRef} />
               </Form.Group>
               <Form.Group className="my-1" controlId="precioProducto">
                 <Form.Label>Price</Form.Label>
