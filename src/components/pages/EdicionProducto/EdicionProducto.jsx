@@ -53,7 +53,11 @@ const EdicionProducto = (props) => {
       !validateCategory(productoEditar.Category) ||
       validatePorcentaje(productoPorcentajeRef.current.value)
     ) {
-      Swal.fire("ops!", "One or more fields are invalid", "Error")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'One or more fields are invalid!'
+      })
       return
     }
     console.log("datos correctos");
