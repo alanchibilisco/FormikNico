@@ -78,6 +78,47 @@ const navigate = useNavigate()
     setProductosCart(newArr);
     localStorage.setItem('cart', JSON.stringify(productosCart));
   }
+  //enviar a favoritos
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    const newProducto = {
+      ProductName:prod.ProductName,
+      Productdetalle:prod.Productdetalle,
+      PriceProduct:precioProducto,
+      ImgURL:prod.ImgURL,
+      Category:prod.Category,
+      Graduation:prod.Graduation,
+      Avaliable:disponibilidadProducto
+    }
+    Swal.fire({
+      title: 'Do you want to add to Favorite?',    
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Accept'
+    }).then( async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const resp = await instance.post("/favorites/",
+           newProducto,         
+        );
+  
+        if (resp.status===200) {
+          Swal.fire(
+         'Added!',
+         'The product was add correctly.',
+         'success'
+       )  
+       
+             
+        }      
+        } catch (error) {
+        console.log(error);   
+        }
+      }
+    });
+  } ;
 
   useEffect(() => {
     getProductos()
@@ -146,7 +187,7 @@ const navigate = useNavigate()
                     </Card.Text>
                     <div className="d-grid gap-2">
                     <Button type="submit" variant="info" onClick={() => { incrementarCarrito(); guardaCarrito(prod) }}> Add to 🛒</Button>
-                      <Button variant='danger' onClick={() => navigate(`/favoritos`)}>Add to ❤</Button>
+                      <Button variant='danger' onClick={() =>{handleSubmit(),navigate(`/favoritos`)} } >Add to ❤</Button>
                       <Button variant="secondary" onClick={() => navigate(`/products/${prod._id}`)}>
                         Details
                       </Button>

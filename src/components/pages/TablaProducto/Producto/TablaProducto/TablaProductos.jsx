@@ -133,7 +133,7 @@ const TablaProducto = (props) => {
               <tbody>
                 {producto.length > 0 ? producto.map((prod, index) => (
                   <tr key={prod._id} >
-                    <td>{index}</td>
+                    <td>{index + 1}</td>
                     <td>{prod.ProductName}</td>
                     <td>{prod.Productdetalle}</td>
                     <td>${prod.PriceProduct}</td>
