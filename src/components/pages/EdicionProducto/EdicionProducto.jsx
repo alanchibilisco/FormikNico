@@ -35,6 +35,8 @@ const EdicionProducto = (props) => {
 
   useEffect(() => {
     getProductosID();
+    //aqui tendrian que setear los input de formik con el state productoEditar
+    //formik.setFieldValue('productName',productoEditar.productName, true);
   }, []);
 
   useEffect(() => {
